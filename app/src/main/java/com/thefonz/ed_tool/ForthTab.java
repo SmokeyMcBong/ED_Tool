@@ -14,7 +14,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class SecondTab extends Fragment
+public class ForthTab extends Fragment
 {
     private WebView myWebView;
 
@@ -25,7 +25,7 @@ public class SecondTab extends Fragment
 //        return inflater.inflate(R.layout.forth_tab, container, false);
 
 //        myWebView = (WebView) findViewById(R.id.webview);
-        View view = inflater.inflate(R.layout.second_tab, container, false);
+        View view = inflater.inflate(R.layout.forth_tab, container, false);
         final WebView myWebView = (WebView)  view.findViewById(R.id.webview);
 //        return view;
         // Configure related browser settings
@@ -42,7 +42,7 @@ public class SecondTab extends Fragment
         // Configure the client to use when opening URLs
         myWebView.setWebViewClient(new MyBrowser());
         // Load the initial URL
-        myWebView.loadUrl("http://eliteraretrader.co.uk/");
+        myWebView.loadUrl("http://www.reddit.com/r/EliteDangerous/");
 
         myWebView.setOnKeyListener( new View.OnKeyListener()
         {

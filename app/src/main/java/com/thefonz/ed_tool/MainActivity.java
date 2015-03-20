@@ -37,6 +37,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         actionbar.addTab(actionbar.newTab().setText(R.string.first_tab).setTabListener(this));
         actionbar.addTab(actionbar.newTab().setText(R.string.second_tab).setTabListener(this));
         actionbar.addTab(actionbar.newTab().setText(R.string.third_tab).setTabListener(this));
+        actionbar.addTab(actionbar.newTab().setText(R.string.forth_tab).setTabListener(this));
 
         actionbar.setLogo(R.mipmap.ic_launcher);
         actionbar.setDisplayUseLogoEnabled(true);
@@ -85,16 +86,14 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             Toast toast = Toast.makeText(getApplicationContext(),
                     "This is a place-holder message ",
                     Toast.LENGTH_SHORT);
-
             toast.show();
           return true;
         }
         if (id == R.id.action_about)
         {
             Toast toast = Toast.makeText(getApplicationContext(),
-                    "This is a place-holder message ",
-                    Toast.LENGTH_SHORT);
-
+                    "ED_Tool \n Created by 'theFONZ' ",
+                    Toast.LENGTH_LONG);
             toast.show();
           return true;
         }
@@ -142,7 +141,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                     return new SecondTab();
                 case 2:
                     return new ThirdTab();
-
+                case 3:
+                    return new ForthTab();
                 default:
                     break;
             }
@@ -152,7 +152,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         @Override
         public int getCount()
         {
-            return 3;
+            return 4;
         }
     }
 }
