@@ -18,5 +18,4 @@ public class ThirdTab extends Fragment
         // TODO Auto-generated method stub
         return inflater.inflate(R.layout.third_tab, container, false);
     }
-
 }

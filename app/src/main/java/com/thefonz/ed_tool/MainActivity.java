@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener
@@ -25,7 +26,42 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //instanciate the custom adapter
+        final View decorView = getWindow().getDecorView();
+
+        // Set immersive mode
+        decorView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_IMMERSIVE);
+
+        // Register UI change listener to re-set immersive mode if refocused
+        decorView.setOnSystemUiVisibilityChangeListener
+                (new View.OnSystemUiVisibilityChangeListener() {
+                    @Override
+                    public void onSystemUiVisibilityChange(int visibility) {
+                        // Note that system bars will only be "visible" if none of the
+                        // LOW_PROFILE, HIDE_NAVIGATION, or FULLSCREEN flags are set.
+                        if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
+                            // TODO: The system bars are visible. Make any desired
+                            decorView.setSystemUiVisibility(
+                                  View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                                  | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                                  | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                                  | View.SYSTEM_UI_FLAG_FULLSCREEN
+                                  | View.SYSTEM_UI_FLAG_IMMERSIVE);
+                            // adjustments to your UI, such as showing the action bar or
+                            // other navigational controls.
+                        } else {
+                            // TODO: The system bars are NOT visible. Make any desired
+                            // adjustments to your UI, such as hiding the action bar or
+                            // other navigational controls.
+                        }
+                    }
+                });
+
+        //instantiate the custom adapter
         ft = new FragmentPageTabAdapter(getSupportFragmentManager());
 
         viewpager = (ViewPager) findViewById(R.id.pager);
@@ -92,7 +128,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         if (id == R.id.action_about)
         {
             Toast toast = Toast.makeText(getApplicationContext(),
-                    "ED_Tool \n Created by 'theFONZ' ",
+                    R.string.about_body,
                     Toast.LENGTH_LONG);
             toast.show();
           return true;
@@ -154,5 +190,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         {
             return 4;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Leave blank if you do not want anything to happen
     }
 }
