@@ -12,7 +12,8 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+
+import com.thefonz.ed_tool.utils.Utils;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener
 {
@@ -27,6 +28,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         setContentView(R.layout.activity_main);
 
         final View decorView = getWindow().getDecorView();
+
+        Utils.checkInternet(this.getApplicationContext());
 
         // Set immersive mode
         decorView.setSystemUiVisibility(
@@ -44,7 +47,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                         // Note that system bars will only be "visible" if none of the
                         // LOW_PROFILE, HIDE_NAVIGATION, or FULLSCREEN flags are set.
                         if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
-                            // TODO: The system bars are visible. Make any desired
+                            // The system bars are visible. Make any desired changes
                             decorView.setSystemUiVisibility(
                                   View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                                   | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
@@ -54,7 +57,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                             // adjustments to your UI, such as showing the action bar or
                             // other navigational controls.
                         } else {
-                            // TODO: The system bars are NOT visible. Make any desired
+                            // The system bars are NOT visible. Make any desired changes
                             // adjustments to your UI, such as hiding the action bar or
                             // other navigational controls.
                         }
@@ -119,19 +122,15 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         int id = item.getItemId();
         if (id == R.id.action_settings)
         {
-            Toast toast = Toast.makeText(getApplicationContext(),
-                    "This is a place-holder message ",
-                    Toast.LENGTH_SHORT);
-            toast.show();
-          return true;
-        }
+            String msg = getString(R.string.placeholder);
+            Utils.showToast_Long(getApplicationContext(), msg);
+            return true;
+      }
         if (id == R.id.action_about)
         {
-            Toast toast = Toast.makeText(getApplicationContext(),
-                    R.string.about_body,
-                    Toast.LENGTH_LONG);
-            toast.show();
-          return true;
+            String msg = getString(R.string.about_body);
+            Utils.showToast_Long(getApplicationContext(), msg);
+            return true;
         }
         if (id == R.id.action_exit)
         {

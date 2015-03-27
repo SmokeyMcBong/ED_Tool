@@ -14,6 +14,7 @@
     <string name="refreshing">Reloading</string>
     <string name="goingback">Going Back</string>
     <string name="goingforward">Going Forward</string>
+    <string name="placeholder">This is a place-holder message</string>
     <!--Error Handler Strings-->
     <string name="ERROR_AUTHENTICATION">User authentication failed on server</string>
     <string name="ERROR_BAD_URL">Malformed URL</string>

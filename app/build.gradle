@@ -19,7 +19,6 @@ android {
 }
 dependencies {
     compile 'com.android.support:support-v4:22.0.0'
-    releaseCompile project(':rssfeed')
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
 

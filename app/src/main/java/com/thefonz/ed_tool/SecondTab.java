@@ -15,16 +15,20 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
-import android.widget.Toast;
+
+import com.thefonz.ed_tool.utils.Utils;
 
 public class SecondTab extends Fragment
 {
-    private WebView myWebView;
+    protected final static String TAG = "ED-Tool";
+    protected final static String TRADERURL = "http://eliteraretrader.co.uk";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View view = inflater.inflate(R.layout.second_tab, container, false);
+
+        Utils.checkInternet(this.getActivity());
 
         final WebView myWebView1 = (WebView)  view.findViewById(R.id.webview1);
 
@@ -50,17 +54,15 @@ public class SecondTab extends Fragment
         // Configure the client to use when opening URLs
         myWebView1.setWebViewClient(new MyBrowser());
         // Load the initial URL
-        myWebView1.loadUrl("http://eliteraretrader.co.uk/");
+        myWebView1.loadUrl(TRADERURL);
 
         // Define back,forward and refresh webview control buttons
         button_back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if(myWebView1.canGoBack()){
                     myWebView1.goBack();
-                    Toast toast = Toast.makeText(getActivity(),
-                            R.string.goingback,
-                            Toast.LENGTH_SHORT);
-                    toast.show();
+                    String msg = getString(R.string.goingback);
+                    Utils.showToast_Short(getActivity(), msg);
                 }
             }
         });
@@ -68,23 +70,18 @@ public class SecondTab extends Fragment
             public void onClick(View v) {
                 if(myWebView1.canGoForward()){
                     myWebView1.goForward();
-                    Toast toast = Toast.makeText(getActivity(),
-                            R.string.goingforward,
-                            Toast.LENGTH_SHORT);
-                    toast.show();
+                    String msg = getString(R.string.goingforward);
+                    Utils.showToast_Short(getActivity(), msg);
                 }
             }
         });
         button_refresh.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 myWebView1.reload();
-                Toast toast = Toast.makeText(getActivity(),
-                        R.string.refreshing,
-                        Toast.LENGTH_SHORT);
-                toast.show();
+                String msg = getString(R.string.refreshing);
+                Utils.showToast_Short(getActivity(), msg);
             }
         });
-
         return view;
     }
     // Manages the behavior when URLs are loaded
@@ -103,95 +100,66 @@ public class SecondTab extends Fragment
         }
         // WebView error handler
         public void onReceivedError (WebView view, int errorCode, String description, String failingUrl) {
+            final String LOGMETHOD = " onReceivedError ";
             if (errorCode == ERROR_AUTHENTICATION) {
-                Toast toast = Toast.makeText(getActivity(),
-                        R.string.ERROR_AUTHENTICATION,
-                        Toast.LENGTH_SHORT);
-                toast.show();
+                String LOGBODY = "ERROR_AUTHENTICATION";
+                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_BAD_URL) {
-                Toast toast = Toast.makeText(getActivity(),
-                        R.string.ERROR_BAD_URL,
-                        Toast.LENGTH_SHORT);
-                toast.show();
+                String LOGBODY = "ERROR_BAD_URL";
+                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_CONNECT) {
-                Toast toast = Toast.makeText(getActivity(),
-                        R.string.ERROR_CONNECT,
-                        Toast.LENGTH_SHORT);
-                toast.show();
+                String LOGBODY = "ERROR_CONNECT";
+                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_FAILED_SSL_HANDSHAKE) {
-                Toast toast = Toast.makeText(getActivity(),
-                        R.string.ERROR_FAILED_SSL_HANDSHAKE,
-                        Toast.LENGTH_SHORT);
-                toast.show();
+                String LOGBODY = "ERROR_FAILED_SSL_HANDSHAKE";
+                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_FILE) {
-                Toast toast = Toast.makeText(getActivity(),
-                        R.string.ERROR_FILE,
-                        Toast.LENGTH_SHORT);
-                toast.show();
+                String LOGBODY = "ERROR_FILE";
+                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_FILE_NOT_FOUND) {
-                Toast toast = Toast.makeText(getActivity(),
-                        R.string.ERROR_FILE_NOT_FOUND,
-                        Toast.LENGTH_SHORT);
-                toast.show();
+                String LOGBODY = "ERROR_FILE_NOT_FOUND";
+                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_HOST_LOOKUP) {
-                Toast toast = Toast.makeText(getActivity(),
-                        R.string.ERROR_HOST_LOOKUP,
-                        Toast.LENGTH_SHORT);
-                toast.show();
+                String LOGBODY = "ERROR_HOST_LOOKUP";
+                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_IO) {
-                Toast toast = Toast.makeText(getActivity(),
-                        R.string.ERROR_IO,
-                        Toast.LENGTH_SHORT);
-                toast.show();
+                String LOGBODY = "ERROR_IO";
+                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_PROXY_AUTHENTICATION) {
-                Toast toast = Toast.makeText(getActivity(),
-                        R.string.ERROR_PROXY_AUTHENTICATION,
-                        Toast.LENGTH_SHORT);
-                toast.show();
+                String LOGBODY = "ERROR_PROXY_AUTHENTICATION";
+                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_REDIRECT_LOOP) {
-                Toast toast = Toast.makeText(getActivity(),
-                        R.string.ERROR_REDIRECT_LOOP,
-                        Toast.LENGTH_SHORT);
-                toast.show();
+                String LOGBODY = "ERROR_REDIRECT_LOOP";
+                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_TIMEOUT) {
-                Toast toast = Toast.makeText(getActivity(),
-                        R.string.ERROR_TIMEOUT,
-                        Toast.LENGTH_SHORT);
-                toast.show();
+                String LOGBODY = "ERROR_TIMEOUT";
+                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_TOO_MANY_REQUESTS) {
-                Toast toast = Toast.makeText(getActivity(),
-                        R.string.ERROR_TOO_MANY_REQUESTS,
-                        Toast.LENGTH_SHORT);
-                toast.show();
+                String LOGBODY = "ERROR_TOO_MANY_REQUESTS";
+                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_UNKNOWN) {
-                Toast toast = Toast.makeText(getActivity(),
-                        R.string.ERROR_UNKNOWN,
-                        Toast.LENGTH_SHORT);
-                toast.show();
+                String LOGBODY = "ERROR_UNKNOWN";
+                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_UNSUPPORTED_AUTH_SCHEME) {
-                Toast toast = Toast.makeText(getActivity(),
-                        R.string.ERROR_UNSUPPORTED_AUTH_SCHEME,
-                        Toast.LENGTH_SHORT);
-                toast.show();
+                String LOGBODY = "ERROR_UNSUPPORTED_AUTH_SCHEME";
+                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_UNSUPPORTED_SCHEME) {
-                Toast toast = Toast.makeText(getActivity(),
-                        R.string.ERROR_UNSUPPORTED_SCHEME,
-                        Toast.LENGTH_SHORT);
-                toast.show();
+                String LOGBODY = "ERROR_UNSUPPORTED_SCHEME";
+                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
             }
         }
     }
