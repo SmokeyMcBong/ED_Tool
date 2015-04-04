@@ -73,10 +73,11 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         //add tabs to the action bar
         actionbar = getActionBar();
         actionbar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        actionbar.addTab(actionbar.newTab().setText(R.string.first_tab).setTabListener(this));
-        actionbar.addTab(actionbar.newTab().setText(R.string.second_tab).setTabListener(this));
-        actionbar.addTab(actionbar.newTab().setText(R.string.third_tab).setTabListener(this));
-        actionbar.addTab(actionbar.newTab().setText(R.string.forth_tab).setTabListener(this));
+        actionbar.addTab(actionbar.newTab().setText(R.string.tab_buttonbox).setTabListener(this));
+        actionbar.addTab(actionbar.newTab().setText(R.string.tab_rares).setTabListener(this));
+        actionbar.addTab(actionbar.newTab().setText(R.string.tab_notes).setTabListener(this));
+        actionbar.addTab(actionbar.newTab().setText(R.string.tab_galnet).setTabListener(this));
+        actionbar.addTab(actionbar.newTab().setText(R.string.tab_reddit).setTabListener(this));
 
         actionbar.setLogo(R.mipmap.ic_launcher);
         actionbar.setDisplayUseLogoEnabled(true);
@@ -171,13 +172,15 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             switch (arg0)
             {
                 case 0:
-                    return new FirstTab();
+                    return new Tab_ButtonBox();
                 case 1:
-                    return new SecondTab();
+                    return new Tab_Rares();
                 case 2:
-                    return new ThirdTab();
+                    return new Tab_Notes();
                 case 3:
-                    return new ForthTab();
+                    return new Tab_Galnet();
+                case 4:
+                    return new Tab_Reddit();
                 default:
                     break;
             }
@@ -187,7 +190,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         @Override
         public int getCount()
         {
-            return 4;
+            return 5;
         }
     }
 

@@ -16,57 +16,37 @@ import android.widget.ListView;
 
 import com.thefonz.ed_tool.rss.RssItem;
 import com.thefonz.ed_tool.rss.RssReader;
+import com.thefonz.ed_tool.utils.Constants;
 import com.thefonz.ed_tool.utils.Utils;
 
-public class ThirdTab extends Fragment {
+public class Tab_Galnet extends Fragment {
 
     private ListView mList;
     ArrayAdapter<String> adapter;
 
-    protected final static String TAG = "ED-Tool";
-    protected final static String RSSFEEDURL = "http://www.elitedangerous.com/news/galnet/rss";
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.third_tab, container,false);
+        View myFragmentView = inflater.inflate(R.layout.tab_galnet, container,false);
 
         Utils.checkInternet(this.getActivity());
 
-        final Button button_back = (Button) rootView
-                .findViewById(R.id.button_back);
-        final Button button_forward = (Button) rootView
-                .findViewById(R.id.button_forward);
-        final Button button_refresh = (Button) rootView
+        final Button button_refresh = (Button) myFragmentView
                 .findViewById(R.id.button_refresh);
 
         // Set ListView, ArrayAdapter and RSS feed
-        mList = (ListView) rootView.findViewById(R.id.list);
+        mList = (ListView) myFragmentView.findViewById(R.id.list);
         adapter = new ArrayAdapter<String>(getActivity(), R.layout.basic_list_item);
-        new GetRssFeed().execute((RSSFEEDURL));
+        new GetRssFeed().execute((Constants.RSSFEEDURL));
 
-
-        // Define back,forward and refresh RSS control buttons
-        button_back.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                    String msg = getString(R.string.placeholder);
-                    Utils.showToast_Short(getActivity(), msg);
-                }
-        });
-        button_forward.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                String msg = getString(R.string.placeholder);
-                Utils.showToast_Short(getActivity(), msg);
-                }
-        });
         button_refresh.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String msg = getString(R.string.refreshing);
                 Utils.showToast_Short(getActivity(), msg);
                 adapter = new ArrayAdapter<String>(getActivity(), R.layout.basic_list_item);
-                new GetRssFeed().execute((RSSFEEDURL));
+                new GetRssFeed().execute((Constants.RSSFEEDURL));
             }
         });
-        return rootView;
+        return myFragmentView;
     }
 
     private class GetRssFeed extends AsyncTask<String, Void, Void> {
@@ -75,11 +55,11 @@ public class ThirdTab extends Fragment {
             try {
                 RssReader rssReader = new RssReader(params[0]);
                 for (RssItem item : rssReader.getItems())
-                    adapter.add(item.getTitle());
+                    adapter.add(item.getContent());
             } catch (Exception e) {
                 final String LOGMETHOD = " GetRssFeed ";
                 final String LOGBODY = " Error Parsing Data ";
-                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
+                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             return null;
         }

@@ -14,6 +14,7 @@ public class RssHandler extends DefaultHandler {
     private List<RssItem> rssItemList;
     private RssItem currentItem;
     private boolean parsingTitle;
+    private boolean parsingDate;
     private boolean parsingLink;
     private boolean parsingDescription;
 
@@ -34,6 +35,8 @@ public class RssHandler extends DefaultHandler {
             currentItem = new RssItem();
         else if (qName.equals("title"))
             parsingTitle = true;
+        else if (qName.equals("pubDate"))
+            parsingDate = true;
         else if (qName.equals("link"))
             parsingLink = true;
         else if (qName.equals("description"))
@@ -53,6 +56,8 @@ public class RssHandler extends DefaultHandler {
             currentItem = null;
         } else if (qName.equals("title"))
             parsingTitle = false;
+        else if (qName.equals("pubDate"))
+            parsingDate = false;
         else if (qName.equals("link"))
             parsingLink = false;
         else if (qName.equals("description"))
@@ -67,6 +72,8 @@ public class RssHandler extends DefaultHandler {
             if (parsingTitle)
                 currentItem.setTitle(new String(ch, start, length));
                 //If parsingLink is true, then that means we are inside a <link> tag so the text is the link of an item.
+            else if (parsingDate)
+                currentItem.setDate(new String(ch, start, length));
             else if (parsingLink)
                 currentItem.setLink(new String(ch, start, length));
                 //If parsingDescription is true, then that means we are inside a <description> tag so the text is the description of an item.

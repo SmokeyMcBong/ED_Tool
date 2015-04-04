@@ -16,27 +16,25 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 
+import com.thefonz.ed_tool.utils.Constants;
 import com.thefonz.ed_tool.utils.Utils;
 
-public class SecondTab extends Fragment
+public class Tab_Rares extends Fragment
 {
-    protected final static String TAG = "ED-Tool";
-    protected final static String TRADERURL = "http://eliteraretrader.co.uk";
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        View view = inflater.inflate(R.layout.second_tab, container, false);
+        View myFragmentView = inflater.inflate(R.layout.tab_rares, container, false);
 
         Utils.checkInternet(this.getActivity());
 
-        final WebView myWebView1 = (WebView)  view.findViewById(R.id.webview1);
+        final WebView myWebView1 = (WebView)  myFragmentView.findViewById(R.id.webview1);
 
-        final Button button_back = (Button) view
+        final Button button_back = (Button) myFragmentView
                 .findViewById(R.id.button_back);
-        final Button button_forward = (Button) view
+        final Button button_forward = (Button) myFragmentView
                 .findViewById(R.id.button_forward);
-        final Button button_refresh = (Button) view
+        final Button button_refresh = (Button) myFragmentView
                 .findViewById(R.id.button_refresh);
 
         // Configure related browser settings
@@ -54,7 +52,7 @@ public class SecondTab extends Fragment
         // Configure the client to use when opening URLs
         myWebView1.setWebViewClient(new MyBrowser());
         // Load the initial URL
-        myWebView1.loadUrl(TRADERURL);
+        myWebView1.loadUrl(Constants.TRADERURL);
 
         // Define back,forward and refresh webview control buttons
         button_back.setOnClickListener(new View.OnClickListener() {
@@ -82,7 +80,7 @@ public class SecondTab extends Fragment
                 Utils.showToast_Short(getActivity(), msg);
             }
         });
-        return view;
+        return myFragmentView;
     }
     // Manages the behavior when URLs are loaded
     private class MyBrowser extends WebViewClient {
@@ -103,63 +101,63 @@ public class SecondTab extends Fragment
             final String LOGMETHOD = " onReceivedError ";
             if (errorCode == ERROR_AUTHENTICATION) {
                 String LOGBODY = "ERROR_AUTHENTICATION";
-                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
+                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_BAD_URL) {
                 String LOGBODY = "ERROR_BAD_URL";
-                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
+                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_CONNECT) {
                 String LOGBODY = "ERROR_CONNECT";
-                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
+                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_FAILED_SSL_HANDSHAKE) {
                 String LOGBODY = "ERROR_FAILED_SSL_HANDSHAKE";
-                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
+                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_FILE) {
                 String LOGBODY = "ERROR_FILE";
-                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
+                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_FILE_NOT_FOUND) {
                 String LOGBODY = "ERROR_FILE_NOT_FOUND";
-                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
+                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_HOST_LOOKUP) {
                 String LOGBODY = "ERROR_HOST_LOOKUP";
-                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
+                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_IO) {
                 String LOGBODY = "ERROR_IO";
-                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
+                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_PROXY_AUTHENTICATION) {
                 String LOGBODY = "ERROR_PROXY_AUTHENTICATION";
-                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
+                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_REDIRECT_LOOP) {
                 String LOGBODY = "ERROR_REDIRECT_LOOP";
-                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
+                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_TIMEOUT) {
                 String LOGBODY = "ERROR_TIMEOUT";
-                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
+                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_TOO_MANY_REQUESTS) {
                 String LOGBODY = "ERROR_TOO_MANY_REQUESTS";
-                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
+                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_UNKNOWN) {
                 String LOGBODY = "ERROR_UNKNOWN";
-                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
+                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_UNSUPPORTED_AUTH_SCHEME) {
                 String LOGBODY = "ERROR_UNSUPPORTED_AUTH_SCHEME";
-                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
+                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_UNSUPPORTED_SCHEME) {
                 String LOGBODY = "ERROR_UNSUPPORTED_SCHEME";
-                Utils.LogError(getActivity(), TAG, LOGMETHOD, LOGBODY);
+                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
         }
     }
