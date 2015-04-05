@@ -5,7 +5,7 @@
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="32dp"
-        android:background="#008080"
+        android:background="@color/my_teal"
         android:id="@+id/gridView">
 
         <TextView
@@ -53,7 +53,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/editText1"
-        android:text="Save Note"
+        android:text="Nothing new to save yet"
+        android:enabled="false"
         android:onClick="SaveNote"
         android:layout_margin="5dp"/>
 

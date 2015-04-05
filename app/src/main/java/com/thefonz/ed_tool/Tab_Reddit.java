@@ -26,8 +26,6 @@ public class Tab_Reddit extends Fragment
     {
         View myFragmentView = inflater.inflate(R.layout.tab_reddit, container, false);
 
-        Utils.checkInternet(this.getActivity());
-
         final WebView myWebView2 = (WebView)  myFragmentView.findViewById(R.id.webview2);
 
         final Button button_back = (Button) myFragmentView

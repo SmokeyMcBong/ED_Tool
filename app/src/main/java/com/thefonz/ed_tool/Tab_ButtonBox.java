@@ -18,7 +18,6 @@ public class Tab_ButtonBox extends Fragment
 
         // TODO Auto-generated method stub
 
-
         return myFragmentView;
     }
 }

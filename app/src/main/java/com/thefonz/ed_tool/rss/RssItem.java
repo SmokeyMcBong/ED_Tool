@@ -50,12 +50,17 @@ public class RssItem {
         this.title = title;
     }
 
-    private static String removeLastChar(String str) {
+    public String removeLastChar(String str) {
         return str.substring(0,str.length()-9);
     }
 
     public String getContent() {
         return title + "\n" + removeLastChar(date);
 //                + "\n\n" + description;
+    }
+
+    public String getDetails() {
+        return getContent() + "\n\n"
+                + description + "\n";
     }
 }

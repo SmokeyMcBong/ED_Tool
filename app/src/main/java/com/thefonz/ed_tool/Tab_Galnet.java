@@ -28,8 +28,6 @@ public class Tab_Galnet extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View myFragmentView = inflater.inflate(R.layout.tab_galnet, container,false);
 
-        Utils.checkInternet(this.getActivity());
-
         final Button button_refresh = (Button) myFragmentView
                 .findViewById(R.id.button_refresh);
 
@@ -55,7 +53,7 @@ public class Tab_Galnet extends Fragment {
             try {
                 RssReader rssReader = new RssReader(params[0]);
                 for (RssItem item : rssReader.getItems())
-                    adapter.add(item.getContent());
+                    adapter.add(item.getDetails());
             } catch (Exception e) {
                 final String LOGMETHOD = " GetRssFeed ";
                 final String LOGBODY = " Error Parsing Data ";

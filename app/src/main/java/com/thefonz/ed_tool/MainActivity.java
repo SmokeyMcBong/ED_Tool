@@ -3,6 +3,7 @@ package com.thefonz.ed_tool;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -29,7 +30,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
         final View decorView = getWindow().getDecorView();
 
-        Utils.checkInternet(this.getApplicationContext());
+        Utils.checkInternet(MainActivity.this);
+//        Utils.CheckForFile(MainActivity.this);
 
         // Set immersive mode
         decorView.setSystemUiVisibility(
@@ -83,7 +85,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         actionbar.setDisplayUseLogoEnabled(true);
         actionbar.setDisplayShowHomeEnabled(true);
 
-
         viewpager.setOnPageChangeListener(new ViewPager.OnPageChangeListener()
         {
             @Override
@@ -123,14 +124,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         int id = item.getItemId();
         if (id == R.id.action_settings)
         {
-            String msg = getString(R.string.placeholder);
-            Utils.showToast_Long(getApplicationContext(), msg);
-            return true;
-      }
-        if (id == R.id.action_about)
-        {
-            String msg = getString(R.string.about_body);
-            Utils.showToast_Long(getApplicationContext(), msg);
+            // String msg = getString(R.string.placeholder);
+            // Utils.showToast_Long(getApplicationContext(), msg);
+            startActivity(new Intent(this, AppPreferences.class));
+
             return true;
         }
         if (id == R.id.action_exit)

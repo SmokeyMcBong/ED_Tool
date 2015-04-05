@@ -5,8 +5,10 @@ package com.thefonz.ed_tool;
  */
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,13 +24,25 @@ import com.thefonz.ed_tool.utils.Utils;
 public class Tab_Rares extends Fragment
 {
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-    {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View myFragmentView = inflater.inflate(R.layout.tab_rares, container, false);
 
-        Utils.checkInternet(this.getActivity());
+        final WebView myWebView1 = (WebView) myFragmentView.findViewById(R.id.webview1);
 
-        final WebView myWebView1 = (WebView)  myFragmentView.findViewById(R.id.webview1);
+        SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String downloadType = SP.getString("tradeRouteSite", "1");
+        String TRADEURL = null;
+
+        assert downloadType != null;
+        if (downloadType.equalsIgnoreCase("1")) {
+            TRADEURL = "http://www.eliteraretrader.co.uk";
+        }
+        else if (downloadType.equalsIgnoreCase("2")) {
+            TRADEURL = "http://www.elitedangeroustrader.co.uk/trade-routes-calculator/";
+        }
+        else if (downloadType.equalsIgnoreCase("3")) {
+            TRADEURL = "http://www.cmdr.club/routes/";
+        }
 
         final Button button_back = (Button) myFragmentView
                 .findViewById(R.id.button_back);
@@ -52,12 +66,12 @@ public class Tab_Rares extends Fragment
         // Configure the client to use when opening URLs
         myWebView1.setWebViewClient(new MyBrowser());
         // Load the initial URL
-        myWebView1.loadUrl(Constants.TRADERURL);
+        myWebView1.loadUrl(TRADEURL);
 
         // Define back,forward and refresh webview control buttons
         button_back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if(myWebView1.canGoBack()){
+                if (myWebView1.canGoBack()) {
                     myWebView1.goBack();
                     String msg = getString(R.string.goingback);
                     Utils.showToast_Short(getActivity(), msg);
@@ -66,7 +80,7 @@ public class Tab_Rares extends Fragment
         });
         button_forward.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if(myWebView1.canGoForward()){
+                if (myWebView1.canGoForward()) {
                     myWebView1.goForward();
                     String msg = getString(R.string.goingforward);
                     Utils.showToast_Short(getActivity(), msg);

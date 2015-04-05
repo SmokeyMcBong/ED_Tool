@@ -64,4 +64,8 @@ public class Utils extends Application {
     public static void LogWarning(Context context, String TAG, String LOGMETHOD, String LOGBODY) {
         Log.e(TAG, LOGMETHOD + " Warning ! " + LOGBODY);
     }
+    public static void m(String message)
+    {
+        Log.d("theFONZ", message);
+    }
 }
