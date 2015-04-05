@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color
-        name="my_teal">#008080</color>
+    <color name="my_teal">#008080 </color>
+    <color name="AppThemeDark_primary">#333333 </color>
+    <color name="AppThemeDark_primary_dark">#313131 </color>
+    <!--<color name="AppThemeDark_accent">#008080 </color>-->
+    <color name="AppThemeLight_primary">#074fea </color>
+    <color name="AppThemeLight_primary_dark">#0349df </color>
+    <!--<color name="AppThemeDark_accent">#008080 </color>-->
 </resources>

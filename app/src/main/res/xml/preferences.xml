@@ -29,6 +29,11 @@
     <PreferenceCategory
         android:title="CUSTOM APP SETTINGS ..."
         android:selectable="false" >
+        <CheckBoxPreference
+            android:title="Enable Immersive Mode"
+            android:defaultValue="false"
+            android:summary="This option if selected will allow the application to run in Fullscreen Immersive Mode"
+            android:key="immersiveMode" />
         <ListPreference
             android:title="Select App Theme"
             android:summary="Select which Material Theme you wish to use \n** NOTE > Currently under development"
@@ -46,10 +51,10 @@
         android:selectable="false"
     />
 
-    <Preference
-        android:selectable="false"
-        android:enabled="false"
-    />
+    <!--<Preference-->
+        <!--android:selectable="false"-->
+        <!--android:enabled="false"-->
+    <!--/>-->
 
     <PreferenceCategory
         android:title="GO BACK ...">
