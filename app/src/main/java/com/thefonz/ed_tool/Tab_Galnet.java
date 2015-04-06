@@ -53,7 +53,7 @@ public class Tab_Galnet extends Fragment {
             try {
                 RssReader rssReader = new RssReader(params[0]);
                 for (RssItem item : rssReader.getItems())
-                    adapter.add(item.getDetails());
+                    adapter.add(item.getContent());
             } catch (Exception e) {
                 final String LOGMETHOD = " GetRssFeed ";
                 final String LOGBODY = " Error Parsing Data ";

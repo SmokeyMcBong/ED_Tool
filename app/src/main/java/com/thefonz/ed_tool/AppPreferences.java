@@ -17,7 +17,6 @@ public class AppPreferences extends PreferenceActivity {
 
         SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         boolean immersiveMode = SP.getBoolean("immersiveMode",false);
-
         String selectTheme = SP.getString("selectTheme", "1");
 
         assert selectTheme != null;

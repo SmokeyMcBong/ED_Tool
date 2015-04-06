@@ -15,6 +15,7 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 
 import com.thefonz.ed_tool.utils.Utils;
 
@@ -48,14 +49,16 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
         final View decorView = getWindow().getDecorView();
 
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
         if (immersiveMode) {
             // Set immersive mode
             decorView.setSystemUiVisibility(
                     View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                    | View.SYSTEM_UI_FLAG_FULLSCREEN
-                    | View.SYSTEM_UI_FLAG_IMMERSIVE);
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE);
 
             // Register UI change listener to re-set immersive mode if refocused
             decorView.setOnSystemUiVisibilityChangeListener
@@ -67,11 +70,11 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                             if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
                                 // The system bars are visible. Make any desired changes
                                 decorView.setSystemUiVisibility(
-                                      View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                                      | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                                      | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                                      | View.SYSTEM_UI_FLAG_FULLSCREEN
-                                      | View.SYSTEM_UI_FLAG_IMMERSIVE);
+                                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                                                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                                                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                                                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                                                | View.SYSTEM_UI_FLAG_IMMERSIVE);
                                 // adjustments to your UI, such as showing the action bar or
                                 // other navigational controls.
                             } else {

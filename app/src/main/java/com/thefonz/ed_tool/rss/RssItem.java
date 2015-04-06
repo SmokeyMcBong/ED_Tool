@@ -55,8 +55,11 @@ public class RssItem {
     }
 
     public String getContent() {
-        return title + "\n" + removeLastChar(date);
-//                + "\n\n" + description;
+        return ">> INCOMING TRANSMISSION... \n\n"
+                + "Signal Date : " + removeLastChar(date) + "\n"
+                + "Signal Source : GALNET Central\n\n"
+                + title + "\n\n"
+                + "                ( click to view full story )";
     }
 
     public String getDetails() {

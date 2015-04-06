@@ -12,7 +12,7 @@ import com.thefonz.ed_tool.MainActivity;
 /**
  * Created by thefonz on 05/04/15.
  */
-public class Save_Restart extends FragmentActivity {
+public class SaveRestart extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         AlarmManager mgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
