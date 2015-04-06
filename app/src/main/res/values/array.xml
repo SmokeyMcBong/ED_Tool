@@ -5,7 +5,7 @@
         <item>Elite: Dangerous Trader</item>
         <item>CMDR Club</item>
     </string-array>
-    <string-array name="listValues">
+    <string-array name="TradeRouteValues">
         <item>1</item>
         <item>2</item>
         <item>3</item>

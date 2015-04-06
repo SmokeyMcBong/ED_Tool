@@ -23,7 +23,7 @@
             android:key="tradeRouteSite"
             android:defaultValue="1"
             android:entries="@array/TradeRouteArray"
-            android:entryValues="@array/listValues" />
+            android:entryValues="@array/TradeRouteValues" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -36,13 +36,12 @@
             android:key="immersiveMode" />
         <ListPreference
             android:title="Select App Theme"
-            android:summary="Select which Material Theme you wish to use \n** NOTE > Currently under development"
+            android:summary="Select which Material Theme you wish to use"
             android:key="selectTheme"
             android:defaultValue="1"
             android:entries="@array/ThemeArray"
             android:entryValues="@array/ThemeValues" />
     </PreferenceCategory>
-
 
     <Preference
         android:title=" ED_Tool"

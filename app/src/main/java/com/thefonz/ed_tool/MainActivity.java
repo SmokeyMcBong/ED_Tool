@@ -27,9 +27,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        super.onCreate(savedInstanceState);
-
-
         Utils.checkInternet(MainActivity.this);
 
         SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
@@ -44,6 +41,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         {
             setTheme(R.style.AppThemeLight);
         }
+
+        super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
 
@@ -83,8 +82,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                         }
                     });
         }
-
-
 
         //instantiate the custom adapter
         ft = new FragmentPageTabAdapter(getSupportFragmentManager());
