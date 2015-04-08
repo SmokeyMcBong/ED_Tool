@@ -1,114 +1,77 @@
 package com.thefonz.ed_tool.tcp_client;
 
-import java.util.HashMap;
+import android.support.v4.app.FragmentActivity;
 
 /**
- * Created by thefonz on 06/04/15.
+ * Created by thefonz on 07/04/15.
  */
-public class CustomKeyMap {
+public class CustomKeyMap extends FragmentActivity
+{
+    public static String a = "{A}";
+    public static String b = "{B}";
+    public static String c = "{C}";
+    public static String d = "{D}";
+    public static String e = "{E}";
+    public static String f = "{F}";
+    public static String g = "{G}";
+    public static String h = "{H}";
+    public static String i = "{I}";
+    public static String j = "{J}";
+    public static String k = "{K}";
+    public static String l = "{L}";
+    public static String m = "{M}";
+    public static String n = "{N}";
+    public static String o = "{O}";
+    public static String p = "{P}";
+    public static String q = "{Q}";
+    public static String r = "{F}";
+    public static String s = "{S}";
+    public static String t = "{T}";
+    public static String u = "{U}";
+    public static String v = "{V}";
+    public static String w = "{W}";
+    public static String x = "{X}";
+    public static String y = "{Y}";
+    public static String z = "{Z}";
 
-    public static void main(String[] args) {
+    public static String up = "{UP}";
+    public static String down = "{DOWN}";
+    public static String left = "{LEFT}";
+    public static String right = "{RIGHT}";
+    public static String backspace = "{BACKSPACE}";
+    public static String pause = "{BREAK}";
+    public static String caps = "{CAPSLOCK}";
+    public static String del = "{DELETE}";
+    public static String end = "{END}";
+    public static String enter = "{ENTER}";
+    public static String esc = "{ESC}";
+    public static String home = "{HOME}";
+    public static String insert = "{INSERT}";
+    public static String numlock = "{NUMLOCK}";
+    public static String pgdn = "{PGDN}";
+    public static String pgup = "{PGUP}";
+    public static String prntsc = "{PRTSC}";
+    public static String scrolllock = "{SCROLLLOCK}";
+    public static String tab = "{TAB}";
 
-        //create object of HashMap
-        HashMap<String, String> currentmap = null;
-        currentmap = new HashMap<String, String>();
-
-    /*
-      Add key value pair to HashMap using
-      Object put(Object key, Object value) method of Java HashMap class,
-      where key and value both are objects
-      put method returns Object which is either the value previously tied
-      to the key or null if no value mapped to the key.
-    */
-        currentmap.put("a", "{A}");
-        currentmap.put("b", "{B}");
-        currentmap.put("c", "{C}");
-        currentmap.put("d", "{D}");
-        currentmap.put("e", "{E}");
-        currentmap.put("f", "{F}");
-        currentmap.put("g", "{G}");
-        currentmap.put("h", "{H}");
-        currentmap.put("i", "{I}");
-        currentmap.put("j", "{J}");
-        currentmap.put("k", "{K}");
-        currentmap.put("l", "{L}");
-        currentmap.put("m", "{M}");
-        currentmap.put("n", "{N}");
-        currentmap.put("o", "{O}");
-        currentmap.put("p", "{P}");
-        currentmap.put("q", "{Q}");
-        currentmap.put("r", "{R}");
-        currentmap.put("s", "{S}");
-        currentmap.put("t", "{T}");
-        currentmap.put("u", "{U}");
-        currentmap.put("v", "{V}");
-        currentmap.put("w", "{W}");
-        currentmap.put("x", "{X}");
-        currentmap.put("y", "{Y}");
-        currentmap.put("z", "{Z}");
-
-        currentmap.put("up", "{UP}");
-        currentmap.put("down", "{DOWN}");
-        currentmap.put("left", "{LEFT}");
-        currentmap.put("right", "{RIGHT}");
-        currentmap.put("backspace", "{BACKSPACE}");
-        currentmap.put("break", "{BREAK}");
-        currentmap.put("caps", "{CAPSLOCK}");
-        currentmap.put("del", "{DELETE}");
-        currentmap.put("end", "{END}");
-        currentmap.put("enter", "{ENTER}");
-        currentmap.put("esc", "{ESC}");
-        currentmap.put("home", "{HOME}");
-        currentmap.put("insert", "{INSERT}");
-        currentmap.put("numlock", "{NUMLOCK}");
-        currentmap.put("pgdn", "{PGDN}");
-        currentmap.put("pgup", "{PGUP}");
-        currentmap.put("prntsc", "{PRTSC}");
-        currentmap.put("scrolllock", "{SCROLLLOCK}");
-        currentmap.put("tab", "{TAB}");
-
-        currentmap.put("f1", "{F1}");
-        currentmap.put("f2", "{F2}");
-        currentmap.put("f3", "{F3}");
-        currentmap.put("f4", "{F4}");
-        currentmap.put("f5", "{F5}");
-        currentmap.put("f6", "{F6}");
-        currentmap.put("f7", "{F7}");
-        currentmap.put("f8", "{F8}");
-        currentmap.put("f9", "{F9}");
-        currentmap.put("f10", "{F10}");
-        currentmap.put("f11", "{F11}");
-        currentmap.put("f12", "{F12}");
-        currentmap.put("f13", "{F13}");
-        currentmap.put("f14", "{F14}");
-        currentmap.put("f15", "{F15}");
-        currentmap.put("f16", "{F16}");
-        currentmap.put("add", "{ADD}");
-        currentmap.put("subtract", "{SUBTRACT}");
-        currentmap.put("multiply", "{MULTIPLY}");
-        currentmap.put("divide", "{DIVIDE}");
-
-   /*
-      Please note that put method accepts Objects. Java Primitive values CAN NOT
-      be added directly to HashMap. It must be converted to corrosponding
-      wrapper class first.
-    */
-
-        //retrieve value using Object get(Object key) method of Java HashMap class
-//        Object obj = currentmap.get("a");
-//        System.out.println(obj);
-
-    /*
-      Please note that the return type of get method is an Object. The value must
-      be casted to the original class.
-    */
-
-
-    }
+    public static String f1 = "{F1}";
+    public static String f2 = "{F2}";
+    public static String f3 = "{F3}";
+    public static String f4 = "{F4}";
+    public static String f5 = "{F5}";
+    public static String f6 = "{F6}";
+    public static String f7 = "{F7}";
+    public static String f8 = "{F8}";
+    public static String f9 = "{F9}";
+    public static String f10 = "{F10}";
+    public static String f11 = "{F11}";
+    public static String f12 = "{F12}";
+    public static String f13 = "{F13}";
+    public static String f14 = "{F14}";
+    public static String f15 = "{F15}";
+    public static String f16 = "{F16}";
+    public static String add = "{ADD}";
+    public static String subtract = "{SUBTRACT}";
+    public static String multiply = "{MULTIPLY}";
+    public static String divide = "{DIVIDE}";
 }
-/*
-Output of the program would be
-1
-*/
-
-

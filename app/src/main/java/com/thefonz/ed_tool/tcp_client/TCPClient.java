@@ -33,11 +33,11 @@ public class TCPClient {
 
     /**
      * Sends the message entered by client to the server
-     * @param message text entered by client
+     * @param key text entered by client
      */
-    public void sendMessage(String message){
+    public void sendMessage(String key){
         if (out != null && !out.checkError()) {
-            out.println(message);
+            out.println(key);
             out.flush();
         }
     }
@@ -61,7 +61,7 @@ public class TCPClient {
 
             try {
 
-                //send the message to the server
+                //send the key to the server
                 out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
 
                 Log.e("TCP Client", "C: Sent.");
@@ -106,6 +106,6 @@ public class TCPClient {
     //Declare the interface. The method messageReceived(String message) will must be implemented in the MyActivity
     //class at on asynckTask doInBackground
     public interface OnMessageReceived {
-        public void messageReceived(String message);
+        public void messageReceived(String key);
     }
 }

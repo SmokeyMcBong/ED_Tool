@@ -146,7 +146,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         {
             // String msg = getString(R.string.placeholder);
             // Utils.showToast_Long(getApplicationContext(), msg);
-            startActivity(new Intent(this, AppPreferences.class));
+            startActivity(new Intent(this, com.thefonz.ed_tool.AppPreferences.class));
 
             return true;
         }
