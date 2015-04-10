@@ -5,6 +5,7 @@ package com.thefonz.ed_tool;
  */
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,18 +16,29 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.thefonz.ed_tool.utils.Constants;
 import com.thefonz.ed_tool.utils.Utils;
 
 public class Tab_Reddit extends Fragment
 {
+    LinearLayout progressLayout;
+    ProgressBar progressBar;
+    TextView TextViewProgress;
+    WebView webView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View myFragmentView = inflater.inflate(R.layout.tab_reddit, container, false);
 
-        final WebView myWebView2 = (WebView)  myFragmentView.findViewById(R.id.webview2);
+        webView = (WebView) myFragmentView.findViewById(R.id.webView);
+        progressLayout = (LinearLayout) myFragmentView.findViewById(R.id.progressLayout);
+        progressBar = (ProgressBar) myFragmentView.findViewById(R.id.progressBar);
+        TextViewProgress = (TextView ) myFragmentView.findViewById(R.id.textViewProgress);
 
         final Button button_back = (Button) myFragmentView
                 .findViewById(R.id.button_back);
@@ -36,7 +48,7 @@ public class Tab_Reddit extends Fragment
                 .findViewById(R.id.button_refresh);
 
         // Configure related browser settings
-        WebSettings wv2 = myWebView2.getSettings();
+        WebSettings wv2 = webView.getSettings();
         wv2.setLoadsImagesAutomatically(true);
         wv2.setLightTouchEnabled(false);
         wv2.setPluginState(WebSettings.PluginState.ON);
@@ -46,42 +58,52 @@ public class Tab_Reddit extends Fragment
         wv2.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
         wv2.setBuiltInZoomControls(true);
         wv2.setUserAgentString("Mozilla/5.0 (Linux; U; Android 2.0; en-us; Droid Build/ESD20) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17");
-        myWebView2.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+        webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
         // Configure the client to use when opening URLs
-        myWebView2.setWebViewClient(new MyBrowser());
+        webView.setWebViewClient(new MyBrowser());
         // Load the initial URL
-        myWebView2.loadUrl(Constants.REDDITURL);
+        webView.loadUrl(Constants.REDDITURL);
 
         // Define back,forward and refresh webview control buttons
         button_back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if(myWebView2.canGoBack()){
-                    myWebView2.goBack();
-                    String msg = getString(R.string.goingback);
-                    Utils.showToast_Short(getActivity(), msg);
-                }
+                if(webView.canGoBack()){
+                    progressLayout.setVisibility(View.VISIBLE);
+                    progressBar.setVisibility(View.VISIBLE);
+                    TextViewProgress.setVisibility(View.VISIBLE);
+                    webView.goBack();
+              }
             }
         });
         button_forward.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if(myWebView2.canGoForward()){
-                    myWebView2.goForward();
-                    String msg = getString(R.string.goingforward);
-                    Utils.showToast_Short(getActivity(), msg);
-                }
+                if(webView.canGoForward()){
+                    progressLayout.setVisibility(View.VISIBLE);
+                    progressBar.setVisibility(View.VISIBLE);
+                    TextViewProgress.setVisibility(View.VISIBLE);
+                    webView.goForward();
+              }
             }
         });
         button_refresh.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                myWebView2.reload();
-                String msg = getString(R.string.refreshing);
-                Utils.showToast_Short(getActivity(), msg);
+                progressLayout.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.VISIBLE);
+                TextViewProgress.setVisibility(View.VISIBLE);
+                String currentURL = webView.getUrl();
+                webView.loadUrl(currentURL);
             }
         });
         return myFragmentView;
     }
+
     // Manages the behavior when URLs are loaded
     private class MyBrowser extends WebViewClient {
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            // TODO Auto-generated method stub
+            super.onPageStarted(view, url, favicon);
+        }
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             if (url.contains("youtube")) {
@@ -90,9 +112,21 @@ public class Tab_Reddit extends Fragment
                 startActivity(intent);
                 return true;
             } else {
+                progressLayout.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.VISIBLE);
+                TextViewProgress.setVisibility(View.VISIBLE);
                 view.loadUrl(url);
                 return true;
             }
+        }
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            // TODO Auto-generated method stub
+            super.onPageFinished(view, url);
+
+            progressLayout.setVisibility(View.GONE);
+            progressBar.setVisibility(View.GONE);
+            TextViewProgress.setVisibility(View.GONE);
         }
         // WebView error handler
         public void onReceivedError (WebView view, int errorCode, String description, String failingUrl) {

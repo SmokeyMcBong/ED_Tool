@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".AppPreferences" />
+        <activity android:name=".preferences.AppPreferences" />
 
     </application>
 

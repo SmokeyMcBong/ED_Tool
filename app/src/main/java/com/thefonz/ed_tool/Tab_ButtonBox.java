@@ -4,7 +4,9 @@ package com.thefonz.ed_tool;
  * Created by thefonz on 18/03/15.
  */
 
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,6 +16,10 @@ import android.widget.Button;
 
 import com.thefonz.ed_tool.tcp_client.CustomKeyMap;
 import com.thefonz.ed_tool.tcp_client.TCPClient;
+import com.thefonz.ed_tool.utils.Utils;
+
+import java.util.Arrays;
+import java.util.Objects;
 
 public class Tab_ButtonBox extends Fragment {
     private TCPClient mTcpClient;
@@ -72,8 +78,20 @@ public class Tab_ButtonBox extends Fragment {
         final Button buttonB_24 = (Button)myFragmentView.findViewById(R.id.buttonB_24);
             buttonB_24.setOnClickListener(onClickListener);
 
-        // TODO : add this 'connect to the server' function as its own button
-        new connectTask().execute("");
+        // Check for saved IP address
+        SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String storedIPAddress = SP.getString("ipAddress", " ");
+        if (Objects.equals(storedIPAddress, " ")) {
+            String msg = "   No saved Server IP address found,\n\nPlease enter the Server IP in the Button-Box settings page";
+            Utils.showToast_Long(getActivity(), msg);
+            Utils.m("" + msg);
+        }
+        else
+        {
+            new connectTask().execute("");
+            String msg = "Server IP Found, Connecting";
+            Utils.m("" + msg);
+        }
 
         return myFragmentView;
     }
@@ -173,9 +191,9 @@ public class Tab_ButtonBox extends Fragment {
             mTcpClient = new TCPClient(new TCPClient.OnMessageReceived() {
                 @Override
                 //here the messageReceived method is implemented
-                public void messageReceived(String key) {
+                public void messageReceived(String message) {
                     //this method calls the onProgressUpdate
-                    publishProgress(key);
+                    publishProgress(message);
                 }
             });
             mTcpClient.run();
@@ -184,14 +202,13 @@ public class Tab_ButtonBox extends Fragment {
         }
 
         @Override
-        protected void onProgressUpdate(String... values) {
-            super.onProgressUpdate(values);
-
-            //in the arrayList we add the messaged received from server
-//            arrayList.add(values[0]);
-            // notify the adapter that the data set has changed. This means that new message received
-            // from server was added to the list
-//            mAdapter.notifyDataSetChanged();
-        }
+        protected void onProgressUpdate(String... message) {
+            super.onProgressUpdate(message);
+            if (Objects.equals(Arrays.toString(message), "[handshakeAccepted]")) {
+                Utils.m("Result from server = " + Arrays.toString(message));
+                Utils.m(" Connection Successful ");
+                Utils.showToast_Short(getActivity(), " Connection Successful ");
+            }
+       }
     }
 }

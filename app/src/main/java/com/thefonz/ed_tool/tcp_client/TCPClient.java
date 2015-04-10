@@ -1,6 +1,14 @@
 package com.thefonz.ed_tool.tcp_client;
 
+import android.app.Application;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
+import android.widget.Toast;
+
+import com.thefonz.ed_tool.MainActivity;
+import com.thefonz.ed_tool.utils.Utils;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -13,10 +21,9 @@ import java.net.Socket;
 /**
  * Created by thefonz on 06/04/15.
  */
-public class TCPClient {
+public class TCPClient extends Application {
 
     private String serverMessage;
-    public static final String SERVERIP = "192.168.1.103"; //your computer IP address
     public static final int SERVERPORT = 4444;
     private OnMessageReceived mMessageListener = null;
     private boolean mRun = false;
@@ -51,7 +58,10 @@ public class TCPClient {
         mRun = true;
 
         try {
-            //here you must put your computer's IP address.
+//           Get saved IP address from preferences and use that to connect to .
+            Context applicationContext = MainActivity.getContextOfApplication();
+            SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(applicationContext);
+            String SERVERIP = SP.getString("ipAddress", "");
             InetAddress serverAddr = InetAddress.getByName(SERVERIP);
 
             Log.e("TCP Client", "C: Connecting...");
@@ -64,7 +74,7 @@ public class TCPClient {
                 //send the key to the server
                 out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
 
-                Log.e("TCP Client", "C: Sent.");
+                Log.e("TCP Client", "C: Sent");
 
                 Log.e("TCP Client", "C: Done.");
 
@@ -80,7 +90,6 @@ public class TCPClient {
                         mMessageListener.messageReceived(serverMessage);
                     }
                     serverMessage = null;
-
                 }
 
                 Log.e("RESPONSE FROM SERVER", "S: Received Message: '" + serverMessage + "'");
@@ -97,15 +106,13 @@ public class TCPClient {
 
         } catch (Exception e) {
 
-            Log.e("TCP", "C: Error", e);
-
+            Log.e("TCP", "E: Error", e);
         }
-
     }
 
     //Declare the interface. The method messageReceived(String message) will must be implemented in the MyActivity
     //class at on asynckTask doInBackground
     public interface OnMessageReceived {
-        public void messageReceived(String key);
+        public void messageReceived(String message);
     }
 }

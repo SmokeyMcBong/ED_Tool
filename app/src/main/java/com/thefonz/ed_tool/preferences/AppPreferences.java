@@ -1,4 +1,4 @@
-package com.thefonz.ed_tool;
+package com.thefonz.ed_tool.preferences;
 
 /**
  * Created by thefonz on 04/04/15.
@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.view.View;
+
+import com.thefonz.ed_tool.R;
 
 public class AppPreferences extends PreferenceActivity {
 

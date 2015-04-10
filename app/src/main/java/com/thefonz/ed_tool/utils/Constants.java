@@ -5,6 +5,6 @@ package com.thefonz.ed_tool.utils;
  */
 public class Constants {
     public final static String TAG = "ED-Tool";
-    public final static String REDDITURL = "http://www.reddit.com/r/EliteDangerous";
-    public final static String RSSFEEDURL = "http://www.elitedangerous.com/news/galnet/rss";
+    public final static String REDDITURL = "http://reddit.com/r/EliteDangerous";
+    public final static String RSSFEEDURL = "http://elitedangerous.com/en/galnet";
 }

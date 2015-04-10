@@ -3,22 +3,21 @@
     android:layout_height="wrap_content"
     android:layout_width="wrap_content">
 
-    <!--<EditTextPreference-->
-        <!--android:title="Your Name"-->
-        <!--android:key="username"-->
-        <!--android:summary="Please provide your username">-->
-    <!--</EditTextPreference>-->
-
-    <PreferenceCategory
+   <PreferenceCategory
         android:title="BUTTON-BOX SETTINGS ..."
         android:selectable="false" >
         <Preference
             android:title="Customize Button-Box Buttons"
+            android:enabled="false"
             android:summary="Set each individual button's commands. \n** NOTE > Currently under development"/>
+        <EditTextPreference
+            android:title="Set Button-Box Server IP Address"
+            android:key="ipAddress"
+            android:summary="Enter the ED_Tool Server IP Address to connect to\nThis can be found listed on the ED_Tool Server app"/>
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="TRADE SETTINGS ..."
+        android:title="TRADE ROUTE SETTINGS ..."
         android:selectable="false" >
         <ListPreference
             android:title="Trade Route Selector"
@@ -35,11 +34,12 @@
         <CheckBoxPreference
             android:title="Check for new versions"
             android:defaultValue="false"
+            android:enabled="false"
             android:summary="This option if selected will allow the application to self-check for updates. \n** NOTE > Currently under development"
             android:key="applicationUpdates" />
         <CheckBoxPreference
             android:title="Enable Immersive Mode"
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:summary="This option if selected will allow the application to run in Fullscreen Immersive Mode"
             android:key="immersiveMode" />
         <ListPreference
@@ -57,11 +57,6 @@
         android:icon="@mipmap/ic_launcher"
         android:selectable="false"
     />
-
-    <!--<Preference-->
-        <!--android:selectable="false"-->
-        <!--android:enabled="false"-->
-    <!--/>-->
 
     <PreferenceCategory
         android:title="GO BACK ...">

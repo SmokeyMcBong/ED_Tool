@@ -3,6 +3,7 @@ package com.thefonz.ed_tool;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -24,14 +25,17 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     ActionBar actionbar;
     ViewPager viewpager;
     FragmentPageTabAdapter ft;
+    public static Context contextOfApplication;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        contextOfApplication = getApplicationContext();
+
         Utils.checkInternet(MainActivity.this);
 
         SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        boolean immersiveMode = SP.getBoolean("immersiveMode", false);
+        boolean immersiveMode = SP.getBoolean("immersiveMode", true);
         String selectTheme = SP.getString("selectTheme", "1");
 
         assert selectTheme != null;
@@ -127,6 +131,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         });
     }
 
+    public static Context getContextOfApplication(){
+        return contextOfApplication;
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -146,13 +154,14 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         {
             // String msg = getString(R.string.placeholder);
             // Utils.showToast_Long(getApplicationContext(), msg);
-            startActivity(new Intent(this, com.thefonz.ed_tool.AppPreferences.class));
+            startActivity(new Intent(this, com.thefonz.ed_tool.preferences.AppPreferences.class));
 
             return true;
         }
         if (id == R.id.action_exit)
         {
             finish();
+            System.exit(0);
           return true;
         }
         return super.onOptionsItemSelected(item);
