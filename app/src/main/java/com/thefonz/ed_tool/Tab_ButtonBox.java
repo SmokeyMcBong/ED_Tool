@@ -4,8 +4,11 @@ package com.thefonz.ed_tool;
  * Created by thefonz on 18/03/15.
  */
 
+import android.app.Activity;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.AsyncTask;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -13,6 +16,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.thefonz.ed_tool.tcp_client.CustomKeyMap;
 import com.thefonz.ed_tool.tcp_client.TCPClient;
@@ -22,11 +28,20 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Tab_ButtonBox extends Fragment {
+
     private TCPClient mTcpClient;
+    LinearLayout progressLayout;
+    ProgressBar progressBar;
+    TextView TextViewProgress;
+    private Handler mHandler = new Handler();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View myFragmentView = inflater.inflate(R.layout.tab_buttonbox, container, false);
+
+        progressLayout = (LinearLayout) myFragmentView.findViewById(R.id.progressLayout);
+        progressBar = (ProgressBar) myFragmentView.findViewById(R.id.progressBar);
+        TextViewProgress = (TextView ) myFragmentView.findViewById(R.id.textViewProgress);
 
         // initialize all buttons and set onclicklisteners for all
         final Button buttonB_1 = (Button)myFragmentView.findViewById(R.id.buttonB_1);
@@ -88,12 +103,37 @@ public class Tab_ButtonBox extends Fragment {
         }
         else
         {
-            new connectTask().execute("");
-            String msg = "Server IP Found, Connecting";
-            Utils.m("" + msg);
+            showBar();
+            mHandler.postDelayed(new Runnable() {
+                public void run() {
+                    hideBar();
+                    new connectTask().execute("");
+                }
+            }, 1500);
         }
-
         return myFragmentView;
+    }
+
+    // Attempt to set screen orientation to Portrait only
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if(isVisibleToUser) {
+            Activity a = getActivity();
+            if(a != null) a.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
+    }
+
+    // Show and Hide the progressbar layout methods...
+    public void showBar() {
+        progressLayout.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
+        TextViewProgress.setVisibility(View.VISIBLE);
+    }
+    public void hideBar() {
+        progressLayout.setVisibility(View.GONE);
+        progressBar.setVisibility(View.GONE);
+        TextViewProgress.setVisibility(View.GONE);
     }
 
     private View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -207,8 +247,15 @@ public class Tab_ButtonBox extends Fragment {
             if (Objects.equals(Arrays.toString(message), "[handshakeAccepted]")) {
                 Utils.m("Result from server = " + Arrays.toString(message));
                 Utils.m(" Connection Successful ");
-                Utils.showToast_Short(getActivity(), " Connection Successful ");
+                showBar();
+                progressBar.setVisibility(View.GONE);
+                TextViewProgress.setText("Connection Successful");
+                mHandler.postDelayed(new Runnable() {
+                    public void run() {
+                        hideBar();
+                    }
+                }, 2000);
             }
-       }
+        }
     }
 }

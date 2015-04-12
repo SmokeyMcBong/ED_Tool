@@ -6,6 +6,7 @@
         <item name="android:colorPrimary">@color/AppThemeDark_primary</item>
         <!--   darker variant for the status bar and contextual app bars -->
         <item name="android:colorPrimaryDark">@color/AppThemeDark_primary_dark</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
         <!--   theme UI controls like checkboxes and text fields -->
         <!--<item name="android:colorAccent">@color/accent</item>-->
         <!--<item name="android:textColorPrimary">@android:color/white</item>-->
@@ -24,4 +25,18 @@
         <item name="android:textColorPrimary">@android:color/white</item>
         <item name="android:textColor">@android:color/black</item>
     </style>
+
+    <!-- Transparent small_dialog Theme -->
+    <style name="small_dialog" parent="@android:style/Theme.Material.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
 </resources>

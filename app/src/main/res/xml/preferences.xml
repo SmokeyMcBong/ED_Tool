@@ -8,8 +8,12 @@
         android:selectable="false" >
         <Preference
             android:title="Customize Button-Box Buttons"
-            android:enabled="false"
-            android:summary="Set each individual button's commands. \n** NOTE > Currently under development"/>
+            android:summary="Set each individual button's commands. \n** NOTE > Currently under development">
+           <intent
+               android:action="android.intent.action.VIEW"
+               android:targetPackage="com.thefonz.ed_tool"
+               android:targetClass="com.thefonz.ed_tool.preferences.Preferences_ButtonBox" />
+       </Preference>
         <EditTextPreference
             android:title="Set Button-Box Server IP Address"
             android:key="ipAddress"

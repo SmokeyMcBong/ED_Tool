@@ -1,6 +1,8 @@
 package com.thefonz.ed_tool;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -86,6 +88,16 @@ public class Tab_Notes extends Fragment {
         });
 
         return myFragmentView;
+    }
+
+    // Attempt to set screen orientation to full sensor
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if(isVisibleToUser) {
+            Activity a = getActivity();
+            if(a != null) a.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR);
+        }
     }
 
     // Check for note file

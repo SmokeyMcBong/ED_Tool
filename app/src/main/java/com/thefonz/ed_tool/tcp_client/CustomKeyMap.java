@@ -1,11 +1,13 @@
 package com.thefonz.ed_tool.tcp_client;
 
-import android.support.v4.app.FragmentActivity;
+import android.app.Application;
+
+import java.util.ArrayList;
 
 /**
  * Created by thefonz on 07/04/15.
  */
-public class CustomKeyMap extends FragmentActivity
+public class CustomKeyMap extends Application
 {
     public static String a = "{A}";
     public static String b = "{B}";
@@ -33,7 +35,26 @@ public class CustomKeyMap extends FragmentActivity
     public static String x = "{X}";
     public static String y = "{Y}";
     public static String z = "{Z}";
-
+    public static String zero = "{0}";
+    public static String one = "{1}";
+    public static String two = "{2}";
+    public static String three = "{3}";
+    public static String four = "{4}";
+    public static String five = "{5}";
+    public static String six = "{6}";
+    public static String seven = "{7}";
+    public static String eight = "{8}";
+    public static String nine = "{9}";
+    public static String nZero = "{N0}";
+    public static String nOne = "{N1}";
+    public static String nTwo = "{N2}";
+    public static String nThree = "{N3}";
+    public static String nFour = "{N4}";
+    public static String nFive = "{N5}";
+    public static String nSix = "{N6}";
+    public static String nSeven = "{N7}";
+    public static String nEight = "{N8}";
+    public static String nNine = "{N9}";
     public static String up = "{UP}";
     public static String down = "{DOWN}";
     public static String left = "{LEFT}";
@@ -53,7 +74,6 @@ public class CustomKeyMap extends FragmentActivity
     public static String prntsc = "{PRTSC}";
     public static String scrolllock = "{SCROLLLOCK}";
     public static String tab = "{TAB}";
-
     public static String f1 = "{F1}";
     public static String f2 = "{F2}";
     public static String f3 = "{F3}";

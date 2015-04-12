@@ -152,10 +152,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         int id = item.getItemId();
         if (id == R.id.action_settings)
         {
-            // String msg = getString(R.string.placeholder);
-            // Utils.showToast_Long(getApplicationContext(), msg);
             startActivity(new Intent(this, com.thefonz.ed_tool.preferences.AppPreferences.class));
-
             return true;
         }
         if (id == R.id.action_exit)

@@ -4,7 +4,9 @@ package com.thefonz.ed_tool;
  * Created by thefonz on 18/03/15.
  */
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -68,9 +70,7 @@ public class Tab_Reddit extends Fragment
         button_back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if(webView.canGoBack()){
-                    progressLayout.setVisibility(View.VISIBLE);
-                    progressBar.setVisibility(View.VISIBLE);
-                    TextViewProgress.setVisibility(View.VISIBLE);
+                    showBar();
                     webView.goBack();
               }
             }
@@ -78,31 +78,49 @@ public class Tab_Reddit extends Fragment
         button_forward.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if(webView.canGoForward()){
-                    progressLayout.setVisibility(View.VISIBLE);
-                    progressBar.setVisibility(View.VISIBLE);
-                    TextViewProgress.setVisibility(View.VISIBLE);
+                    showBar();
                     webView.goForward();
               }
             }
         });
         button_refresh.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                progressLayout.setVisibility(View.VISIBLE);
-                progressBar.setVisibility(View.VISIBLE);
-                TextViewProgress.setVisibility(View.VISIBLE);
+                showBar();
                 String currentURL = webView.getUrl();
                 webView.loadUrl(currentURL);
             }
         });
         return myFragmentView;
     }
+    // Attempt to set screen orientation to full sensor
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if(isVisibleToUser) {
+            Activity a = getActivity();
+            if(a != null) a.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR);
+        }
+    }
+
+    // Show and Hide the progressbar methods...
+    public void showBar() {
+        progressLayout.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
+        TextViewProgress.setVisibility(View.VISIBLE);
+    }
+    public void hideBar() {
+        progressLayout.setVisibility(View.GONE);
+        progressBar.setVisibility(View.GONE);
+        TextViewProgress.setVisibility(View.GONE);
+    }
 
     // Manages the behavior when URLs are loaded
-    private class MyBrowser extends WebViewClient {
+    public class MyBrowser extends WebViewClient {
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
             // TODO Auto-generated method stub
             super.onPageStarted(view, url, favicon);
+            showBar();
         }
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -112,9 +130,7 @@ public class Tab_Reddit extends Fragment
                 startActivity(intent);
                 return true;
             } else {
-                progressLayout.setVisibility(View.VISIBLE);
-                progressBar.setVisibility(View.VISIBLE);
-                TextViewProgress.setVisibility(View.VISIBLE);
+                showBar();
                 view.loadUrl(url);
                 return true;
             }
@@ -123,10 +139,7 @@ public class Tab_Reddit extends Fragment
         public void onPageFinished(WebView view, String url) {
             // TODO Auto-generated method stub
             super.onPageFinished(view, url);
-
-            progressLayout.setVisibility(View.GONE);
-            progressBar.setVisibility(View.GONE);
-            TextViewProgress.setVisibility(View.GONE);
+            hideBar();
         }
         // WebView error handler
         public void onReceivedError (WebView view, int errorCode, String description, String failingUrl) {

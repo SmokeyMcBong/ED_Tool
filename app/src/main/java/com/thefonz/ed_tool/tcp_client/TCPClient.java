@@ -5,10 +5,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.thefonz.ed_tool.MainActivity;
-import com.thefonz.ed_tool.utils.Utils;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -47,10 +45,6 @@ public class TCPClient extends Application {
             out.println(key);
             out.flush();
         }
-    }
-
-    public void stopClient(){
-        mRun = false;
     }
 
     public void run() {
@@ -95,7 +89,6 @@ public class TCPClient extends Application {
                 Log.e("RESPONSE FROM SERVER", "S: Received Message: '" + serverMessage + "'");
 
             } catch (Exception e) {
-
                 Log.e("TCP", "S: Error", e);
 
             } finally {
@@ -103,9 +96,7 @@ public class TCPClient extends Application {
                 // after it is closed, which means a new socket instance has to be created.
                 socket.close();
             }
-
         } catch (Exception e) {
-
             Log.e("TCP", "E: Error", e);
         }
     }
