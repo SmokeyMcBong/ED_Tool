@@ -26,20 +26,22 @@ public class Dialog_Info extends FragmentActivity {
         TextViewInfo = (TextView) this.findViewById(R.id.textViewInfo);
         TextViewInfo.setText(str);
 
-//        final Button buttonInfo = (Button) this.findViewById(R.id.goBack);
-//        buttonInfo.setOnClickListener(onClickListener);
+        Button goBack = (Button) this.findViewById(R.id.goBack);
+
+        goBack.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+//                Intent myIntent = new Intent(Preferences_ListView.this, Dialog_ButtonBox.class);
+//                    myIntent.putExtra("key", buttonFunction); //Optional parameters
+//                Preferences_ListView.this.startActivity(myIntent);
+
+                finish();
+            }
+        });
 
     }
 
-//    private View.OnClickListener onClickListener = new View.OnClickListener() {
-//        @Override
-//        public void onClick(View v) {
-//            switch (v.getId()) {
-//                case R.id.goBack:
-//                    finish();
-//                    //System.exit(0);
-//                break;
-//            }
-//        }
-//    };
+    @Override
+    public void onBackPressed() {
+        // Leave blank if you do not want anything to happen
+    }
 }

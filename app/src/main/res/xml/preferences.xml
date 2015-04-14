@@ -16,6 +16,7 @@
        </Preference>
         <EditTextPreference
             android:title="Set Button-Box Server IP Address"
+            android:inputType="phone"
             android:key="ipAddress"
             android:summary="Enter the ED_Tool Server IP Address to connect to\nThis can be found listed on the ED_Tool Server app"/>
     </PreferenceCategory>

@@ -7,16 +7,15 @@
 
     <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="32dp"
+        android:layout_height="35dp"
         android:background="@color/my_teal">
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#008080"
             android:padding="5dp"
-            android:text=" Select Desired KeyPress ..."
             android:textAlignment="center"
             android:textColor="#fff"
             android:layout_row="1"
@@ -32,6 +31,7 @@
             android:layout_row="1"
             android:layout_column="21"
             android:layout_marginRight="5dp"/>
+
     </GridLayout>
 
     <TableRow
@@ -41,7 +41,19 @@
 
     <ListView
         android:id="@+id/list"
-        android:layout_width="fill_parent"
+        android:layout_width="300dp"
         android:layout_height="200dp"
         android:layout_gravity="center"/>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="25dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go Back"
+        android:id="@+id/goBack"
+        android:layout_gravity="center" />
 </LinearLayout>

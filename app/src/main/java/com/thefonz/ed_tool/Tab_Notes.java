@@ -3,7 +3,6 @@ package com.thefonz.ed_tool;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -14,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.thefonz.ed_tool.utils.Utils;
+import com.thefonz.ed_tool.utils.U;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -139,7 +138,7 @@ public class Tab_Notes extends Fragment {
             button_save.setBackgroundResource(android.R.drawable.btn_default);
             button_save.setEnabled(false);
             button_save.setText("Saved");
-            Utils.showToast_Short(this.getActivity(), msg);
+            U.showToast_Short(this.getActivity(), msg);
 
         } catch (Exception e) {
             e.printStackTrace();

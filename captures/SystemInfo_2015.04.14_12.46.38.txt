@@ -1,0 +1,36 @@
+Activity Resolver Table:
+  Non-Data Actions:
+      android.intent.action.MAIN:
+        1c36c4ae com.thefonz.ed_tool/.ED_Tool filter 2f0a87d8
+          Action: "android.intent.action.MAIN"
+          Category: "android.intent.category.LAUNCHER"
+
+Key Set Manager:
+  [com.thefonz.ed_tool]
+      Signing KeySets: 90
+
+Packages:
+  Package [com.thefonz.ed_tool] (379449f9):
+    userId=10088 gids=[3003]
+    pkg=Package{3fd2f24f com.thefonz.ed_tool}
+    codePath=/data/app/com.thefonz.ed_tool-2
+    resourcePath=/data/app/com.thefonz.ed_tool-2
+    legacyNativeLibraryDir=/data/app/com.thefonz.ed_tool-2/lib
+    primaryCpuAbi=null
+    secondaryCpuAbi=null
+    versionCode=1 targetSdk=22
+    versionName=1.0.1
+    applicationInfo=ApplicationInfo{2abf6ddc com.thefonz.ed_tool}
+    flags=[ DEBUGGABLE HAS_CODE ALLOW_CLEAR_USER_DATA ALLOW_BACKUP ]
+    dataDir=/data/data/com.thefonz.ed_tool
+    supportsScreens=[small, medium, large, xlarge, resizeable, anyDensity]
+    timeStamp=2015-04-14 12:00:56
+    firstInstallTime=2015-04-13 22:42:25
+    lastUpdateTime=2015-04-14 12:00:56
+    signatures=PackageSignatures{37c450ec [1b22fee5]}
+    permissionsFixed=true haveGids=true installStatus=1
+    pkgFlags=[ DEBUGGABLE HAS_CODE ALLOW_CLEAR_USER_DATA ALLOW_BACKUP ]
+    User 0:  installed=true hidden=false stopped=false notLaunched=false enabled=0
+    grantedPermissions:
+      android.permission.ACCESS_NETWORK_STATE
+      android.permission.INTERNET

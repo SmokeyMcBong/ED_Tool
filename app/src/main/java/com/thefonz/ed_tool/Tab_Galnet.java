@@ -26,7 +26,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.thefonz.ed_tool.utils.Constants;
-import com.thefonz.ed_tool.utils.Utils;
+import com.thefonz.ed_tool.utils.U;
 
 public class Tab_Galnet extends Fragment
 {
@@ -156,63 +156,63 @@ public class Tab_Galnet extends Fragment
             final String LOGMETHOD = " onReceivedError ";
             if (errorCode == ERROR_AUTHENTICATION) {
                 String LOGBODY = "ERROR_AUTHENTICATION";
-                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
+                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_BAD_URL) {
                 String LOGBODY = "ERROR_BAD_URL";
-                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
+                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_CONNECT) {
                 String LOGBODY = "ERROR_CONNECT";
-                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
+                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_FAILED_SSL_HANDSHAKE) {
                 String LOGBODY = "ERROR_FAILED_SSL_HANDSHAKE";
-                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
+                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_FILE) {
                 String LOGBODY = "ERROR_FILE";
-                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
+                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_FILE_NOT_FOUND) {
                 String LOGBODY = "ERROR_FILE_NOT_FOUND";
-                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
+                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_HOST_LOOKUP) {
                 String LOGBODY = "ERROR_HOST_LOOKUP";
-                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
+                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_IO) {
                 String LOGBODY = "ERROR_IO";
-                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
+                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_PROXY_AUTHENTICATION) {
                 String LOGBODY = "ERROR_PROXY_AUTHENTICATION";
-                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
+                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_REDIRECT_LOOP) {
                 String LOGBODY = "ERROR_REDIRECT_LOOP";
-                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
+                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_TIMEOUT) {
                 String LOGBODY = "ERROR_TIMEOUT";
-                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
+                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_TOO_MANY_REQUESTS) {
                 String LOGBODY = "ERROR_TOO_MANY_REQUESTS";
-                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
+                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_UNKNOWN) {
                 String LOGBODY = "ERROR_UNKNOWN";
-                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
+                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_UNSUPPORTED_AUTH_SCHEME) {
                 String LOGBODY = "ERROR_UNSUPPORTED_AUTH_SCHEME";
-                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
+                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
             if (errorCode == ERROR_UNSUPPORTED_SCHEME) {
                 String LOGBODY = "ERROR_UNSUPPORTED_SCHEME";
-                Utils.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
+                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
             }
         }
     }

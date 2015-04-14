@@ -18,9 +18,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.thefonz.ed_tool.utils.Utils;
+import com.thefonz.ed_tool.utils.U;
 
-public class MainActivity extends FragmentActivity implements ActionBar.TabListener
+public class ED_Tool extends FragmentActivity implements ActionBar.TabListener
 {
     ActionBar actionbar;
     ViewPager viewpager;
@@ -32,7 +32,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     {
         contextOfApplication = getApplicationContext();
 
-        Utils.checkInternet(MainActivity.this);
+        U.checkInternet(ED_Tool.this);
 
         SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         boolean immersiveMode = SP.getBoolean("immersiveMode", true);
@@ -80,10 +80,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                                                 | View.SYSTEM_UI_FLAG_FULLSCREEN
                                                 | View.SYSTEM_UI_FLAG_IMMERSIVE);
                                 // adjustments to your UI, such as showing the action bar or
-                                // other navigational controls.
-                            } else {
-                                // The system bars are NOT visible. Make any desired changes
-                                // adjustments to your UI, such as hiding the action bar or
                                 // other navigational controls.
                             }
                         }

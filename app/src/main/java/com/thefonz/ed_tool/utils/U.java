@@ -10,7 +10,7 @@ import android.widget.Toast;
 /**
  * Created by thefonz on 26/03/15.
  */
-public class Utils extends Application {
+public class U extends Application {
 
     protected final static String TAG = "ED-Tool";
 
@@ -41,14 +41,14 @@ public class Utils extends Application {
         }
         else if (netInfo != null && (netInfo.getState() == NetworkInfo.State.DISCONNECTED || netInfo.getState() == NetworkInfo.State.DISCONNECTING || netInfo.getState() == NetworkInfo.State.SUSPENDED || netInfo.getState() == NetworkInfo.State.UNKNOWN)){
             String msg = " No Internet Connection Found ! ";
-            Utils.showToast_Long(context.getApplicationContext(), msg);
+            U.showToast_Long(context.getApplicationContext(), msg);
             String LOGBODY = "" + msg;
             LogError(context.getApplicationContext(), TAG, LOGMETHOD, LOGBODY);
             return false;
         }
         else{
             String msg = " No Internet Connection Found ! ";
-            Utils.showToast_Long(context.getApplicationContext(), msg);
+            U.showToast_Long(context.getApplicationContext(), msg);
             String LOGBODY = "" + msg;
             LogError(context.getApplicationContext(), TAG, LOGMETHOD, LOGBODY);
             return false;

@@ -1,23 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="TradeRouteArray">
-        <item>Elite Rare Trader</item>
-        <item>Elite: Dangerous Trader</item>
-        <item>CMDR Club</item>
-    </string-array>
-    <string-array name="TradeRouteValues">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-    <string-array name="ThemeArray">
-        <item>Material Dark Theme</item>
-        <item>Material Light Theme</item>
-    </string-array>
-    <string-array name="ThemeValues">
-        <item>1</item>
-        <item>2</item>
-    </string-array>
     <string-array name="keyValues">
         <item>{A}</item>
         <item>{B}</item>
@@ -88,7 +70,7 @@
         <item>{F2}</item>
         <item>{F3}</item>
         <item>{F4}</item>
-        <item>{F51}</item>
+        <item>{F5}</item>
         <item>{F6}</item>
         <item>{F7}</item>
         <item>{F8}</item>
