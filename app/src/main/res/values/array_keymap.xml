@@ -86,5 +86,19 @@
         <item>{SUBTRACT}</item>
         <item>{MULTIPLY}</item>
         <item>{DIVIDE}</item>
+        <item>{CONTROL}</item>
+        <item>{SHIFT}</item>
+        <item>{ALT}</item>
+        <item>{SLASH}</item>
+        <item>{BACKSLASH}</item>
+        <item>{COMMA}</item>
+        <item>{EQUALS}</item>
+        <item>{OPENBRACKET}</item>
+        <item>{CLOSEBRACKET}</item>
+        <item>{PERIOD}</item>
+        <item>{QUOTE}</item>
+        <item>{BACKQUOTE}</item>
+        <item>{SEMICOLON}</item>
+        <item>{DECIMAL}</item>
     </string-array>
 </resources>

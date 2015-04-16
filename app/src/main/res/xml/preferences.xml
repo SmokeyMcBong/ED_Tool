@@ -69,10 +69,6 @@
             android:key="saveGoBack"
             android:title="Apply and close settings"
             android:summary="Go back to the App">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:targetPackage="com.thefonz.ed_tool"
-                android:targetClass="com.thefonz.ed_tool.utils.SaveRestart" />
         </Preference>
     </PreferenceCategory>
 
