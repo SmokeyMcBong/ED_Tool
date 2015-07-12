@@ -1,15 +1,13 @@
 -------
 | BRAND NEW :  ED_Tool |
 | :------------: |
-| Download Latest Version : [ soon |
+| Download Latest Version :  soon |
 | Show all Releases : [ View all Releases ](https://github.com/SmokeyMcBong/ED_Tool/releases) |
 
 -------
-<br />
-
 <br />  
 
-<center>ED-Tool</center>
+<center>ED_Tool</center>
 ==========================================
 <center>Elite:Dangerous Android Application</center>
 
@@ -38,22 +36,59 @@
 Brief..
 ------------
 
-Elite:Dangerous Android Application
+Elite:Dangerous Android Application with 'sendkey' client/server feature
+
+This was initially started as a little side project as I really wanted all the useful
+features from certain tools in one easy to use app.
+Since then it has continued to slowly grow and become more fleshed out ( and less buggy :) )
 
 <br />
 
 Current Features..
 ------------
-* 
+* 'Android-to-PC Buttonbox' - This is a 24 button, user programmable keystroke sender.   
+Up to 6 consecutive keystrokes can be used within a sequence for each of the 24 buttons.   
+One button for deploying landing gear, another button to request docking, another for.... well , anything you want :)   
+To use this feature, the accompanying Windows application is required... ED_Tool-server : https://github.com/SmokeyMcBong/ED_Tool-server 
+ 
+
+* 'Rare Trading Route planner' - This is direct portal to up to 3 different selectable Rare trade route planning services.  
+Choose between using eliteraretrader, elitedangeroustrader or cmdr.club services  
+Fully interactive view, resizable/zoom with pinch, refreshable, back and forward navigation etc
+
+
+* 'Important Note Jotter' - This is a quick and easy to use note saver.  
+One never ending notepad for all your jotting needs   
+notes are automaticaly reopenned on startup,  
+any changes made to the note will then show that it has been edited and ask you if you want to save :)
+Lightweight and easy on the eyes   
+
+
+* 'Galnet News Feed' - This is a direct full Galnet news feed, bask in it :)  
+Newly updated from the old RSS realms, the Galnet news feed is a great source of information for the galaxy  
+Fully interactive view, resizable/zoom with pinch, refreshable, back and forward navigation etc
+
+
+* 'Elite:Dangerous Subreddit' - This is a direct full portal to the Elite:Dangerous Subreddit.  
+Fully interactive view, resizable/zoom with pinch, refreshable, back and forward navigation etc 
+
+
+* 'Settings' - Here we have the settings page for ED_Tool.  
+Buttonbox buttons customization  
+Set Buttonbox Server IP Address  
+Trade Route Planner Selector  
+New Version Checker [*To be added soon]  
+Enable Immersive Mode/Fullscreen Mode  
+Select App Theme [Custom Material Dark and Material Light Themes]  
 
 
 <br />
 
 Planned Feature's..
 ------------
-* Make some functions a bit smarter with automation
-
-<br />
+* Add Modifier keystroke (ie. shift+ , or ctrl+ )
+* Add More functions/keystrokes per button
+* etc, etc
 
 
 <br />
