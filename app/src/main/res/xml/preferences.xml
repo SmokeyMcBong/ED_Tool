@@ -58,7 +58,7 @@
 
     <Preference
         android:title=" ED_Tool"
-        android:summary=" Version 2.0 \n Written by \'theFONZ\'"
+        android:summary=" Version 2.0.0 -RC1507 \n Written by \'theFONZ\'"
         android:icon="@mipmap/ic_launcher"
         android:selectable="false"
     />
