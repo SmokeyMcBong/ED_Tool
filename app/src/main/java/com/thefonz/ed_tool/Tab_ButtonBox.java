@@ -484,6 +484,9 @@ public class Tab_ButtonBox extends Fragment {
                 public void messageReceived(String message) {
                     //this method calls the onProgressUpdate
                     publishProgress(message);
+                    if (mTcpClient != null) {
+                        mTcpClient.sendMessage("OK");
+                    }
                 }
             });
             mTcpClient.run();
