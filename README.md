@@ -2,7 +2,7 @@
 | BRAND NEW :  ED_Tool |
 | :------------: |
 | Download Latest Version :  [ v2.0.0 -RC1507 ](https://github.com/SmokeyMcBong/ED_Tool/releases/tag/v2.0.0-RC15%2F07) |
-| Show all Releases : [ View all Releases ](https://github.com/SmokeyMcBong/ED_Tool/releases) |
+| Older Releases : [ View all Releases ](https://github.com/SmokeyMcBong/ED_Tool/releases) |
 
 -------
 <br />  
