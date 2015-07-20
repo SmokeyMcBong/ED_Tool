@@ -16,6 +16,8 @@ import android.widget.Toast;
 import com.thefonz.ed_tool.R;
 import com.thefonz.ed_tool.utils.U;
 
+import java.util.Objects;
+
 /**
  * Created by the_FONZ on 12/04/2015.
  */
@@ -47,6 +49,9 @@ public class Preferences_ListView extends FragmentActivity {
                                     long arg3) {
                 String value = (String) adapter.getItemAtPosition(position);
 
+                if (Objects.equals(value, "Click here to set to default")) {
+                    value = "";
+                }
                 // assuming string and if you want to get the value on click of list item
                 // do what you intend to do on click of listview row
 

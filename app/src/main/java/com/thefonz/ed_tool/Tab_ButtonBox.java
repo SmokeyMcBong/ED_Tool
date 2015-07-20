@@ -497,7 +497,6 @@ public class Tab_ButtonBox extends Fragment {
                 }
             });
             mTcpClient.run();
-
             return null;
         }
 

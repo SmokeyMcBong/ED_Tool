@@ -280,7 +280,6 @@ public class Dialog_ButtonBox extends FragmentActivity {
 
         final Button button6 = (Button) this.findViewById(R.id.button6);
 
-
         // Initiate SharedPreferences - 'myPrefs'
         SharedPreferences myPrefs = this.getSharedPreferences("myPrefs", MODE_WORLD_READABLE);
 

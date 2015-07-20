@@ -31,7 +31,8 @@
             android:id="@+id/button7"
             android:layout_gravity="end"
             android:layout_column="20"
-            android:layout_row="1" />
+            android:layout_row="1"
+            android:visibility="invisible"/>
 
         <Button
             style="?android:attr/buttonStyleSmall"

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="keyValues">
+        <item>Click here to set to default</item>
         <item>{A}</item>
         <item>{B}</item>
         <item>{C}</item>
