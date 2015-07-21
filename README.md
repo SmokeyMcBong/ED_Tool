@@ -75,7 +75,7 @@ Fully interactive view, resizable/zoom with pinch, refreshable, back and forward
 
 * 'Settings' - Here we have the settings page for ED_Tool.  
 Buttonbox buttons customization  
-Reset ALL Buttonbox button functions and names 
+Reset ALL Buttonbox button functions and names   
 Set Buttonbox Server IP Address  
 Trade Route Planner Selector  
 New Version Checker [*To be added soon]  
