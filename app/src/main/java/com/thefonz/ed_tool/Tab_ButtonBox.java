@@ -8,12 +8,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.graphics.Color;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +20,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import com.thefonz.ed_tool.tcp_client.TCPClient;
 import com.thefonz.ed_tool.utils.KeyMap;
 import com.thefonz.ed_tool.utils.U;
@@ -98,8 +96,6 @@ public class Tab_ButtonBox extends Fragment {
             buttonB_23.setOnClickListener(onClickListener);
         final Button buttonB_24 = (Button)myFragmentView.findViewById(R.id.buttonB_24);
             buttonB_24.setOnClickListener(onClickListener);
-
-
 
         // Set each button text relevant to their sharedpreferences
         String passName = myPrefs.getString("Button1name", "");
