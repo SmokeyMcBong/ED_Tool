@@ -75,6 +75,7 @@ Fully interactive view, resizable/zoom with pinch, refreshable, back and forward
 
 * 'Settings' - Here we have the settings page for ED_Tool.  
 Buttonbox buttons customization  
+Reset ALL Buttonbox button functions and names 
 Set Buttonbox Server IP Address  
 Trade Route Planner Selector  
 New Version Checker [*To be added soon]  
@@ -86,6 +87,7 @@ Select App Theme [Custom Material Dark and Material Light Themes]
 
 Planned Feature's..
 ------------
+* Add Auto-Update checker/downloader
 * Add Modifier keystroke (ie. shift+ , or ctrl+ )
 * Add More functions/keystrokes per button
 * etc, etc
