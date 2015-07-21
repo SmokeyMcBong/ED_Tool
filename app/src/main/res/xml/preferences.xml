@@ -8,11 +8,16 @@
         android:selectable="false" >
         <Preference
             android:title="Customize Button-Box Buttons"
-            android:summary="Set each individual button's commands. \n** NOTE > Currently under development">
+            android:summary="Set each individual button's SendKey commands.">
            <intent
                android:action="android.intent.action.VIEW"
                android:targetPackage="com.thefonz.ed_tool"
                android:targetClass="com.thefonz.ed_tool.preferences.Preferences_ButtonBox" />
+       </Preference>
+       <Preference
+           android:key="resetAllPrefs"
+           android:title="Reset ALL Button's back to default state"
+           android:summary=" * Warning : This will set ALL button functions, names and keystrokes back to default">
        </Preference>
         <EditTextPreference
             android:title="Set Button-Box Server IP Address"
@@ -58,7 +63,7 @@
 
     <Preference
         android:title=" ED_Tool"
-        android:summary=" Version 2.0.0 -RC2007 \n Written by \'theFONZ\'"
+        android:summary=" Version 2.0.0 -RC2107 \n Written by \'theFONZ\'"
         android:icon="@mipmap/ic_launcher"
         android:selectable="false"
     />
