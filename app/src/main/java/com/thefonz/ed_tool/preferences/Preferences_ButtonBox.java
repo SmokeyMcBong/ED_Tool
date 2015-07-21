@@ -269,6 +269,7 @@ public class Preferences_ButtonBox extends FragmentActivity {
         else {
             buttonB_24.setText("Button 24");
         }
+
     }
 
     // do stuff
@@ -363,6 +364,7 @@ public class Preferences_ButtonBox extends FragmentActivity {
         editor.putString("buttonNumber", str);
         editor.commit();
         Preferences_ButtonBox.this.startActivity(myIntent);
+//        finish();
     }
 
     @Override
@@ -619,5 +621,6 @@ public class Preferences_ButtonBox extends FragmentActivity {
         else {
             buttonB_24.setText("Button 24");
         }
+
     }
 }

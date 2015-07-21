@@ -18,7 +18,6 @@ public class Dialog_Info extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         Intent intent = getIntent();
         String str = intent.getStringExtra("key"); //if it's a string you stored.
         super.onCreate(savedInstanceState);
@@ -31,13 +30,18 @@ public class Dialog_Info extends FragmentActivity {
 
         goBack.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+//                Intent myIntent = new Intent(Preferences_ListView.this, Dialog_ButtonBox.class);
+//                    myIntent.putExtra("key", buttonFunction); //Optional parameters
+//                Preferences_ListView.this.startActivity(myIntent);
+
                 finish();
             }
         });
+
     }
 
     @Override
     public void onBackPressed() {
-        // Leave blank to do nothing
+        // Leave blank if you do not want anything to happen
     }
 }

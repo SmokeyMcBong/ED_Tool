@@ -29,10 +29,12 @@ public class TCPClient extends Application {
     PrintWriter out;
     BufferedReader in;
 
+
     // OnMessagedReceived listens for the messages received from server
      public TCPClient(OnMessageReceived listener) {
         mMessageListener = listener;
     }
+
 
     // Sends the message entered by client to the server
     public void sendMessage(String key){
@@ -53,6 +55,8 @@ public class TCPClient extends Application {
             String SERVERIP = SP.getString("ipAddress", "");
             InetAddress serverAddr = InetAddress.getByName(SERVERIP);
 
+            Log.e("TCP Client", "C: Connecting...");
+
             // create a socket to make the connection with the server
             Socket socket = new Socket(serverAddr, SERVERPORT);
 
@@ -61,7 +65,11 @@ public class TCPClient extends Application {
                 // send the key to the server
                 out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
 
-                 // receive the message which the server sends back
+                Log.e("TCP Client", "C: Sent");
+
+                Log.e("TCP Client", "C: Done.");
+
+                // receive the message which the server sends back
                 in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
                 // in this while the client listens for the messages sent by the server
@@ -74,6 +82,8 @@ public class TCPClient extends Application {
                     }
                     serverMessage = null;
                 }
+
+                Log.e("RESPONSE FROM SERVER", "S: Received Message: '" + serverMessage + "'");
 
             } catch (Exception e) {
                 Log.e("TCP", "S: Error", e);
@@ -91,6 +101,6 @@ public class TCPClient extends Application {
     // Declare the interface. The method messageReceived(String message) will must be implemented in the MyActivity
     // class at on asynckTask doInBackground
     public interface OnMessageReceived {
-        void messageReceived(String message);
+        public void messageReceived(String message);
     }
 }

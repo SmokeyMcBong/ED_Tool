@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.thefonz.ed_tool.R;
+import com.thefonz.ed_tool.Tab_ButtonBox;
 import com.thefonz.ed_tool.utils.U;
 
 import java.util.Objects;
@@ -24,7 +25,6 @@ public class Dialog_ButtonBox extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         Intent intent = getIntent();
         final String str = intent.getStringExtra("key"); //if it's a string you stored.
         super.onCreate(savedInstanceState);
@@ -34,14 +34,23 @@ public class Dialog_ButtonBox extends FragmentActivity {
         TextViewProgress.setText(" " + str + " Configuration");
 
         final Button buttonInfo = (Button) this.findViewById(R.id.button_info);
+
         final Button goBack = (Button) this.findViewById(R.id.goBack);
+
         final Button saveName = (Button) this.findViewById(R.id.saveName);
+
         final Button button1 = (Button) this.findViewById(R.id.button1);
+
         final Button button2 = (Button) this.findViewById(R.id.button2);
+
         final Button button3 = (Button) this.findViewById(R.id.button3);
+
         final Button button4 = (Button) this.findViewById(R.id.button4);
+
         final Button button5 = (Button) this.findViewById(R.id.button5);
+
         final Button button6 = (Button) this.findViewById(R.id.button6);
+
 
         // Initiate SharedPreferences - 'myPrefs'
         SharedPreferences myPrefs = this.getSharedPreferences("myPrefs", MODE_WORLD_READABLE);
@@ -122,44 +131,75 @@ public class Dialog_ButtonBox extends FragmentActivity {
 
         buttonInfo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+//                Intent myIntent = new Intent(Preferences_ListView.this, Dialog_ButtonBox.class);
+//                    myIntent.putExtra("key", buttonFunction); //Optional parameters
+//                Preferences_ListView.this.startActivity(myIntent);
                 showDialogInfo();
+//                finish();
             }
         });
 
         goBack.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+//                Intent myIntent = new Intent(Dialog_ButtonBox.this, Preferences_ButtonBox.class);
+//                    myIntent.putExtra("key", buttonFunction); //Optional parameters
+//                Dialog_ButtonBox.this.startActivity(myIntent);
                 finish();
             }
         });
 
         button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+//                Intent myIntent = new Intent(Preferences_ListView.this, Dialog_ButtonBox.class);
+//                    myIntent.putExtra("key", buttonFunction); //Optional parameters
+//                Preferences_ListView.this.startActivity(myIntent);
                 showList("Function1");
+//                finish();
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+//                Intent myIntent = new Intent(Preferences_ListView.this, Dialog_ButtonBox.class);
+//                    myIntent.putExtra("key", buttonFunction); //Optional parameters
+//                Preferences_ListView.this.startActivity(myIntent);
                 showList("Function2");
+//                finish();
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+//                Intent myIntent = new Intent(Preferences_ListView.this, Dialog_ButtonBox.class);
+//                    myIntent.putExtra("key", buttonFunction); //Optional parameters
+//                Preferences_ListView.this.startActivity(myIntent);
                 showList("Function3");
+//                finish();
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+//                Intent myIntent = new Intent(Preferences_ListView.this, Dialog_ButtonBox.class);
+//                    myIntent.putExtra("key", buttonFunction); //Optional parameters
+//                Preferences_ListView.this.startActivity(myIntent);
                 showList("Function4");
+//                finish();
             }
         });
         button5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+//                Intent myIntent = new Intent(Preferences_ListView.this, Dialog_ButtonBox.class);
+//                    myIntent.putExtra("key", buttonFunction); //Optional parameters
+//                Preferences_ListView.this.startActivity(myIntent);
                 showList("Function5");
+//                finish();
             }
         });
         button6.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+//                Intent myIntent = new Intent(Preferences_ListView.this, Dialog_ButtonBox.class);
+//                    myIntent.putExtra("key", buttonFunction); //Optional parameters
+//                Preferences_ListView.this.startActivity(myIntent);
                 showList("Function6");
+//                finish();
             }
         });
 
@@ -175,6 +215,8 @@ public class Dialog_ButtonBox extends FragmentActivity {
         Intent myIntent = new Intent(Dialog_ButtonBox.this, Dialog_Info.class);
         myIntent.putExtra("key", str); //Optional parameters
         Dialog_ButtonBox.this.startActivity(myIntent);
+//        onPause();
+//        finish();
     }
 
     public void saveName(String str, String newButtonName) {
@@ -192,15 +234,20 @@ public class Dialog_ButtonBox extends FragmentActivity {
 
     public void showList(String str2) {
         Intent myIntent = new Intent(Dialog_ButtonBox.this, Preferences_ListView.class);
+
         Dialog_ButtonBox.this.startActivity(myIntent);
         SharedPreferences myPrefs = this.getSharedPreferences("myPrefs", MODE_WORLD_READABLE);
         SharedPreferences.Editor editor = myPrefs.edit();
         editor.putString("buttonFunction", str2);
         editor.commit();
+//        finish();
     }
 
     @Override
     public void onBackPressed() {
+//        Intent myIntent = new Intent(Dialog_ButtonBox.this, Preferences_ButtonBox.class);
+//                    myIntent.putExtra("key", buttonFunction); //Optional parameters
+//        Dialog_ButtonBox.this.startActivity(myIntent);
         finish();
     }
 
@@ -216,13 +263,21 @@ public class Dialog_ButtonBox extends FragmentActivity {
         TextViewProgress.setText(" " + str + " Configuration");
 
         final Button buttonInfo = (Button) this.findViewById(R.id.button_info);
+
         final Button goBack = (Button) this.findViewById(R.id.goBack);
+
         final Button saveName = (Button) this.findViewById(R.id.saveName);
+
         final Button button1 = (Button) this.findViewById(R.id.button1);
+
         final Button button2 = (Button) this.findViewById(R.id.button2);
+
         final Button button3 = (Button) this.findViewById(R.id.button3);
+
         final Button button4 = (Button) this.findViewById(R.id.button4);
+
         final Button button5 = (Button) this.findViewById(R.id.button5);
+
         final Button button6 = (Button) this.findViewById(R.id.button6);
 
         // Initiate SharedPreferences - 'myPrefs'
@@ -304,45 +359,81 @@ public class Dialog_ButtonBox extends FragmentActivity {
 
         buttonInfo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+//                Intent myIntent = new Intent(Preferences_ListView.this, Dialog_ButtonBox.class);
+//                    myIntent.putExtra("key", buttonFunction); //Optional parameters
+//                Preferences_ListView.this.startActivity(myIntent);
                 showDialogInfo();
+//                finish();
             }
         });
 
         goBack.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+//                Intent myIntent = new Intent(Dialog_ButtonBox.this, Preferences_ButtonBox.class);
+//                    myIntent.putExtra("key", buttonFunction); //Optional parameters
+//                Dialog_ButtonBox.this.startActivity(myIntent);
                 finish();
             }
         });
 
         button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+//                Intent myIntent = new Intent(Preferences_ListView.this, Dialog_ButtonBox.class);
+//                    myIntent.putExtra("key", buttonFunction); //Optional parameters
+//                Preferences_ListView.this.startActivity(myIntent);
                 showList("Function1");
+//                finish();
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+//                Intent myIntent = new Intent(Preferences_ListView.this, Dialog_ButtonBox.class);
+//                    myIntent.putExtra("key", buttonFunction); //Optional parameters
+//                Preferences_ListView.this.startActivity(myIntent);
                 showList("Function2");
+//                finish();
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+//                Intent myIntent = new Intent(Preferences_ListView.this, Dialog_ButtonBox.class);
+//                    myIntent.putExtra("key", buttonFunction); //Optional parameters
+//                Preferences_ListView.this.startActivity(myIntent);
                 showList("Function3");
+//                finish();
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+//                Intent myIntent = new Intent(Preferences_ListView.this, Dialog_ButtonBox.class);
+//                    myIntent.putExtra("key", buttonFunction); //Optional parameters
+//                Preferences_ListView.this.startActivity(myIntent);
                 showList("Function4");
+//                finish();
             }
         });
         button5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+//                Intent myIntent = new Intent(Preferences_ListView.this, Dialog_ButtonBox.class);
+//                    myIntent.putExtra("key", buttonFunction); //Optional parameters
+//                Preferences_ListView.this.startActivity(myIntent);
                 showList("Function5");
+//                finish();
             }
         });
         button6.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+//                Intent myIntent = new Intent(Preferences_ListView.this, Dialog_ButtonBox.class);
+//                    myIntent.putExtra("key", buttonFunction); //Optional parameters
+//                Preferences_ListView.this.startActivity(myIntent);
                 showList("Function6");
+//                finish();
             }
         });
+
     }
+
 }
+
+
+

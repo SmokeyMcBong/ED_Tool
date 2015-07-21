@@ -123,6 +123,7 @@ public class Tab_Galnet extends Fragment
     private class MyBrowser extends WebViewClient {
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            // TODO Auto-generated method stub
             super.onPageStarted(view, url, favicon);
             showBar();
         }
@@ -141,6 +142,7 @@ public class Tab_Galnet extends Fragment
         }
         @Override
         public void onPageFinished(WebView view, String url) {
+            // TODO Auto-generated method stub
             super.onPageFinished(view, url);
             hideBar();
         }
