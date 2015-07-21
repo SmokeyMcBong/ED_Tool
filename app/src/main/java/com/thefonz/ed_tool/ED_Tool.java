@@ -215,6 +215,6 @@ public class ED_Tool extends FragmentActivity implements ActionBar.TabListener
 
     @Override
     public void onBackPressed() {
-        // Leave blank if you do not want anything to happen
+        // Leave blank to do nothing
     }
 }

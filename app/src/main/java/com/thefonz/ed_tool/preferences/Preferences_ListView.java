@@ -1,18 +1,10 @@
 package com.thefonz.ed_tool.preferences;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
-
+import android.widget.*;
 import com.thefonz.ed_tool.R;
 import com.thefonz.ed_tool.utils.U;
 
@@ -52,8 +44,6 @@ public class Preferences_ListView extends FragmentActivity {
                 if (Objects.equals(value, "Click here to set to default")) {
                     value = "";
                 }
-                // assuming string and if you want to get the value on click of list item
-                // do what you intend to do on click of listview row
 
                 String buttonName = myPrefs.getString("buttonNumber", "");
                 String buttonFunction = myPrefs.getString("buttonFunction", "");
@@ -63,10 +53,7 @@ public class Preferences_ListView extends FragmentActivity {
                 editor.putString(completeOutput, value);
                 U.m(" INPUT RESULTS  " + completeOutput + "" + value);
                 editor.commit();
-//                Intent myIntent = new Intent(Preferences_ListView.this, Dialog_ButtonBox.class);
-//                    myIntent.putExtra("key", str); //Optional parameters
-//                Preferences_ListView.this.startActivity(myIntent);
-//                    finish();
+
                 String msg = "Following keypress was saved...\n\n" +
                         value;
                 U.showToast_Long(getApplicationContext(), msg);
@@ -77,10 +64,6 @@ public class Preferences_ListView extends FragmentActivity {
         Button goBack = (Button) findViewById(R.id.goBack);
         goBack.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-//                Intent myIntent = new Intent(Preferences_ListView.this, Dialog_ButtonBox.class);
-//                    myIntent.putExtra("key", buttonFunction); //Optional parameters
-//                Preferences_ListView.this.startActivity(myIntent);
-
                 finish();
             }
         });
