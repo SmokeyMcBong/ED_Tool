@@ -5,17 +5,13 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
-
 import com.thefonz.ed_tool.ED_Tool;
 import com.thefonz.ed_tool.utils.Constants;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.util.Objects;
 
 /**
  * Created by thefonz on 06/04/15.
@@ -25,7 +21,7 @@ public class TCPClient extends Application {
     protected String serverMessage;
     private OnMessageReceived mMessageListener = null;
     protected boolean mRun = false;
-
+    public static Socket socket;
     PrintWriter out;
     BufferedReader in;
 
@@ -36,6 +32,20 @@ public class TCPClient extends Application {
 
     // Sends the message entered by client to the server
     public void sendMessage(String key){
+        // check to see if the 'key' reveiced is the 'close socket' signal, if it is...
+        // close the socket and set the server to await reconnection
+        if (Objects.equals(key, "CLOSE_SOCKET")) {
+
+            try {
+                if (socket != null) {
+                    socket.shutdownInput();
+                    socket.close();
+                }
+            }catch (IOException e){
+                Log.e("ED_Tool", "S: socket != null error", e);
+            }
+        }
+
         if (out != null && !out.checkError()) {
             out.println(key);
             out.flush();
@@ -54,9 +64,9 @@ public class TCPClient extends Application {
             InetAddress serverAddr = InetAddress.getByName(SERVERIP);
 
             // create a socket to make the connection with the server
+            socket = new Socket(serverAddr, Constants.SERVERPORT);
 
-            try (Socket socket = new Socket(serverAddr, Constants.SERVERPORT)) {
-
+            try {
                 // send the key to the server
                 out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
 
@@ -73,7 +83,6 @@ public class TCPClient extends Application {
                     }
                     serverMessage = null;
                 }
-
             } catch (Exception e) {
                 Log.e("TCP", "S: Error", e);
             }

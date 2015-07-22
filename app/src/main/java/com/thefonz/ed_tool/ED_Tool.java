@@ -17,11 +17,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-
+import com.thefonz.ed_tool.tcp_client.TCPClient;
 import com.thefonz.ed_tool.utils.U;
+
+import static com.thefonz.ed_tool.Tab_ButtonBox.sendKey;
 
 public class ED_Tool extends FragmentActivity implements ActionBar.TabListener
 {
+    public static TCPClient mTcpClient;
     ActionBar actionbar;
     ViewPager viewpager;
     FragmentPageTabAdapter ft;
@@ -148,9 +151,12 @@ public class ED_Tool extends FragmentActivity implements ActionBar.TabListener
         int id = item.getItemId();
         if (id == R.id.action_settings)
         {
+            sendKey("SERVER_RESTART");
+            sendKey("CLOSE_SOCKET");
             startActivity(new Intent(this, com.thefonz.ed_tool.preferences.AppPreferences.class));
             return true;
         }
+
         if (id == R.id.action_exit)
         {
             finish();

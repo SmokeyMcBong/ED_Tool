@@ -477,10 +477,8 @@ public class Tab_ButtonBox extends Fragment {
     }
 
     public class connectTask extends AsyncTask<String,String,TCPClient> {
-
         @Override
         protected TCPClient doInBackground(String... key) {
-
             //we create a TCPClient object and
             mTcpClient = new TCPClient(new TCPClient.OnMessageReceived() {
                 @Override
@@ -511,5 +509,14 @@ public class Tab_ButtonBox extends Fragment {
                 }, 2000);
             }
         }
+    }
+
+    @Override
+    public void onDestroyView() {
+        // when this fragment/view is destroyed we will send a message to the server to
+        // close the socket and set the server to start again and await reconnection.
+        sendKey("SERVER_RESTART");
+        sendKey("CLOSE_SOCKET");
+        super.onDestroyView();
     }
 }
