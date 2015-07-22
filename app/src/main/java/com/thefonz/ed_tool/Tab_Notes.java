@@ -30,6 +30,8 @@ public class Tab_Notes extends Fragment {
     EditText textmsg;
     static final int READ_BLOCK_SIZE = 100;
 
+    protected String FILENAME = (String.valueOf(R.string.note_filename));
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         final View myFragmentView = inflater.inflate(R.layout.tab_notes, container, false);
@@ -61,7 +63,7 @@ public class Tab_Notes extends Fragment {
             @Override
             public void afterTextChanged(Editable s) {
                 try {
-                    FileInputStream fileIn=getActivity().openFileInput("mytextfile.txt");
+                    FileInputStream fileIn=getActivity().openFileInput(FILENAME);
                     InputStreamReader InputRead= new InputStreamReader(fileIn);
 
                     char[] inputBuffer= new char[READ_BLOCK_SIZE];
@@ -78,7 +80,7 @@ public class Tab_Notes extends Fragment {
                     if (!Objects.equals(str, str_et)) {
                         button_save.setEnabled(true);
                         button_save.setBackgroundColor(getResources().getColor(R.color.my_teal));
-                        button_save.setText("Save Now");
+                        button_save.setText(getString(R.string.save_now));
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -102,11 +104,7 @@ public class Tab_Notes extends Fragment {
     // Check for note file
     public void CheckForFile(View context) {
 
-        String FILENAME = "mytextfile.txt";
         String string = "";
-
-        String LOGMETHOD = " CheckForFile ";
-        String LOGBODY = " file exists ";
 
         File file = getActivity().getFileStreamPath(FILENAME);
 
@@ -126,18 +124,18 @@ public class Tab_Notes extends Fragment {
     public void SaveNote(View v) {
         // add-write text into file
         try {
-            FileOutputStream fileout=getActivity().openFileOutput("mytextfile.txt", Context.MODE_PRIVATE);
+            FileOutputStream fileout=getActivity().openFileOutput(FILENAME, Context.MODE_PRIVATE);
             OutputStreamWriter outputWriter=new OutputStreamWriter(fileout);
             String text = textmsg.getText().toString();
             outputWriter.write(text);
             outputWriter.close();
 
             //display file saved message
-            String msg = "Note saved !";
+            String msg = getString(R.string.note_saved);
             final Button button_save = (Button) getActivity().findViewById(R.id.button1);
             button_save.setBackgroundResource(android.R.drawable.btn_default);
             button_save.setEnabled(false);
-            button_save.setText("Saved");
+            button_save.setText(R.string.saved);
             U.showToast_Short(this.getActivity(), msg);
 
         } catch (Exception e) {
@@ -149,7 +147,7 @@ public class Tab_Notes extends Fragment {
     public void ReadNote(View v) {
         //reading text from file
         try {
-            FileInputStream fileIn=getActivity().openFileInput("mytextfile.txt");
+            FileInputStream fileIn=getActivity().openFileInput(FILENAME);
             InputStreamReader InputRead= new InputStreamReader(fileIn);
 
             char[] inputBuffer= new char[READ_BLOCK_SIZE];

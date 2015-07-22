@@ -166,12 +166,16 @@ public class Dialog_ButtonBox extends FragmentActivity {
     }
 
     public void showDialogInfo() {
+        String line1 = getString(R.string.dialog_info_line1);
+        String line2 = getString(R.string.dialog_info_line2);
+        String line3 = getString(R.string.dialog_info_line3);
+        String line4 = getString(R.string.dialog_info_line4);
         String str = "\n\n" +
-                "This is where we will set the Keypress function up to a 6 keypress macro ...\n\n" +
-                "If you wish to set just a single Keypress then press 'Function 1' and select the kepress you wish to use\n" +
+                line1 + "\n\n" +
+                line2 + "\n" +
                 "\n" +
-                "To add more than one Keypress select each function in numerical order from 1 - 6\n\n" +
-                "Once you have finished configuring this button's functions, press 'Go Back' to return to the previous menu\n\n";
+                line3 + "\n\n" +
+                line4 + "\n\n";
         Intent myIntent = new Intent(Dialog_ButtonBox.this, Dialog_Info.class);
         myIntent.putExtra("key", str); //Optional parameters
         Dialog_ButtonBox.this.startActivity(myIntent);
@@ -184,7 +188,7 @@ public class Dialog_ButtonBox extends FragmentActivity {
         editor.putString(completeString, newButtonName);
         editor.commit();
         if (!Objects.equals(newButtonName, "")) {
-            String msg = "Following button name was saved...\n\n" +
+            String msg = getString(R.string.button_saved_name) + "\n\n" +
                     newButtonName;
             U.showToast_Long(getApplicationContext(), msg);
         }

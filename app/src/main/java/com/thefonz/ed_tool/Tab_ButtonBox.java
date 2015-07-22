@@ -222,7 +222,9 @@ public class Tab_ButtonBox extends Fragment {
         SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getActivity());
         String storedIPAddress = SP.getString("ipAddress", " ");
         if (Objects.equals(storedIPAddress, " ")) {
-            String msg = "   No saved Server IP address found,\n\nPlease enter the Server IP in the Button-Box settings page";
+            String line1 = getString(R.string.no_server_line1);
+            String line2 = getString(R.string.no_server_line2);
+            String msg = "   " + line1 + "\n\n" + line2;
             U.showToast_Long(getActivity(), msg);
             U.m("" + msg);
          }
@@ -500,11 +502,9 @@ public class Tab_ButtonBox extends Fragment {
         protected void onProgressUpdate(String... message) {
             super.onProgressUpdate(message);
             if (Objects.equals(Arrays.toString(message), "[handshakeAccepted]")) {
-                U.m("Result from server = " + Arrays.toString(message));
-                U.m(" Connection Successful ");
                 showBar();
                 progressBar.setVisibility(View.GONE);
-                TextViewProgress.setText("Connection Successful");
+                TextViewProgress.setText(R.string.handshake_ok);
                 mHandler.postDelayed(new Runnable() {
                     public void run() {
                         hideBar();

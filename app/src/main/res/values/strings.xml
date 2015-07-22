@@ -1,10 +1,10 @@
 <resources>
+    <!--General UI Strings-->
     <string name="app_name">ED_Tool</string>
     <string name="action_exit">Exit!</string>
     <string name="action_about">About</string>
     <string name="about_body">      ED_Tool \n \n Created by \'theFONZ\' </string>
     <string name="action_settings">Settings</string>
-    <string name="tab_intro">Intro</string>
     <string name="tab_buttonbox">Button-Box</string>
     <string name="tab_rares">Rare Trading</string>
     <string name="tab_notes">Note\'s</string>
@@ -17,8 +17,24 @@
     <string name="loading">Loading\.\.\.</string>
     <string name="goingback">Going Back</string>
     <string name="goingforward">Going Forward</string>
-    <string name="placeholder">This is a place-holder message</string>
+    <string name="note_saved">Note saved !</string>
+    <string name="saved">Saved"</string>
+    <string name="save_now">Save Now</string>
+    <!--Various Strings-->
+    <string name="reset_all_confirm">Reset ALL Button\'s back to default ? </string>
+    <string name="dialog_info_line1">This is where we will set the Keypress function up to a 6 keypress macro ..</string>
+    <string name="dialog_info_line2">If you wish to set just a single Keypress then press \'Function 1\' and select the kepress you wish to use</string>
+    <string name="dialog_info_line3">To add more than one Keypress select each function in numerical order from 1 to 6</string>
+    <string name="dialog_info_line4">Once you have finished configuring this button\'s function\s, press \'Go Back\' to return to the previous menu</string>
+    <string name="button_saved_name">Following button name was saved..</string>
+    <string name="button_saved_keypress">Following keypress was saved..</string>
+    <string name="select_keypress"> Select Desired KeyPress for </string>
+    <string name="no_server_line1">No saved Server IP address found..</string>
+    <string name="no_server_line2">Please enter the Server IP in the Button-Box settings page</string>
+    <string name="handshake_ok">Connection Successful</string>
+    <string name="note_filename">ED_Tool_Note</string>
     <!--Error Handler Strings-->
+    <string name="ERROR_NO_NET">No Internet Connection Found !></string>
     <string name="ERROR_AUTHENTICATION">User authentication failed on server</string>
     <string name="ERROR_BAD_URL">Malformed URL</string>
     <string name="ERROR_CONNECT">Failed to connect to the server</string>

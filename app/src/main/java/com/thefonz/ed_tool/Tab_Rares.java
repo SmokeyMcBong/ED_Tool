@@ -49,13 +49,13 @@ public class Tab_Rares extends Fragment
 
         assert downloadType != null;
             if (downloadType.equalsIgnoreCase("1")) {
-                TRADEURL = "http://www.eliteraretrader.co.uk";
+                TRADEURL = Constants.TRADEURL1;
             }
             else if (downloadType.equalsIgnoreCase("2")) {
-                TRADEURL = "http://www.elitedangeroustrader.co.uk/trade-routes-calculator/";
+                TRADEURL = Constants.TRADEURL2;
             }
             else if (downloadType.equalsIgnoreCase("3")) {
-                TRADEURL = "http://www.cmdr.club/routes/";
+                TRADEURL = Constants.TRADEURL3;
             }
 
         final Button button_back = (Button) myFragmentView

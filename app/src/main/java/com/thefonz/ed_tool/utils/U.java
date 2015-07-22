@@ -6,13 +6,12 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
 import android.widget.Toast;
+import com.thefonz.ed_tool.R;
 
 /**
  * Created by thefonz on 26/03/15.
  */
 public class U extends Application {
-
-    protected final static String TAG = "ED-Tool";
 
     // Toast calls
     public static void showToast_Short(Context context, String text) {
@@ -21,6 +20,7 @@ public class U extends Application {
     public static void showToast_Long(Context context, String text) {
         Toast.makeText(context, text, Toast.LENGTH_LONG).show();
     }
+
     /**
      * This method checks if the device has an active internet
      * connection or not.
@@ -31,29 +31,23 @@ public class U extends Application {
      *      Returns true if there is internet connectivity
      */
     public static Boolean checkInternet(Context context){
-        final String LOGMETHOD = " checkInternet ";
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         if (netInfo != null && netInfo.isConnectedOrConnecting()){
-            String LOGBODY = " Network Connection Found ! ";
-            LogSuccess(context.getApplicationContext(), TAG, LOGMETHOD, LOGBODY);
             return true;
         }
         else if (netInfo != null && (netInfo.getState() == NetworkInfo.State.DISCONNECTED || netInfo.getState() == NetworkInfo.State.DISCONNECTING || netInfo.getState() == NetworkInfo.State.SUSPENDED || netInfo.getState() == NetworkInfo.State.UNKNOWN)){
-            String msg = " No Internet Connection Found ! ";
+            String msg = String.valueOf(R.string.ERROR_NO_NET);
             U.showToast_Long(context.getApplicationContext(), msg);
-            String LOGBODY = "" + msg;
-            LogError(context.getApplicationContext(), TAG, LOGMETHOD, LOGBODY);
             return false;
         }
         else{
             String msg = " No Internet Connection Found ! ";
             U.showToast_Long(context.getApplicationContext(), msg);
-            String LOGBODY = "" + msg;
-            LogError(context.getApplicationContext(), TAG, LOGMETHOD, LOGBODY);
             return false;
         }
     }
+
     // Error Logging
     public static void LogSuccess(Context context, String TAG, String LOGMETHOD, String LOGBODY) {
         Log.i(TAG, LOGMETHOD + " Success ! " + LOGBODY);

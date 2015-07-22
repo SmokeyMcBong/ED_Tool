@@ -33,7 +33,7 @@ public class Preferences_ListView extends FragmentActivity {
         final String buttonFunction = myPrefs.getString("buttonFunction", "");
 
         title = (TextView) this.findViewById(R.id.title);
-        title.setText(" Select Desired KeyPress for " + buttonFunction + " ... " );
+        title.setText(getString(R.string.select_keypress) + " " + buttonFunction + " ... " );
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -51,10 +51,9 @@ public class Preferences_ListView extends FragmentActivity {
 
                 SharedPreferences.Editor editor = myPrefs.edit();
                 editor.putString(completeOutput, value);
-                U.m(" INPUT RESULTS  " + completeOutput + "" + value);
                 editor.commit();
 
-                String msg = "Following keypress was saved...\n\n" +
+                String msg = getString(R.string.button_saved_keypress) + "\n\n" +
                         value;
                 U.showToast_Long(getApplicationContext(), msg);
                 finish();

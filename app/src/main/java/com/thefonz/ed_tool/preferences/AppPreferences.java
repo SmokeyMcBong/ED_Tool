@@ -49,7 +49,7 @@ public class AppPreferences extends PreferenceActivity {
         myPrefReset.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             public boolean onPreferenceClick(Preference preference) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(AppPreferences.this);
-                builder.setTitle("Reset ALL Button's back to default ? ");
+                builder.setTitle(R.string.reset_all_confirm);
                 builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // reset all button preferences...
