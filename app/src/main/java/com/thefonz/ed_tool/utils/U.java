@@ -6,12 +6,13 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
 import android.widget.Toast;
-import com.thefonz.ed_tool.R;
 
 /**
  * Created by thefonz on 26/03/15.
  */
 public class U extends Application {
+
+    protected final static String noNet = " No Internet Connection Detected ! ";
 
     // Toast calls
     public static void showToast_Short(Context context, String text) {
@@ -37,13 +38,11 @@ public class U extends Application {
             return true;
         }
         else if (netInfo != null && (netInfo.getState() == NetworkInfo.State.DISCONNECTED || netInfo.getState() == NetworkInfo.State.DISCONNECTING || netInfo.getState() == NetworkInfo.State.SUSPENDED || netInfo.getState() == NetworkInfo.State.UNKNOWN)){
-            String msg = String.valueOf(R.string.ERROR_NO_NET);
-            U.showToast_Long(context.getApplicationContext(), msg);
+            U.showToast_Long(context.getApplicationContext(), noNet);
             return false;
         }
         else{
-            String msg = " No Internet Connection Found ! ";
-            U.showToast_Long(context.getApplicationContext(), msg);
+            U.showToast_Long(context.getApplicationContext(), noNet);
             return false;
         }
     }

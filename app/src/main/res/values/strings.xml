@@ -32,7 +32,6 @@
     <string name="no_server_line1">No saved Server IP address found..</string>
     <string name="no_server_line2">Please enter the Server IP in the Button-Box settings page</string>
     <string name="handshake_ok">Connection Successful</string>
-    <string name="note_filename">ED_Tool_Note</string>
     <!--Error Handler Strings-->
     <string name="ERROR_NO_NET">No Internet Connection Found !></string>
     <string name="ERROR_AUTHENTICATION">User authentication failed on server</string>

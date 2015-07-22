@@ -226,8 +226,7 @@ public class Tab_ButtonBox extends Fragment {
             String line2 = getString(R.string.no_server_line2);
             String msg = "   " + line1 + "\n\n" + line2;
             U.showToast_Long(getActivity(), msg);
-            U.m("" + msg);
-         }
+        }
         else
         {
             showBar();

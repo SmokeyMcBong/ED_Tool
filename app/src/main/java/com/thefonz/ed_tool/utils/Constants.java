@@ -10,5 +10,6 @@ public class Constants {
     public final static String TRADEURL1 = "http://www.eliteraretrader.co.uk";
     public final static String TRADEURL2 = "http://www.elitedangeroustrader.co.uk/trade-routes-calculator/";
     public final static String TRADEURL3 = "http://www.cmdr.club/routes/";
-    public static final int SERVERPORT = 4444;
+    public final static String NOTE_FILENAME = "ED_Tool_Note";
+    public final static int SERVERPORT = 4444;
 }

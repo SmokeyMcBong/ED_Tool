@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.thefonz.ed_tool.utils.Constants;
 import com.thefonz.ed_tool.utils.U;
 
 import java.io.File;
@@ -29,8 +30,6 @@ public class Tab_Notes extends Fragment {
 
     EditText textmsg;
     static final int READ_BLOCK_SIZE = 100;
-
-    protected String FILENAME = (String.valueOf(R.string.note_filename));
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
@@ -63,7 +62,7 @@ public class Tab_Notes extends Fragment {
             @Override
             public void afterTextChanged(Editable s) {
                 try {
-                    FileInputStream fileIn=getActivity().openFileInput(FILENAME);
+                    FileInputStream fileIn=getActivity().openFileInput(Constants.NOTE_FILENAME);
                     InputStreamReader InputRead= new InputStreamReader(fileIn);
 
                     char[] inputBuffer= new char[READ_BLOCK_SIZE];
@@ -106,12 +105,12 @@ public class Tab_Notes extends Fragment {
 
         String string = "";
 
-        File file = getActivity().getFileStreamPath(FILENAME);
+        File file = getActivity().getFileStreamPath(Constants.NOTE_FILENAME);
 
         if(!file.exists()) {
             // add-write text into file
             try {
-                FileOutputStream fos = getActivity().openFileOutput(FILENAME, Context.MODE_PRIVATE);
+                FileOutputStream fos = getActivity().openFileOutput(Constants.NOTE_FILENAME, Context.MODE_PRIVATE);
                 fos.write(string.getBytes());
                 fos.close();
             } catch (Exception e) {
@@ -124,7 +123,7 @@ public class Tab_Notes extends Fragment {
     public void SaveNote(View v) {
         // add-write text into file
         try {
-            FileOutputStream fileout=getActivity().openFileOutput(FILENAME, Context.MODE_PRIVATE);
+            FileOutputStream fileout=getActivity().openFileOutput(Constants.NOTE_FILENAME, Context.MODE_PRIVATE);
             OutputStreamWriter outputWriter=new OutputStreamWriter(fileout);
             String text = textmsg.getText().toString();
             outputWriter.write(text);
@@ -147,7 +146,7 @@ public class Tab_Notes extends Fragment {
     public void ReadNote(View v) {
         //reading text from file
         try {
-            FileInputStream fileIn=getActivity().openFileInput(FILENAME);
+            FileInputStream fileIn=getActivity().openFileInput(Constants.NOTE_FILENAME);
             InputStreamReader InputRead= new InputStreamReader(fileIn);
 
             char[] inputBuffer= new char[READ_BLOCK_SIZE];
