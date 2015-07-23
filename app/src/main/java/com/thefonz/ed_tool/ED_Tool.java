@@ -159,6 +159,8 @@ public class ED_Tool extends FragmentActivity implements ActionBar.TabListener
 
         if (id == R.id.action_exit)
         {
+            sendKey("SERVER_RESTART");
+            sendKey("CLOSE_SOCKET");
             finish();
             System.exit(0);
           return true;
