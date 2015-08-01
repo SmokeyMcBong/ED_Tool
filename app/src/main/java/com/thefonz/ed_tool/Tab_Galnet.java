@@ -54,14 +54,14 @@ public class Tab_Galnet extends Fragment
 
         // Configure related browser settings
         WebSettings wv3 = webView.getSettings();
-        webView.setInitialScale(150);
-        wv3.setLoadsImagesAutomatically(false);
+        webView.setInitialScale(125);
+//        wv3.setLoadsImagesAutomatically(false);
         wv3.setLightTouchEnabled(false);
         wv3.setPluginState(WebSettings.PluginState.ON);
         wv3.setJavaScriptEnabled(true);
         wv3.setLoadWithOverviewMode(true);
         wv3.setUseWideViewPort(false);
-        wv3.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+//        wv3.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
         wv3.setBuiltInZoomControls(true);
         wv3.setUserAgentString("Mozilla/5.0 (Linux; U; Android 2.0; en-us; Droid Build/ESD20) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17");
         webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);

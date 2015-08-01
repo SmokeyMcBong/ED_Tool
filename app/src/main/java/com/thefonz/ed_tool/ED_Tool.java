@@ -93,6 +93,7 @@ public class ED_Tool extends FragmentActivity implements ActionBar.TabListener
         ft = new FragmentPageTabAdapter(getSupportFragmentManager());
 
         viewpager = (ViewPager) findViewById(R.id.pager);
+        viewpager.setOffscreenPageLimit(4);
         viewpager.setAdapter(ft);
 
         //add tabs to the action bar
