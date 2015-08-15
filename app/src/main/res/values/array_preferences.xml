@@ -11,11 +11,19 @@
         <item>3</item>
     </string-array>
     <string-array name="ThemeArray">
-        <item>Material Dark Theme</item>
-        <item>Material Light Theme</item>
+        <item>Default Material Dark Theme</item>
+        <item>Material Blue Theme</item>
+        <!--<item>Material Green Theme</item>
+        <item>Material Red Theme</item>
+        <item>Material Brown Theme</item>
+        <item>Material Yellow Theme</item>-->
     </string-array>
     <string-array name="ThemeValues">
         <item>1</item>
         <item>2</item>
+        <!--<item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>-->
     </string-array>
 </resources>

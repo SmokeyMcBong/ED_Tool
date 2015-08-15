@@ -1,3 +1,7 @@
+/**
+ * Created by theFONZ on 01/08/2015.
+ */
+
 package com.thefonz.ed_tool;
 
 import android.app.ActionBar;
@@ -15,117 +19,146 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.WindowManager;
 import com.thefonz.ed_tool.tcp_client.TCPClient;
-import com.thefonz.ed_tool.utils.U;
+import com.thefonz.ed_tool.theme_manager.ThemeManager;
+import com.thefonz.ed_tool.update_manager.UpdateManager;
+import com.thefonz.ed_tool.utils.Constants;
+import com.thefonz.ed_tool.utils.Helper;
+
+import java.util.ArrayList;
 
 import static com.thefonz.ed_tool.Tab_ButtonBox.sendKey;
 
-public class ED_Tool extends FragmentActivity implements ActionBar.TabListener
-{
-    public static TCPClient mTcpClient;
-    ActionBar actionbar;
-    ViewPager viewpager;
-    FragmentPageTabAdapter ft;
-    public static Context contextOfApplication;
+public class ED_Tool extends FragmentActivity implements ActionBar.TabListener {
+
+    private ActionBar actionbar;
+    private ViewPager viewpager;
+
+    private static Context contextOfApplication;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
+
+        // Define Application Context
         contextOfApplication = getApplicationContext();
 
-        U.checkInternet(ED_Tool.this);
+        // Check for active internet connection
+        Boolean checkInternet = UpdateManager.checkInternet(contextOfApplication);
+        if (!checkInternet) {
+            Helper.showToast_Short(contextOfApplication, Constants.noNet);
+        }
 
         SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        boolean immersiveMode = SP.getBoolean("immersiveMode", true);
-        String selectTheme = SP.getString("selectTheme", "1");
+        boolean applicationUpdates = SP.getBoolean("applicationUpdates", true);
+        boolean raresOnOff = SP.getBoolean("raresOnOff", true);
+        boolean calculatorOnOff = SP.getBoolean("calculatorOnOff", true);
+        boolean notesOnOff = SP.getBoolean("notesOnOff", true);
+        boolean galnetOnOff = SP.getBoolean("galnetOnOff", true);
+        boolean redditOnOff = SP.getBoolean("redditOnOff", true);
 
-        assert selectTheme != null;
-        if (selectTheme.equalsIgnoreCase("1")) {
-            setTheme(R.style.AppThemeDark);
+        boolean rares = false;
+        boolean calculator = false;
+        boolean notes = false;
+        boolean galnet = false;
+        boolean reddit = false;
+
+        // Create The Tab List ArrayList depending on which features/tabs are enabled in preferences ..
+        ArrayList<Fragment> list = new ArrayList<Fragment>();
+
+        // Button Box tab will be non removable, so always add this Tab to the list
+        list.add(new Tab_ButtonBox());
+
+        int maxPageLimit = 1;
+
+        // Make preferences checks and set following tabs accordingly
+        if (raresOnOff) {
+            rares = true;
+            list.add(new Tab_Rares());
+            maxPageLimit = maxPageLimit + 1;
         }
-        else
-        {
-            setTheme(R.style.AppThemeLight);
+        if (calculatorOnOff) {
+            calculator = true;
+            list.add(new Tab_Calculator());
+            maxPageLimit = maxPageLimit + 1;
+        }
+        if (notesOnOff) {
+            notes = true;
+            list.add(new Tab_Notes());
+            maxPageLimit = maxPageLimit + 1;
+        }
+        if (galnetOnOff) {
+            galnet = true;
+            list.add(new Tab_Galnet());
+            maxPageLimit = maxPageLimit + 1;
+        }
+        if (redditOnOff) {
+            reddit = true;
+            list.add(new Tab_Reddit());
+            maxPageLimit = maxPageLimit + 1;
+        }
+
+        // Set theme according to Preference setting
+        ThemeManager.onActivityCreateSetTheme(this);
+
+        if (applicationUpdates) {
+            // Call fileStructureCheck() and checkUpdate() methods if auto update check is enabled
+            UpdateManager.fileStructureCheck();
+            UpdateManager.checkUpdate(contextOfApplication);
         }
 
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
 
-        final View decorView = getWindow().getDecorView();
-
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
-        if (immersiveMode) {
-            // Set immersive mode
-            decorView.setSystemUiVisibility(
-                    View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                            | View.SYSTEM_UI_FLAG_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_IMMERSIVE);
-
-            // Register UI change listener to re-set immersive mode if refocused
-            decorView.setOnSystemUiVisibilityChangeListener
-                    (new View.OnSystemUiVisibilityChangeListener() {
-                        @Override
-                        public void onSystemUiVisibilityChange(int visibility) {
-                            // Note that system bars will only be "visible" if none of the
-                            // LOW_PROFILE, HIDE_NAVIGATION, or FULLSCREEN flags are set.
-                            if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
-                                // The system bars are visible. Make any desired changes
-                                decorView.setSystemUiVisibility(
-                                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                                                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                                                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                                                | View.SYSTEM_UI_FLAG_FULLSCREEN
-                                                | View.SYSTEM_UI_FLAG_IMMERSIVE);
-                                // adjustments to your UI, such as showing the action bar or
-                                // other navigational controls.
-                            }
-                        }
-                    });
-        }
-
         //instantiate the custom adapter
-        ft = new FragmentPageTabAdapter(getSupportFragmentManager());
+        FragmentPageTabAdapter ft = new FragmentPageTabAdapter(getSupportFragmentManager(), list);
 
+        // set viewpager
         viewpager = (ViewPager) findViewById(R.id.pager);
-        viewpager.setOffscreenPageLimit(4);
+        viewpager.setOffscreenPageLimit(maxPageLimit);
         viewpager.setAdapter(ft);
 
         //add tabs to the action bar
         actionbar = getActionBar();
+        assert actionbar != null;
         actionbar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        actionbar.addTab(actionbar.newTab().setText(R.string.tab_buttonbox).setTabListener(this));
-        actionbar.addTab(actionbar.newTab().setText(R.string.tab_rares).setTabListener(this));
-        actionbar.addTab(actionbar.newTab().setText(R.string.tab_notes).setTabListener(this));
-        actionbar.addTab(actionbar.newTab().setText(R.string.tab_galnet).setTabListener(this));
-        actionbar.addTab(actionbar.newTab().setText(R.string.tab_reddit).setTabListener(this));
 
+        // Button Box tab will be non removable, so keep this here
+        actionbar.addTab(actionbar.newTab().setText(R.string.tab_buttonbox).setTabListener(this));
+
+        // check which features/tabs are enabled in preferences and set accordingly
+        if (rares) {
+            actionbar.addTab(actionbar.newTab().setText(R.string.tab_rares).setTabListener(this));
+        }
+        if (calculator) {
+            actionbar.addTab(actionbar.newTab().setText(R.string.tab_calculator).setTabListener(this));
+        }
+        if (notes) {
+            actionbar.addTab(actionbar.newTab().setText(R.string.tab_notes).setTabListener(this));
+        }
+        if (galnet) {
+            actionbar.addTab(actionbar.newTab().setText(R.string.tab_galnet).setTabListener(this));
+        }
+        if (reddit) {
+            actionbar.addTab(actionbar.newTab().setText(R.string.tab_reddit).setTabListener(this));
+        }
         actionbar.setLogo(R.mipmap.ic_launcher);
         actionbar.setDisplayUseLogoEnabled(true);
         actionbar.setDisplayShowHomeEnabled(true);
 
-        viewpager.setOnPageChangeListener(new ViewPager.OnPageChangeListener()
-        {
+        viewpager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageSelected(int arg0)
-            {
+            public void onPageSelected(int arg0) {
                 actionbar.setSelectedNavigationItem(arg0);
             }
 
             @Override
-            public void onPageScrolled(int arg0, float arg1, int arg2)
-            {
+            public void onPageScrolled(int arg0, float arg1, int arg2) {
                 // TODO Auto-generated method stub
             }
 
             @Override
-            public void onPageScrollStateChanged(int arg0)
-            {
+            public void onPageScrollStateChanged(int arg0) {
                 // TODO Auto-generated method stub
             }
         });
@@ -136,32 +169,28 @@ public class ED_Tool extends FragmentActivity implements ActionBar.TabListener
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
+    public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
+    public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings)
-        {
+        if (id == R.id.action_settings) {
             sendKey("SERVER_RESTART");
-            sendKey("CLOSE_SOCKET");
+            TCPClient.closeSocket();
             startActivity(new Intent(this, com.thefonz.ed_tool.preferences.AppPreferences.class));
             return true;
         }
 
-        if (id == R.id.action_exit)
-        {
+        if (id == R.id.action_exit) {
             sendKey("SERVER_RESTART");
-            sendKey("CLOSE_SOCKET");
+            TCPClient.closeSocket();
             finish();
             System.exit(0);
           return true;
@@ -170,55 +199,37 @@ public class ED_Tool extends FragmentActivity implements ActionBar.TabListener
     }
 
     @Override
-    public void onTabSelected(Tab tab, FragmentTransaction ft)
-    {
+    public void onTabSelected(Tab tab, FragmentTransaction ft) {
         viewpager.setCurrentItem(tab.getPosition());
     }
 
     @Override
-    public void onTabUnselected(Tab tab, FragmentTransaction ft)
-    {
+    public void onTabUnselected(Tab tab, FragmentTransaction ft) {
         // TODO Auto-generated method stub
     }
 
     @Override
-    public void onTabReselected(Tab tab, FragmentTransaction ft)
-    {
+    public void onTabReselected(Tab tab, FragmentTransaction ft) {
         // TODO Auto-generated method stub
     }
 
-    public class FragmentPageTabAdapter extends FragmentPagerAdapter
-    {
-        public FragmentPageTabAdapter(FragmentManager fm)
-        {
+    public class FragmentPageTabAdapter extends FragmentPagerAdapter {
+
+        private ArrayList<Fragment> list;
+
+        public FragmentPageTabAdapter(FragmentManager fm, ArrayList<Fragment> list) {
             super(fm);
+            this.list = list;
         }
 
         @Override
-        public Fragment getItem(int arg0)
-        {
-            switch (arg0)
-            {
-                case 0:
-                    return new Tab_ButtonBox();
-                case 1:
-                    return new Tab_Rares();
-                case 2:
-                    return new Tab_Notes();
-                case 3:
-                    return new Tab_Galnet();
-                case 4:
-                    return new Tab_Reddit();
-                default:
-                    break;
-            }
-            return null;
+        public Fragment getItem(int index) {
+            return list.get(index);
         }
 
         @Override
-        public int getCount()
-        {
-            return 5;
+        public int getCount() {
+            return list.size();
         }
     }
 

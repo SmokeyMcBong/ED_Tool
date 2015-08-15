@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:background="#008080"
             android:padding="5dp"
-            android:text="Rare Trading Route Planner"
+            android:text="@string/header_rares"
             android:textAlignment="center"
             android:textColor="#fff"
             android:layout_row="1"
@@ -49,7 +49,7 @@
             android:id="@+id/button_refresh"
             android:layout_row="1"
             android:layout_column="22"
-            android:layout_marginRight="5dp"/>
+            android:layout_marginEnd="5dp"/>
     </GridLayout>
 
     <LinearLayout
@@ -64,8 +64,8 @@
             android:layout_height="wrap_content"
             android:background="#008080"
             android:padding="5dp"
-            android:text="Loading, please wait..."
-            android:textSize="10dp"
+            android:text="@string/loading_p"
+            android:textSize="12sp"
             android:textAlignment="center"
             android:textColor="#fff"
             android:layout_gravity="center_horizontal"/>
@@ -80,7 +80,8 @@
     <WebView  xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/webView"
         android:layout_width="match_parent"
-        android:layout_height="411dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="15dp"
         android:layout_weight="1.04" />
 
 </LinearLayout>

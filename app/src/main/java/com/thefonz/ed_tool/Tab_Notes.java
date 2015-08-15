@@ -1,3 +1,7 @@
+/**
+ * Created by theFONZ on 02/04/15.
+ */
+
 package com.thefonz.ed_tool;
 
 import android.app.Activity;
@@ -12,24 +16,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.thefonz.ed_tool.utils.Constants;
-import com.thefonz.ed_tool.utils.U;
+import com.thefonz.ed_tool.utils.Helper;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.util.Objects;
 
-/**
- * Created by thefonz on 02/04/15.
- */
 public class Tab_Notes extends Fragment {
 
-    EditText textmsg;
-    static final int READ_BLOCK_SIZE = 100;
+    private EditText textmsg;
+    private static final int READ_BLOCK_SIZE = 100;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
@@ -101,7 +97,7 @@ public class Tab_Notes extends Fragment {
     }
 
     // Check for note file
-    public void CheckForFile(View context) {
+    private void CheckForFile(View context) {
 
         String string = "";
 
@@ -120,7 +116,7 @@ public class Tab_Notes extends Fragment {
     }
 
     // write text to file
-    public void SaveNote(View v) {
+    private void SaveNote(View v) {
         // add-write text into file
         try {
             FileOutputStream fileout=getActivity().openFileOutput(Constants.NOTE_FILENAME, Context.MODE_PRIVATE);
@@ -135,7 +131,7 @@ public class Tab_Notes extends Fragment {
             button_save.setBackgroundResource(android.R.drawable.btn_default);
             button_save.setEnabled(false);
             button_save.setText(R.string.saved);
-            U.showToast_Short(this.getActivity(), msg);
+            Helper.showToast_Short(this.getActivity(), msg);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -143,7 +139,7 @@ public class Tab_Notes extends Fragment {
     }
 
     // Read text from file
-    public void ReadNote(View v) {
+    private void ReadNote(View v) {
         //reading text from file
         try {
             FileInputStream fileIn=getActivity().openFileInput(Constants.NOTE_FILENAME);

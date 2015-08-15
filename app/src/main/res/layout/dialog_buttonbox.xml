@@ -5,7 +5,6 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:theme="@style/small_dialog">
-    <!--android:theme="@android:style/Theme.Material.Dialog.NoActionBar">-->
 
     <GridLayout
         android:layout_width="match_parent"
@@ -25,24 +24,14 @@
             android:layout_column="0" />
 
         <Button
-            android:layout_width="72dp"
-            android:layout_height="wrap_content"
-            android:text="Reset"
-            android:id="@+id/button7"
-            android:layout_gravity="end"
-            android:layout_column="20"
-            android:layout_row="1"
-            android:visibility="invisible"/>
-
-        <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Help"
+            android:text="@string/help"
             android:id="@+id/button_info"
             android:layout_row="1"
             android:layout_column="21"
-            android:layout_marginRight="5dp"/>
+            android:layout_marginEnd="5dp"/>
     </GridLayout>
 
     <TableRow
@@ -69,7 +58,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Save Name"
+            android:text="@string/save_name"
             android:layout_gravity="end"
             android:id="@+id/saveName" />
 
@@ -89,6 +78,38 @@
         style="?android:attr/buttonBarStyle">
 
         <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="25dp"/>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/modifier1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_modifier"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/modifier2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_modifier"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/modifier3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_modifier"
+                android:layout_gravity="center"/>
+        </TableRow>
+
+        <TableRow
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal">
@@ -97,8 +118,8 @@
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Function 1"
-                android:layout_gravity="left"
+                android:text="@string/f1"
+                android:layout_gravity="center"
                 android:id="@+id/button1" />
 
 
@@ -106,7 +127,7 @@
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Function 2"
+                android:text="@string/f2"
                 android:layout_gravity="center"
                 android:id="@+id/button2" />
 
@@ -114,9 +135,54 @@
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Function 3"
-                android:layout_gravity="right"
+                android:text="@string/f3"
+                android:layout_gravity="center"
                 android:id="@+id/button3" />
+        </TableRow>
+
+
+        <GridLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/filler"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@string/padding"
+            android:layout_gravity="center"/>
+        </GridLayout>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="15dp"/>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/modifier4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_modifier"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/modifier5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_modifier"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/modifier6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_modifier"
+                android:layout_gravity="center"/>
         </TableRow>
 
         <TableRow
@@ -128,15 +194,15 @@
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Function 4"
-                android:layout_gravity="left"
+                android:text="@string/f4"
+                android:layout_gravity="center"
                 android:id="@+id/button4" />
 
             <Button
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Function 5"
+                android:text="@string/f5"
                 android:layout_gravity="center"
                 android:id="@+id/button5" />
 
@@ -144,22 +210,15 @@
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Function 6"
-                android:layout_gravity="right"
+                android:text="@string/f6"
+                android:layout_gravity="center"
                 android:id="@+id/button6" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="20dp" >
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </TableRow>
+            android:minHeight="30dp"/>
 
         <TableRow
             android:layout_width="match_parent"
@@ -168,7 +227,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Go Back"
+                android:text="@string/go_back"
                 android:id="@+id/goBack"
                 android:layout_gravity="center"
                 android:layout_column="1" />

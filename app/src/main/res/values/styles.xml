@@ -1,30 +1,55 @@
 <resources>
     <!-- Dark Material Theme -->
     <style name="AppThemeDark" parent="android:Theme.Material">
-        <!-- Main theme colors -->
-        <!--   your app branding color for the app bar -->
         <item name="android:colorPrimary">@color/AppThemeDark_primary</item>
-        <!--   darker variant for the status bar and contextual app bars -->
         <item name="android:colorPrimaryDark">@color/AppThemeDark_primary_dark</item>
         <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
-        <!--   theme UI controls like checkboxes and text fields -->
-        <!--<item name="android:colorAccent">@color/accent</item>-->
-        <!--<item name="android:textColorPrimary">@android:color/white</item>-->
-        <!--<item name="android:textColor">@android:color/white</item>-->
     </style>
 
-    <!-- Light Material Theme -->
-    <style name="AppThemeLight" parent="android:Theme.Material.Light">
-        <!-- Main theme colors -->
-        <!--   your app branding color for the app bar -->
-        <item name="android:colorPrimary">@color/AppThemeLight_primary</item>
-        <!--   darker variant for the status bar and contextual app bars -->
-        <item name="android:colorPrimaryDark">@color/AppThemeLight_primary_dark</item>
-        <!--   theme UI controls like checkboxes and text fields -->
-        <!--<item name="android:colorAccent">@color/AppThemeLight_primary</item>-->
-        <item name="android:textColorPrimary">@android:color/white</item>
-        <item name="android:textColor">@android:color/black</item>
+    <!-- Blue Material Theme -->
+    <style name="AppThemeBlue" parent="android:Theme.Material">
+        <item name="android:colorPrimary">@color/bg_primary</item>
+        <item name="android:colorAccent">@color/bg_accent</item>
+        <item name="android:colorPrimaryDark">@color/bg_primary_dark</item>
+        <item name="android:textColorPrimary">@color/bg_primary_text_color</item>
+        <item name="android:windowBackground">@color/bg_primary</item>
     </style>
+
+     <!-- Green Material Theme -->
+    <!--<style name="AppThemeGreen" parent="android:Theme.Material">
+        <item name="android:colorPrimary">@color/bg_primary</item>
+        <item name="android:colorAccent">@color/bg_accent</item>
+        <item name="android:colorPrimaryDark">@color/bg_primary_dark</item>
+        <item name="android:textColorPrimary">@color/bg_primary_text_color</item>
+        <item name="android:windowBackground">@color/bg_primary</item>
+    </style>-->
+
+    <!-- Red Material Theme -->
+    <!--<style name="AppThemeRed" parent="android:Theme.Material">
+        <item name="android:colorPrimary">@color/bg_primary</item>
+        <item name="android:colorAccent">@color/bg_accent</item>
+        <item name="android:colorPrimaryDark">@color/bg_primary_dark</item>
+        <item name="android:textColorPrimary">@color/bg_primary_text_color</item>
+        <item name="android:windowBackground">@color/bg_primary</item>
+    </style>-->
+
+    <!-- Brown Material Theme -->
+    <!--<style name="AppThemeBrown" parent="android:Theme.Material">
+        <item name="android:colorPrimary">@color/bg_primary</item>
+        <item name="android:colorAccent">@color/bg_accent</item>
+        <item name="android:colorPrimaryDark">@color/bg_primary_dark</item>
+        <item name="android:textColorPrimary">@color/bg_primary_text_color</item>
+        <item name="android:windowBackground">@color/bg_primary</item>
+    </style>-->
+
+    <!-- Yellow Material Theme -->
+   <!-- <style name="AppThemeYellow" parent="android:Theme.Material">
+        <item name="android:colorPrimary">@color/bg_primary</item>
+        <item name="android:colorAccent">@color/bg_accent</item>
+        <item name="android:colorPrimaryDark">@color/bg_primary_dark</item>
+        <item name="android:textColorPrimary">@color/bg_primary_text_color</item>
+        <item name="android:windowBackground">@color/bg_primary</item>
+    </style>    -->
 
     <!-- Transparent small_dialog Theme -->
     <style name="small_dialog" parent="@android:style/Theme.Material.Dialog">
@@ -37,7 +62,5 @@
         <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
         <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
         <item name="android:windowBackground">@android:color/black</item>
-        <!--<item name="android:windowBackground">@android:color/transparent</item>-->
     </style>
-
 </resources>

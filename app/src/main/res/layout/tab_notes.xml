@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:background="#008080"
             android:padding="5dp"
-            android:text="Important Note Jotter"
+            android:text="@string/header_notes"
             android:textAlignment="center"
             android:textColor="#fff"
             android:layout_row="1"
@@ -29,7 +29,7 @@
             android:id="@+id/button_refresh"
             android:layout_row="1"
             android:layout_column="21"
-            android:layout_marginRight="5dp"/>
+            android:layout_marginEnd="5dp"/>
     </GridLayout>
 
     <EditText
@@ -37,23 +37,22 @@
         android:layout_width="wrap_content"
         android:layout_height="425dp"
         android:gravity="top"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_below="@+id/gridView"
         android:layout_marginTop="22dp"
         android:layout_margin="5dp"
         android:nestedScrollingEnabled="true">
-
     </EditText>
 
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_below="@+id/editText1"
-        android:text="Nothing new to save yet"
+        android:text="@string/nothing_to_save"
         android:enabled="false"
         android:onClick="SaveNote"
         android:layout_margin="5dp"/>

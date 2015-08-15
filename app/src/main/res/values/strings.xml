@@ -1,15 +1,16 @@
 <resources>
     <!--General UI Strings-->
     <string name="app_name">ED_Tool</string>
-    <string name="action_exit">Exit!</string>
+    <string name="action_exit"> Exit </string>
     <string name="action_about">About</string>
     <string name="about_body">      ED_Tool \n \n Created by \'theFONZ\' </string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings"> Settings </string>
     <string name="tab_buttonbox">Button-Box</string>
+    <string name="tab_calculator">Calculator</string>
     <string name="tab_rares">Rare Trading</string>
     <string name="tab_notes">Note\'s</string>
     <string name="tab_galnet">Galnet</string>
-    <string name="tab_reddit">Reddit</string>
+    <string name="tab_reddit">E:D Reddit</string>
     <string name="back">&lt;&lt;</string>
     <string name="forward">&gt;&gt;</string>
     <string name="refresh">R</string>
@@ -18,20 +19,63 @@
     <string name="goingback">Going Back</string>
     <string name="goingforward">Going Forward</string>
     <string name="note_saved">Note saved !</string>
-    <string name="saved">Saved"</string>
+    <string name="saved">Saved</string>
     <string name="save_now">Save Now</string>
-    <!--Various Strings-->
+    <string name="nothing_to_save">Nothing new to save yet</string>
     <string name="reset_all_confirm">Reset ALL Button\'s back to default ? </string>
-    <string name="dialog_info_line1">This is where we will set the Keypress function up to a 6 keypress macro ..</string>
-    <string name="dialog_info_line2">If you wish to set just a single Keypress then press \'Function 1\' and select the kepress you wish to use</string>
-    <string name="dialog_info_line3">To add more than one Keypress select each function in numerical order from 1 to 6</string>
-    <string name="dialog_info_line4">Once you have finished configuring this button\'s function\s, press \'Go Back\' to return to the previous menu</string>
-    <string name="button_saved_name">Following button name was saved..</string>
-    <string name="button_saved_keypress">Following keypress was saved..</string>
-    <string name="select_keypress"> Select Desired KeyPress for </string>
+    <string name="open_github_confirm"> Open Github Link in Browser ? </string>
     <string name="no_server_line1">No saved Server IP address found..</string>
     <string name="no_server_line2">Please enter the Server IP in the Button-Box settings page</string>
     <string name="handshake_ok">Connection Successful</string>
+    <string name="padding">------------------------------------</string>
+    <!--UI Header Strings-->
+    <string name="header_buttonbox">Android - to - PC ButtonBox</string>
+    <string name="header_galnet">Galnet News Feed</string>
+    <string name="header_calculator">Calculator</string>
+    <string name="header_notes">Important Note Jotter</string>
+    <string name="header_rares">Rare Trading Route Planner</string>
+    <string name="header_reddit">Elite:Dangerous SubReddit</string>
+    <!--ProgressBar UI Header Strings-->
+    <string name="connecting">Connecting to Server …</string>
+    <string name="loading_p">Loading, please wait …</string>
+    <!--Update Manager Strings-->
+    <string name="update_man"> Update Manager </string>
+    <string name="down_and_inst">Download &amp; Install Update</string>
+    <string name="downloading_update"> Downloading Update .. </string>
+    <string name="checking"> Checking for updates.. </string>
+    <string name="check_failed">Could Not Connect To Update Server</string>
+    <!--Backup Manager Strings-->
+    <string name="backup_man"> Backup Manager </string>
+    <string name="backup"> Backup </string>
+    <string name="restore"> Restore </string>
+    <string name="overwrite"> Previous Backup Found, Overwrite ? </string>
+    <string name="backing_up"> Backing Up Button\'s .. </string>
+    <string name="backup_complete"> Backup Completed </string>
+    <!--Dialog Strings-->
+    <string name="help">Help</string>
+    <string name="save_name">Save Name</string>
+    <string name="f1">Function 1</string>
+    <string name="f2">Function 2</string>
+    <string name="f3">Function 3</string>
+    <string name="f4">Function 4</string>
+    <string name="f5">Function 5</string>
+    <string name="f6">Function 6</string>
+    <string name="no_modifier">No Modifier</string>
+    <string name="go_back">Go Back</string>
+    <string name="info"> Info ..</string>
+    <string name="filler">    \n\n\n</string>
+    <string name="keypress">KeyPress > </string>
+    <string name="opt_mod">Optional Modifier > </string>
+    <string name="buttonbox_dialog_header"> Keystroke &amp; Modifier Setup </string>
+    <string name="button_set_info">Click on a button to set the desired keypress</string>
+    <string name="dialog_info_line1">This is where we will set the Keypress function up to a 6 keypress macro with the ability to set a modifier key for each keystroke ..</string>
+    <string name="dialog_info_line2">If you wish to set just a single Keypress then press \'Function 1\' and select the Keypress you wish to use</string>
+    <string name="dialog_info_line3">To add more than one Keypress select each function in numerical order from 1 to 6</string>
+    <string name="dialog_info_line4">(Modifier Keys are keypresses which are held while another key is pressed, for example.. shift+A or ctrl+4 etc) </string>
+    <string name="dialog_info_line5">Once you have finished configuring this button\'s function\s, press \'Go Back\' to return to the previous menu</string>
+    <string name="button_saved_name">Following button name was saved..</string>
+    <string name="button_saved_keypress">Following keypress was saved..</string>
+    <string name="select_keypress"> Select Desired KeyPress for </string>
     <!--Error Handler Strings-->
     <string name="ERROR_NO_NET">No Internet Connection Found !></string>
     <string name="ERROR_AUTHENTICATION">User authentication failed on server</string>

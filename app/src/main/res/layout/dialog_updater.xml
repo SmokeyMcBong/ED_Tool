@@ -16,22 +16,11 @@
             android:layout_height="wrap_content"
             android:background="#008080"
             android:padding="5dp"
-            android:text="@string/info"
+            android:text="@string/update_man"
             android:textAlignment="center"
             android:textColor="#fff"
             android:layout_row="1"
             android:layout_column="0" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:visibility="gone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/help"
-            android:id="@+id/button_info"
-            android:layout_row="1"
-            android:layout_column="21"
-            android:layout_marginEnd="5dp"/>
     </GridLayout>
 
     <TextView
@@ -44,11 +33,33 @@
         android:layout_gravity="center"
         android:id="@+id/textViewInfo"/>
 
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/progressLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center_horizontal">
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/down_and_inst"
+        android:id="@+id/downInstall"
+        android:layout_gravity="center" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/go_back"
         android:id="@+id/goBack"
         android:layout_gravity="center" />
-
 </LinearLayout>

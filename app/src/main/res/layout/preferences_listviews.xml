@@ -11,12 +11,11 @@
         android:background="@color/my_teal">
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#008080"
             android:padding="5dp"
-            android:text="@string/info"
             android:textAlignment="center"
             android:textColor="#fff"
             android:layout_row="1"
@@ -34,15 +33,62 @@
             android:layout_marginEnd="5dp"/>
     </GridLayout>
 
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="25dp">
+
     <TextView
+        android:id="@+id/keyheader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:text="@string/filler"
+        android:padding="5dp"
         android:textAlignment="center"
-        android:layout_gravity="center"
-        android:id="@+id/textViewInfo"/>
+        android:text="@string/keypress"
+        android:layout_row="1"
+        android:layout_column="0" />
+    </TableRow>
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="300dp"
+        android:layout_height="175dp"
+        android:scrollingCache="true"
+        android:layout_gravity="top"/>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="25dp">
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="25dp">
+
+        <TextView
+            android:id="@+id/modifierheader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textAlignment="center"
+            android:text="@string/opt_mod"
+            android:layout_row="1"
+            android:layout_column="0" />
+    </TableRow>
+
+    <ListView
+        android:id="@+id/list2"
+        android:scrollingCache="true"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_gravity="bottom"/>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="25dp"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -50,5 +96,4 @@
         android:text="@string/go_back"
         android:id="@+id/goBack"
         android:layout_gravity="center" />
-
 </LinearLayout>

@@ -1,10 +1,11 @@
-package com.thefonz.ed_tool;
-
 /**
- * Created by thefonz on 18/03/15.
+ * Created by theFONZ on 18/03/15.
  */
 
+package com.thefonz.ed_tool;
+
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
@@ -24,20 +25,18 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import com.thefonz.ed_tool.utils.Constants;
-import com.thefonz.ed_tool.utils.U;
+import com.thefonz.ed_tool.utils.Helper;
 
-public class Tab_Galnet extends Fragment
-{
-    LinearLayout progressLayout;
-    ProgressBar progressBar;
-    TextView TextViewProgress;
-    WebView webView;
+public class Tab_Galnet extends Fragment {
+
+    private LinearLayout progressLayout;
+    private ProgressBar progressBar;
+    private TextView TextViewProgress;
+    private WebView webView;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-    {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View myFragmentView = inflater.inflate(R.layout.tab_galnet, container, false);
 
         webView = (WebView) myFragmentView.findViewById(R.id.webView);
@@ -108,12 +107,12 @@ public class Tab_Galnet extends Fragment
     }
 
     // Show and Hide the progressbar methods...
-    public void showBar() {
+    private void showBar() {
         progressLayout.setVisibility(View.VISIBLE);
         progressBar.setVisibility(View.VISIBLE);
         TextViewProgress.setVisibility(View.VISIBLE);
     }
-    public void hideBar() {
+    private void hideBar() {
         progressLayout.setVisibility(View.GONE);
         progressBar.setVisibility(View.GONE);
         TextViewProgress.setVisibility(View.GONE);
@@ -149,69 +148,11 @@ public class Tab_Galnet extends Fragment
         public void onReceivedSslError(WebView view, @NonNull SslErrorHandler handler, SslError error) {
             handler.proceed(); // Ignore SSL certificate errors
         }
-        // WebView bulk error handler
+        // Send onReceivedError to General webView Error handler
         public void onReceivedError (WebView view, int errorCode, String description, String failingUrl) {
-            final String LOGMETHOD = " onReceivedError ";
-            if (errorCode == ERROR_AUTHENTICATION) {
-                String LOGBODY = "ERROR_AUTHENTICATION";
-                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
-            }
-            if (errorCode == ERROR_BAD_URL) {
-                String LOGBODY = "ERROR_BAD_URL";
-                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
-            }
-            if (errorCode == ERROR_CONNECT) {
-                String LOGBODY = "ERROR_CONNECT";
-                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
-            }
-            if (errorCode == ERROR_FAILED_SSL_HANDSHAKE) {
-                String LOGBODY = "ERROR_FAILED_SSL_HANDSHAKE";
-                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
-            }
-            if (errorCode == ERROR_FILE) {
-                String LOGBODY = "ERROR_FILE";
-                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
-            }
-            if (errorCode == ERROR_FILE_NOT_FOUND) {
-                String LOGBODY = "ERROR_FILE_NOT_FOUND";
-                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
-            }
-            if (errorCode == ERROR_HOST_LOOKUP) {
-                String LOGBODY = "ERROR_HOST_LOOKUP";
-                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
-            }
-            if (errorCode == ERROR_IO) {
-                String LOGBODY = "ERROR_IO";
-                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
-            }
-            if (errorCode == ERROR_PROXY_AUTHENTICATION) {
-                String LOGBODY = "ERROR_PROXY_AUTHENTICATION";
-                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
-            }
-            if (errorCode == ERROR_REDIRECT_LOOP) {
-                String LOGBODY = "ERROR_REDIRECT_LOOP";
-                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
-            }
-            if (errorCode == ERROR_TIMEOUT) {
-                String LOGBODY = "ERROR_TIMEOUT";
-                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
-            }
-            if (errorCode == ERROR_TOO_MANY_REQUESTS) {
-                String LOGBODY = "ERROR_TOO_MANY_REQUESTS";
-                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
-            }
-            if (errorCode == ERROR_UNKNOWN) {
-                String LOGBODY = "ERROR_UNKNOWN";
-                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
-            }
-            if (errorCode == ERROR_UNSUPPORTED_AUTH_SCHEME) {
-                String LOGBODY = "ERROR_UNSUPPORTED_AUTH_SCHEME";
-                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
-            }
-            if (errorCode == ERROR_UNSUPPORTED_SCHEME) {
-                String LOGBODY = "ERROR_UNSUPPORTED_SCHEME";
-                U.LogError(getActivity(), Constants.TAG, LOGMETHOD, LOGBODY);
-            }
+            Context context = getActivity();
+            String tabName = "Tab_Galnet";
+            Helper.webView_ErrorHandler(context, tabName, errorCode, description, failingUrl);
         }
     }
 }

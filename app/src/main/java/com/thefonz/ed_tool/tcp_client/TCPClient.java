@@ -1,3 +1,7 @@
+/**
+ * Created by theFONZ on 06/04/15.
+ */
+
 package com.thefonz.ed_tool.tcp_client;
 
 import android.app.Application;
@@ -11,17 +15,13 @@ import com.thefonz.ed_tool.utils.Constants;
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
-import java.util.Objects;
 
-/**
- * Created by thefonz on 06/04/15.
- */
 public class TCPClient extends Application {
 
     protected String serverMessage;
     private OnMessageReceived mMessageListener = null;
     protected boolean mRun = false;
-    public static Socket socket;
+    private static Socket socket;
     PrintWriter out;
     BufferedReader in;
 
@@ -32,20 +32,7 @@ public class TCPClient extends Application {
 
     // Sends the message entered by client to the server
     public void sendMessage(String key){
-        // check to see if the 'key' reveiced is the 'close socket' signal, if it is...
-        // close the socket and set the server to await reconnection
-        if (Objects.equals(key, "CLOSE_SOCKET")) {
-
-            try {
-                if (socket != null) {
-                    socket.shutdownInput();
-                    socket.close();
-                }
-            }catch (IOException e){
-                Log.e("ED_Tool", "S: socket != null error", e);
-            }
-        }
-
+        // check to see if out is not null, and no errors found then send the key
         if (out != null && !out.checkError()) {
             out.println(key);
             out.flush();
@@ -76,7 +63,6 @@ public class TCPClient extends Application {
                 // in this while the client listens for the messages sent by the server
                 while (mRun) {
                     serverMessage = in.readLine();
-
                     if (serverMessage != null && mMessageListener != null) {
                         // call the method messageReceived from MyActivity class
                         mMessageListener.messageReceived(serverMessage);
@@ -97,5 +83,16 @@ public class TCPClient extends Application {
     // class at on asynckTask doInBackground
     public interface OnMessageReceived {
         void messageReceived(String message);
+    }
+
+    public static void closeSocket(){
+        try {
+            if (socket != null) {
+                socket.shutdownInput();
+                socket.close();
+            }
+        }catch (IOException e){
+            Log.e("ED_Tool", "S: socket != null error", e);
+        }
     }
 }

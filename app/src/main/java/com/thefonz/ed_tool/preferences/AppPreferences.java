@@ -1,48 +1,34 @@
+/**
+ * Created by theFONZ on 04/04/15.
+ */
+
 package com.thefonz.ed_tool.preferences;
 
-/**
- * Created by thefonz on 04/04/15.
- */
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceManager;
 import com.thefonz.ed_tool.ED_Tool;
 import com.thefonz.ed_tool.R;
+import com.thefonz.ed_tool.backup_manager.BackupManager;
+import com.thefonz.ed_tool.theme_manager.ThemeManager;
+import com.thefonz.ed_tool.utils.Constants;
 
 public class AppPreferences extends PreferenceActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        final SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        String selectTheme = SP.getString("selectTheme", "1");
-
-        assert selectTheme != null;
-        if (selectTheme.equalsIgnoreCase("1")) {
-            setTheme(R.style.AppThemeDark);
-        }
-        else
-        {
-            setTheme(R.style.AppThemeLight);
-        }
+        // Set theme according to Preference setting
+        ThemeManager.onActivityCreateSetTheme(this);
 
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.preferences);
-
-        // set goBack preference onclick
-        Preference myPref = findPreference("saveGoBack");
-        myPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            public boolean onPreferenceClick(Preference preference) {
-                navigateUpTo(new Intent(getApplicationContext(), ED_Tool.class));
-                return true;
-            }
-        });
 
         // set resetAllPrefs preference onclick
         Preference myPrefReset = findPreference("resetAllPrefs");
@@ -61,11 +47,56 @@ public class AppPreferences extends PreferenceActivity {
                 });
                 builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                       dialog.dismiss();
+                        dialog.dismiss();
                     }
                 });
                 AlertDialog dialog = builder.create();
                 dialog.show();
+                return true;
+            }
+        });
+
+        // set backupRestoreAllPrefs preference onclick
+        Preference backupRestoreAllPrefs = findPreference("backupRestoreAllPrefs");
+        backupRestoreAllPrefs.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            public boolean onPreferenceClick(Preference preference) {
+                BackupManager.showDialogBackupManager(getApplicationContext(), " Backup and Restore Button Manager \n",
+                        "Here we can backup and restore button configurations. \nIf a previous backup is found, the restore option will be available", "", " Make your selection below .. ");
+            return true;
+            }
+        });
+
+        // set aboutTool preference onclick
+        Preference aboutTool = findPreference("aboutTool");
+        aboutTool.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            public boolean onPreferenceClick(Preference preference) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(AppPreferences.this);
+                builder.setTitle(R.string.open_github_confirm);
+                builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        String url = Constants.GithubURL;
+                        Intent i = new Intent(Intent.ACTION_VIEW);
+                        i.setData(Uri.parse(url));
+                        startActivity(i);
+                        dialog.dismiss();
+                    }
+                });
+                builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                return true;
+            }
+        });
+
+        // set saveGoBack preference onclick
+        Preference saveGoBack = findPreference("saveGoBack");
+        saveGoBack.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            public boolean onPreferenceClick(Preference preference) {
+                navigateUpTo(new Intent(getApplicationContext(), ED_Tool.class));
                 return true;
             }
         });

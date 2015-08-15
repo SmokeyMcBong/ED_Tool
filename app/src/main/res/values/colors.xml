@@ -6,10 +6,11 @@
     <!-- Dark Material Theme Colors -->
     <color name="AppThemeDark_primary">#333333 </color>
     <color name="AppThemeDark_primary_dark">#313131 </color>
-    <!--<color name="AppThemeDark_accent">#008080 </color>-->
 
-    <!-- Light Material Theme Colors -->
-    <color name="AppThemeLight_primary">#074fea </color>
-    <color name="AppThemeLight_primary_dark">#0349df </color>
-    <!--<color name="AppThemeDark_accent">#008080 </color>-->
+    <!-- Light Blue/Green Theme Colors -->
+    <color name="bg_primary">#000080</color>
+    <color name="bg_primary_dark">#000092</color>
+    <color name="bg_accent">#099709</color>
+    <color name="bg_navigation_bar">#311B92</color>
+    <color name="bg_primary_text_color">#FFFFFF</color>
 </resources>

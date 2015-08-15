@@ -1,3 +1,7 @@
+/**
+ * Created by theFONZ on 09/04/15.
+ */
+
 package com.thefonz.ed_tool.preferences;
 
 import android.content.Intent;
@@ -6,18 +10,19 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Button;
-
 import com.thefonz.ed_tool.R;
+import com.thefonz.ed_tool.theme_manager.ThemeManager;
 
 import java.util.Objects;
 
-/**
- * Created by thefonz on 09/04/15.
- */
 public class Preferences_ButtonBox extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        // Set theme according to Preference setting
+        ThemeManager.onActivityCreateSetTheme(this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.preferences_buttonbox);
 
@@ -81,192 +86,168 @@ public class Preferences_ButtonBox extends FragmentActivity {
         String passName = myPrefs.getString("Button1name", "");
         if (!Objects.equals(passName, "")) {
             buttonB_1.setText(passName);
-        }
-        else {
+        } else {
             buttonB_1.setText("Button 1");
         }
 
         String passName2 = myPrefs.getString("Button2name", "");
         if (!Objects.equals(passName2, "")) {
             buttonB_2.setText(passName2);
-        }
-        else {
+        } else {
             buttonB_2.setText("Button 2");
         }
 
         String passName3 = myPrefs.getString("Button3name", "");
         if (!Objects.equals(passName3, "")) {
             buttonB_3.setText(passName3);
-        }
-        else {
+        } else {
             buttonB_3.setText("Button 3");
         }
 
         String passName4 = myPrefs.getString("Button4name", "");
         if (!Objects.equals(passName4, "")) {
             buttonB_4.setText(passName4);
-        }
-        else {
+        } else {
             buttonB_4.setText("Button 4");
         }
 
         String passName5 = myPrefs.getString("Button5name", "");
         if (!Objects.equals(passName5, "")) {
             buttonB_5.setText(passName5);
-        }
-        else {
+        } else {
             buttonB_5.setText("Button 5");
         }
 
         String passName6 = myPrefs.getString("Button6name", "");
         if (!Objects.equals(passName6, "")) {
             buttonB_6.setText(passName6);
-        }
-        else {
+        } else {
             buttonB_6.setText("Button 6");
         }
 
         String passName7 = myPrefs.getString("Button7name", "");
         if (!Objects.equals(passName7, "")) {
             buttonB_7.setText(passName7);
-        }
-        else {
+        } else {
             buttonB_7.setText("Button 7");
         }
 
         String passName8 = myPrefs.getString("Button8name", "");
         if (!Objects.equals(passName8, "")) {
             buttonB_8.setText(passName8);
-        }
-        else {
+        } else {
             buttonB_8.setText("Button 8");
         }
 
         String passName9 = myPrefs.getString("Button9name", "");
         if (!Objects.equals(passName9, "")) {
             buttonB_9.setText(passName9);
-        }
-        else {
+        } else {
             buttonB_9.setText("Button 9");
         }
 
         String passName10 = myPrefs.getString("Button10name", "");
         if (!Objects.equals(passName10, "")) {
             buttonB_10.setText(passName10);
-        }
-        else {
+        } else {
             buttonB_10.setText("Button 10");
         }
 
         String passName11 = myPrefs.getString("Button11name", "");
         if (!Objects.equals(passName11, "")) {
             buttonB_11.setText(passName11);
-        }
-        else {
+        } else {
             buttonB_11.setText("Button 11");
         }
 
         String passName12 = myPrefs.getString("Button12name", "");
         if (!Objects.equals(passName12, "")) {
             buttonB_12.setText(passName12);
-        }
-        else {
+        } else {
             buttonB_12.setText("Button 12");
         }
 
         String passName13 = myPrefs.getString("Button13name", "");
         if (!Objects.equals(passName13, "")) {
             buttonB_13.setText(passName13);
-        }
-        else {
+        } else {
             buttonB_13.setText("Button 13");
         }
 
         String passName14 = myPrefs.getString("Button14name", "");
         if (!Objects.equals(passName14, "")) {
             buttonB_14.setText(passName14);
-        }
-        else {
+        } else {
             buttonB_14.setText("Button 14");
         }
 
         String passName15 = myPrefs.getString("Button15name", "");
         if (!Objects.equals(passName15, "")) {
             buttonB_15.setText(passName15);
-        }
-        else {
+        } else {
             buttonB_15.setText("Button 15");
         }
 
         String passName16 = myPrefs.getString("Button16name", "");
         if (!Objects.equals(passName16, "")) {
             buttonB_16.setText(passName16);
-        }
-        else {
+        } else {
             buttonB_16.setText("Button 16");
         }
 
         String passName17 = myPrefs.getString("Button17name", "");
         if (!Objects.equals(passName17, "")) {
             buttonB_17.setText(passName17);
-        }
-        else {
+        } else {
             buttonB_17.setText("Button 17");
         }
 
         String passName18 = myPrefs.getString("Button18name", "");
         if (!Objects.equals(passName18, "")) {
             buttonB_18.setText(passName18);
-        }
-        else {
+        } else {
             buttonB_18.setText("Button 18");
         }
 
         String passName19 = myPrefs.getString("Button19name", "");
         if (!Objects.equals(passName19, "")) {
             buttonB_19.setText(passName19);
-        }
-        else {
+        } else {
             buttonB_19.setText("Button 19");
         }
 
         String passName20 = myPrefs.getString("Button20name", "");
         if (!Objects.equals(passName20, "")) {
             buttonB_20.setText(passName20);
-        }
-        else {
+        } else {
             buttonB_20.setText("Button 20");
         }
 
         String passName21 = myPrefs.getString("Button21name", "");
         if (!Objects.equals(passName21, "")) {
             buttonB_21.setText(passName21);
-        }
-        else {
+        } else {
             buttonB_21.setText("Button 21");
         }
 
         String passName22 = myPrefs.getString("Button22name", "");
         if (!Objects.equals(passName22, "")) {
             buttonB_22.setText(passName22);
-        }
-        else {
+        } else {
             buttonB_22.setText("Button 22");
         }
 
         String passName23 = myPrefs.getString("Button23name", "");
         if (!Objects.equals(passName23, "")) {
             buttonB_23.setText(passName23);
-        }
-        else {
+        } else {
             buttonB_23.setText("Button 23");
         }
 
         String passName24 = myPrefs.getString("Button24name", "");
         if (!Objects.equals(passName24, "")) {
             buttonB_24.setText(passName24);
-        }
-        else {
+        } else {
             buttonB_24.setText("Button 24");
         }
     }
@@ -355,7 +336,7 @@ public class Preferences_ButtonBox extends FragmentActivity {
         }
     };
 
-    public void showDialog(String str) {
+    private void showDialog(String str) {
         Intent myIntent = new Intent(Preferences_ButtonBox.this, Dialog_ButtonBox.class);
         myIntent.putExtra("key", str);
         SharedPreferences myPrefs = this.getSharedPreferences("myPrefs", MODE_WORLD_READABLE);
@@ -431,192 +412,168 @@ public class Preferences_ButtonBox extends FragmentActivity {
         String passName = myPrefs.getString("Button1name", "");
         if (!Objects.equals(passName, "")) {
             buttonB_1.setText(passName);
-        }
-        else {
+        } else {
             buttonB_1.setText("Button 1");
         }
 
         String passName2 = myPrefs.getString("Button2name", "");
         if (!Objects.equals(passName2, "")) {
             buttonB_2.setText(passName2);
-        }
-        else {
+        } else {
             buttonB_2.setText("Button 2");
         }
 
         String passName3 = myPrefs.getString("Button3name", "");
         if (!Objects.equals(passName3, "")) {
             buttonB_3.setText(passName3);
-        }
-        else {
+        } else {
             buttonB_3.setText("Button 3");
         }
 
         String passName4 = myPrefs.getString("Button4name", "");
         if (!Objects.equals(passName4, "")) {
             buttonB_4.setText(passName4);
-        }
-        else {
+        } else {
             buttonB_4.setText("Button 4");
         }
 
         String passName5 = myPrefs.getString("Button5name", "");
         if (!Objects.equals(passName5, "")) {
             buttonB_5.setText(passName5);
-        }
-        else {
+        } else {
             buttonB_5.setText("Button 5");
         }
 
         String passName6 = myPrefs.getString("Button6name", "");
         if (!Objects.equals(passName6, "")) {
             buttonB_6.setText(passName6);
-        }
-        else {
+        } else {
             buttonB_6.setText("Button 6");
         }
 
         String passName7 = myPrefs.getString("Button7name", "");
         if (!Objects.equals(passName7, "")) {
             buttonB_7.setText(passName7);
-        }
-        else {
+        } else {
             buttonB_7.setText("Button 7");
         }
 
         String passName8 = myPrefs.getString("Button8name", "");
         if (!Objects.equals(passName8, "")) {
             buttonB_8.setText(passName8);
-        }
-        else {
+        } else {
             buttonB_8.setText("Button 8");
         }
 
         String passName9 = myPrefs.getString("Button9name", "");
         if (!Objects.equals(passName9, "")) {
             buttonB_9.setText(passName9);
-        }
-        else {
+        } else {
             buttonB_9.setText("Button 9");
         }
 
         String passName10 = myPrefs.getString("Button10name", "");
         if (!Objects.equals(passName10, "")) {
             buttonB_10.setText(passName10);
-        }
-        else {
+        } else {
             buttonB_10.setText("Button 10");
         }
 
         String passName11 = myPrefs.getString("Button11name", "");
         if (!Objects.equals(passName11, "")) {
             buttonB_11.setText(passName11);
-        }
-        else {
+        } else {
             buttonB_11.setText("Button 11");
         }
 
         String passName12 = myPrefs.getString("Button12name", "");
         if (!Objects.equals(passName12, "")) {
             buttonB_12.setText(passName12);
-        }
-        else {
+        } else {
             buttonB_12.setText("Button 12");
         }
 
         String passName13 = myPrefs.getString("Button13name", "");
         if (!Objects.equals(passName13, "")) {
             buttonB_13.setText(passName13);
-        }
-        else {
+        } else {
             buttonB_13.setText("Button 13");
         }
 
         String passName14 = myPrefs.getString("Button14name", "");
         if (!Objects.equals(passName14, "")) {
             buttonB_14.setText(passName14);
-        }
-        else {
+        } else {
             buttonB_14.setText("Button 14");
         }
 
         String passName15 = myPrefs.getString("Button15name", "");
         if (!Objects.equals(passName15, "")) {
             buttonB_15.setText(passName15);
-        }
-        else {
+        } else {
             buttonB_15.setText("Button 15");
         }
 
         String passName16 = myPrefs.getString("Button16name", "");
         if (!Objects.equals(passName16, "")) {
             buttonB_16.setText(passName16);
-        }
-        else {
+        } else {
             buttonB_16.setText("Button 16");
         }
 
         String passName17 = myPrefs.getString("Button17name", "");
         if (!Objects.equals(passName17, "")) {
             buttonB_17.setText(passName17);
-        }
-        else {
+        } else {
             buttonB_17.setText("Button 17");
         }
 
         String passName18 = myPrefs.getString("Button18name", "");
         if (!Objects.equals(passName18, "")) {
             buttonB_18.setText(passName18);
-        }
-        else {
+        } else {
             buttonB_18.setText("Button 18");
         }
 
         String passName19 = myPrefs.getString("Button19name", "");
         if (!Objects.equals(passName19, "")) {
             buttonB_19.setText(passName19);
-        }
-        else {
+        } else {
             buttonB_19.setText("Button 19");
         }
 
         String passName20 = myPrefs.getString("Button20name", "");
         if (!Objects.equals(passName20, "")) {
             buttonB_20.setText(passName20);
-        }
-        else {
+        } else {
             buttonB_20.setText("Button 20");
         }
 
         String passName21 = myPrefs.getString("Button21name", "");
         if (!Objects.equals(passName21, "")) {
             buttonB_21.setText(passName21);
-        }
-        else {
+        } else {
             buttonB_21.setText("Button 21");
         }
 
         String passName22 = myPrefs.getString("Button22name", "");
         if (!Objects.equals(passName22, "")) {
             buttonB_22.setText(passName22);
-        }
-        else {
+        } else {
             buttonB_22.setText("Button 22");
         }
 
         String passName23 = myPrefs.getString("Button23name", "");
         if (!Objects.equals(passName23, "")) {
             buttonB_23.setText(passName23);
-        }
-        else {
+        } else {
             buttonB_23.setText("Button 23");
         }
 
         String passName24 = myPrefs.getString("Button24name", "");
         if (!Objects.equals(passName24, "")) {
             buttonB_24.setText(passName24);
-        }
-        else {
+        } else {
             buttonB_24.setText("Button 24");
         }
     }

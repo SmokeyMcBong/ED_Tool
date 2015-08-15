@@ -11,49 +11,55 @@
         android:background="@color/my_teal">
 
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#008080"
             android:padding="5dp"
+            android:text="@string/backup_man"
             android:textAlignment="center"
             android:textColor="#fff"
             android:layout_row="1"
             android:layout_column="0" />
 
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:visibility="gone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Help"
-            android:id="@+id/button_info"
-            android:layout_row="1"
-            android:layout_column="21"
-            android:layout_marginRight="5dp"/>
-
     </GridLayout>
 
-    <TableRow
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minHeight="25dp"/>
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="@string/filler"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:id="@+id/textViewInfo"/>
 
-    <ListView
-        android:id="@+id/list"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:layout_gravity="center"/>
-
-    <TableRow
-        android:layout_width="match_parent"
+    <GridLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minHeight="25dp"/>
+        android:layout_gravity="center">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/backup"
+            android:id="@+id/backupNow"
+            android:layout_gravity="center" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/restore"
+            android:id="@+id/restoreNow"
+            android:layout_gravity="center"
+            android:enabled="false"/>
+
+    </GridLayout>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go Back"
+        android:text="@string/go_back"
         android:id="@+id/goBack"
         android:layout_gravity="center" />
 </LinearLayout>
