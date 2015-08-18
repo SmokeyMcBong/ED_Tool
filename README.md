@@ -1,7 +1,9 @@
 -------
 | BRAND NEW :  ED_Tool |
 | :------------: |
-| Download Latest Version :  [ v2.0.1.0 ](https://github.com/SmokeyMcBong/ED_Tool/releases/tag/v2.0.1.0) |
+| Latest Release Version Download :  [ v2.0.1.0 ](https://github.com/SmokeyMcBong/ED_Tool/releases/tag/v2.0.1.0) |
+| New Update Version :  v2.0.1.1 |
+| ( ED_Tool will check for and install any new updates ) |
 | Older Releases : [ View all Releases ](https://github.com/SmokeyMcBong/ED_Tool/releases) |
 
 -------
@@ -47,6 +49,14 @@
 (http://dl.dropboxusercontent.com/u/18271886/ED_Tool/15.png).
 ![Screenshot]
 (http://dl.dropboxusercontent.com/u/18271886/ED_Tool/16.png).
+![Screenshot]
+(http://dl.dropboxusercontent.com/u/18271886/ED_Tool/17.png).
+![Screenshot]
+(http://dl.dropboxusercontent.com/u/18271886/ED_Tool/18.png).
+![Screenshot]
+(http://dl.dropboxusercontent.com/u/18271886/ED_Tool/19.png).
+![Screenshot]
+(http://dl.dropboxusercontent.com/u/18271886/ED_Tool/20.png).
 </center>
 
 <br />
