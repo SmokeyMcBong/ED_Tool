@@ -11,7 +11,7 @@ public class Constants {
     public final static String noNet = " No Internet Connection Detected ! ";
 
     // Version Checker Version Number ..
-    public static final String Vc_Version = "2010";
+    public static final String Vc_Version = "2011";
 
     // Update checker URLs ..
     public static final String VersionCheckURL = "https://raw.githubusercontent.com/SmokeyMcBong/ED_Tool/master/cVersion";
