@@ -152,7 +152,7 @@ public class Tab_Galnet extends Fragment {
         public void onReceivedError (WebView view, int errorCode, String description, String failingUrl) {
             Context context = getActivity();
             String tabName = "Tab_Galnet";
-            Helper.webView_ErrorHandler(context, tabName, errorCode, description, failingUrl);
+            Helper.webView_ErrorHandler(tabName, errorCode, description, failingUrl);
         }
     }
 }

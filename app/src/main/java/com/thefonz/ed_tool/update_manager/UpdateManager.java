@@ -50,7 +50,7 @@ public class UpdateManager extends Application {
         if (!checkInternet) {
             String message = context.getResources().getString(R.string.check_failed);
             Helper.showToast_Short(context, message);
-            Helper.LogError(context, Constants.TAG, " checkUpdate", Constants.noNet);
+            Helper.LogError(Constants.TAG, " checkUpdate", Constants.noNet);
         } else {
             // do update check here
             new Thread(new Runnable() {
@@ -120,7 +120,7 @@ public class UpdateManager extends Application {
                         installUpdate(context);
                     }
                     else {
-                        Helper.LogError(context, Constants.TAG, " downloadUpdate", " Error: Update Not Downloaded ");
+                        Helper.LogError(Constants.TAG, " downloadUpdate", " Error: Update Not Downloaded ");
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

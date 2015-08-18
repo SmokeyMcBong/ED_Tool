@@ -76,7 +76,7 @@ Fully interactive view, resizable/zoom with pinch, refreshable, back and forward
 
 
 >* 'Important Note Jotter' - This is a quick and easy to use note saver.  
-One never ending notepad for all your jotting needs   
+Create new Notes, Open previously saved Notes, Delete saved Notes etc.       
 notes are automaticaly reopenned on startup,  
 any changes made to the note will then show that it has been edited and ask you if you want to save :)
 Lightweight and easy on the eyes   

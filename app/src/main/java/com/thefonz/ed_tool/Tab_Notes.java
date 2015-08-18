@@ -6,8 +6,10 @@ package com.thefonz.ed_tool;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -16,31 +18,67 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import com.thefonz.ed_tool.note_manager.NoteManager;
 import com.thefonz.ed_tool.utils.Constants;
 import com.thefonz.ed_tool.utils.Helper;
 
-import java.io.*;
+import java.io.File;
 import java.util.Objects;
 
 public class Tab_Notes extends Fragment {
 
-    private EditText textmsg;
-    private static final int READ_BLOCK_SIZE = 100;
+    private static SharedPreferences myNotePrefs;
+    private static EditText textmsg;
+    private static TextView currentFile;
+    private static Button button_save;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         final View myFragmentView = inflater.inflate(R.layout.tab_notes, container, false);
 
         textmsg = (EditText) myFragmentView.findViewById(R.id.editText1);
+        currentFile = (TextView) myFragmentView.findViewById(R.id.currentfile);
+        button_save = (Button) myFragmentView.findViewById(R.id.button1);
+        final Button button_newnote = (Button) myFragmentView.findViewById(R.id.newNote);
+        final Button button_manager = (Button) myFragmentView.findViewById(R.id.noteOpen);
 
-        CheckForFile(myFragmentView);
-        ReadNote(myFragmentView);
+        // Get SharedPreferences - 'myPrefs'
+        myNotePrefs = this.getActivity().getSharedPreferences("myNotePrefs", Context.MODE_WORLD_READABLE);
 
-        final Button button_save = (Button) myFragmentView.findViewById(R.id.button1);
+        String fileName = myNotePrefs.getString("fileName", "");
+        final File dir = new File(Environment.getExternalStorageDirectory() + "/"
+                + Constants.NoteBackupDir);
+
+        // get filename from preferences
+        NoteManager.CheckForFile(fileName);
+        NoteManager.ReadNote(fileName);
 
         button_save.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                SaveNote(myFragmentView);
+                String fileName = myNotePrefs.getString("fileName", "");
+                String text = textmsg.getText().toString();
+                NoteManager.SaveNote(text, fileName);
+
+                //display file saved message
+                String msg = getString(R.string.note_saved);
+                final Button button_save = (Button) getActivity().findViewById(R.id.button1);
+                button_save.setBackgroundResource(android.R.drawable.btn_default);
+                button_save.setEnabled(false);
+                button_save.setText(R.string.saved);
+                Helper.showToast_Short(getActivity(), msg);
+            }
+        });
+
+        button_newnote.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                NoteManager.showDialog(getActivity(), "create");
+            }
+        });
+
+        button_manager.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                NoteManager.showDialog(getActivity(), "open");
             }
         });
 
@@ -52,34 +90,18 @@ public class Tab_Notes extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                final String fileName = myNotePrefs.getString("fileName", "");
+                if (Objects.equals(fileName, "")) {
+                    NoteManager.showDialog(getActivity(), "create");
+                }
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                try {
-                    FileInputStream fileIn=getActivity().openFileInput(Constants.NOTE_FILENAME);
-                    InputStreamReader InputRead= new InputStreamReader(fileIn);
-
-                    char[] inputBuffer= new char[READ_BLOCK_SIZE];
-                    String str="";
-                    int charRead;
-
-                    while ((charRead=InputRead.read(inputBuffer))>0) {
-                        // char to string conversion
-                        str = String.copyValueOf(inputBuffer,0,charRead);
-                    }
-                    InputRead.close();
-
-                    String str_et = textmsg.getText().toString();
-                    if (!Objects.equals(str, str_et)) {
-                        button_save.setEnabled(true);
-                        button_save.setBackgroundColor(getResources().getColor(R.color.my_teal));
-                        button_save.setText(getString(R.string.save_now));
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                String fileName = myNotePrefs.getString("fileName", "");
+                File file = new File(dir, fileName);
+                String str_et = textmsg.getText().toString();
+                NoteManager.checkDiff(getActivity(), file, str_et);
             }
         });
 
@@ -96,69 +118,22 @@ public class Tab_Notes extends Fragment {
         }
     }
 
-    // Check for note file
-    private void CheckForFile(View context) {
-
-        String string = "";
-
-        File file = getActivity().getFileStreamPath(Constants.NOTE_FILENAME);
-
-        if(!file.exists()) {
-            // add-write text into file
-            try {
-                FileOutputStream fos = getActivity().openFileOutput(Constants.NOTE_FILENAME, Context.MODE_PRIVATE);
-                fos.write(string.getBytes());
-                fos.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+    public static void clear() {
+        textmsg.setText("");
     }
 
-    // write text to file
-    private void SaveNote(View v) {
-        // add-write text into file
-        try {
-            FileOutputStream fileout=getActivity().openFileOutput(Constants.NOTE_FILENAME, Context.MODE_PRIVATE);
-            OutputStreamWriter outputWriter=new OutputStreamWriter(fileout);
-            String text = textmsg.getText().toString();
-            outputWriter.write(text);
-            outputWriter.close();
-
-            //display file saved message
-            String msg = getString(R.string.note_saved);
-            final Button button_save = (Button) getActivity().findViewById(R.id.button1);
-            button_save.setBackgroundResource(android.R.drawable.btn_default);
-            button_save.setEnabled(false);
-            button_save.setText(R.string.saved);
-            Helper.showToast_Short(this.getActivity(), msg);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public static void updateTitle(String newfilename) {
+        currentFile.setText(newfilename);
     }
 
-    // Read text from file
-    private void ReadNote(View v) {
-        //reading text from file
-        try {
-            FileInputStream fileIn=getActivity().openFileInput(Constants.NOTE_FILENAME);
-            InputStreamReader InputRead= new InputStreamReader(fileIn);
+    public static void setNote(String noteBody, String fileNameHeader) {
+        textmsg.setText(noteBody);
+        currentFile.setText(fileNameHeader);
+    }
 
-            char[] inputBuffer= new char[READ_BLOCK_SIZE];
-            String s="";
-            int charRead;
-
-            while ((charRead=InputRead.read(inputBuffer))>0) {
-                // char to string conversion
-                String readstring=String.copyValueOf(inputBuffer,0,charRead);
-                s +=readstring;
-            }
-            InputRead.close();
-            textmsg.setText(s);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public static void showSaveNow(Context context) {
+        button_save.setEnabled(true);
+        button_save.setBackgroundColor(context.getResources().getColor(R.color.my_teal));
+        button_save.setText(context.getString(R.string.save_now));
     }
 }

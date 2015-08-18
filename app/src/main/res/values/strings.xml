@@ -28,6 +28,8 @@
     <string name="no_server_line2">Please enter the Server IP in the Button-Box settings page</string>
     <string name="handshake_ok">Connection Successful</string>
     <string name="padding">------------------------------------</string>
+    <string name="create">Create</string>
+    <string name="open">Open</string>
     <!--UI Header Strings-->
     <string name="header_buttonbox">Android - to - PC ButtonBox</string>
     <string name="header_galnet">Galnet News Feed</string>
@@ -52,6 +54,12 @@
     <string name="backing_up"> Backing Up Button\'s .. </string>
     <string name="backup_complete"> Backup Completed </string>
     <!--Dialog Strings-->
+    <string name="note_header">Note Manager</string>
+    <string name="create_new_note">Create New Note ></string>
+    <string name="create_note">Create Note</string>
+    <string name="open_note">Open Saved Note ></string>
+    <string name="delete_instructions">(Press and hold a note to delete it) </string>
+    <string name="row_icon">row_icon</string>
     <string name="help">Help</string>
     <string name="save_name">Save Name</string>
     <string name="f1">Function 1</string>

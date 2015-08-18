@@ -1,6 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="fill_parent" >
 
     <GridLayout
         android:layout_width="match_parent"
@@ -22,24 +22,46 @@
 
         <Button
             style="?android:attr/buttonStyleSmall"
-            android:visibility="invisible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/refresh"
-            android:id="@+id/button_refresh"
+            android:text="@string/create"
+            android:textSize="12sp"
+            android:id="@+id/newNote"
             android:layout_row="1"
             android:layout_column="21"
-            android:layout_marginEnd="5dp"/>
+            android:layout_marginEnd="5sp"/>
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/open"
+            android:textSize="12sp"
+            android:id="@+id/noteOpen"
+            android:layout_row="1"
+            android:layout_column="22"
+            android:layout_marginEnd="5sp"/>
     </GridLayout>
+
+    <TextView
+        android:id="@+id/currentfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/gridView"
+        android:enabled="false"
+        android:layout_margin="5dp"/>
 
     <EditText
         android:id="@+id/editText1"
         android:layout_width="wrap_content"
-        android:layout_height="425dp"
+        android:layout_height="400sp"
         android:gravity="top"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/gridView"
+        android:layout_above="@+id/button1"
+        android:layout_below="@+id/currentfile"
         android:layout_marginTop="22dp"
         android:layout_margin="5dp"
         android:nestedScrollingEnabled="true">
@@ -49,12 +71,16 @@
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxHeight="35sp"
+
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/editText1"
+
         android:text="@string/nothing_to_save"
         android:enabled="false"
         android:onClick="SaveNote"
-        android:layout_margin="5dp"/>
+        android:layout_margin="5dp"
+        android:layout_alignParentBottom="true"
+        />
 
 </RelativeLayout>

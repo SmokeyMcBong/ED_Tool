@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:theme="@style/small_dialog">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@color/my_teal">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#008080"
+            android:padding="5dp"
+            android:text="@string/note_header"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:layout_row="1"
+            android:layout_column="0" />
+
+    </GridLayout>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="25dp"/>
+
+    <TableRow
+        android:id="@+id/savename_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="25dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textAlignment="center"
+            android:text="@string/create_new_note"
+            android:layout_row="1"
+            android:layout_column="0"/>
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/savename_row"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="25dp"
+        android:layout_gravity="center_horizontal">
+
+        <EditText
+            android:layout_width="200dp"
+            android:id="@+id/enterfilename"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_gravity="start"
+            android:saveEnabled="true"
+            android:lines="1"/>
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/create_note"
+            android:layout_gravity="end"
+            android:id="@+id/savefilename"/>
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/opensaved"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="25dp">
+
+        <TextView
+            android:id="@+id/keyheader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textAlignment="center"
+            android:text="@string/open_note"
+            android:layout_row="1"
+            android:layout_column="0" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/padding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="25dp"/>
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:scrollingCache="true"
+        android:layout_gravity="top"/>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="25dp">
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/holdtodelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:minHeight="25dp">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="5dp"
+        android:textSize="12sp"
+        android:textAlignment="center"
+        android:text="@string/delete_instructions"
+        />
+    </TableRow>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/go_back"
+        android:id="@+id/goBack"
+        android:layout_gravity="center" />
+
+</LinearLayout>

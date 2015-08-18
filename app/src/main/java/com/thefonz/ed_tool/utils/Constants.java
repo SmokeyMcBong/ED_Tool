@@ -25,9 +25,12 @@ public class Constants {
     public static final String DownloadDir = "EDTool";
     public static final String FileName = "ED_Tool-v2.apk";
 
-    // Backup Directory ..
+    // Button Backup Directory ..
     public static final String BackupDir = "EDToolBackup";
     public static final String BackupName = "Buttons.bak";
+
+    // Notes Directory ..
+    public static final String NoteBackupDir = "EDToolNotes";
 
     // webView URLs ..
     public final static String REDDITURL = "http://reddit.com/r/EliteDangerous";
@@ -35,9 +38,6 @@ public class Constants {
     public final static String TRADEURL1 = "http://www.eliteraretrader.co.uk";
     public final static String TRADEURL2 = "http://www.elitedangeroustrader.co.uk/trade-routes-calculator/";
     public final static String TRADEURL3 = "http://www.cmdr.club/routes/";
-
-    // Files ..
-    public final static String NOTE_FILENAME = "ED_Tool_Note";
 
     // ED_Tool-server Port ..
     public final static int SERVERPORT = 4444;

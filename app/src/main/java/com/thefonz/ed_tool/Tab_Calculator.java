@@ -218,15 +218,15 @@ public class Tab_Calculator extends Fragment {
         }
         if (nDisplay.length() != maxLimit ) {
             nDisplay.setText(nDisplay.getText() + number);
-            int testingInt = Integer.parseInt(formattedNumbers());
-            nDisplay.setText(df.format(testingInt));
+            int display = Integer.parseInt(formattedNumbers());
+            nDisplay.setText(df.format(display));
         }
     }
 
     // Show which function is currently selected
     private static void showFunction(String function) {
-        String test = fDisplay.getText().toString();
-        if (!test.contains("+-/*")) {
+        String fDisplayCheck = fDisplay.getText().toString();
+        if (!fDisplayCheck.contains("+-/*")) {
             fDisplay.setText(function);
         }
     }

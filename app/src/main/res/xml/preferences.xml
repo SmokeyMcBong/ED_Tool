@@ -108,7 +108,7 @@
     <Preference
         android:title=" ED_Tool"
         android:key="aboutTool"
-        android:summary=" Version 2.0.1.0 \n Written by \'theFONZ\' \n\n Click to open Github link.. \n http://github.com/SmokeyMcBong"
+        android:summary=" Version 2.0.1.1 \n Written by \'theFONZ\' \n\n Click to open Github link.. \n http://github.com/SmokeyMcBong"
         android:icon="@mipmap/ic_launcher"
         android:selectable="true" />
 

@@ -44,7 +44,7 @@ public class Tab_Rares extends Fragment
         TextViewProgress = (TextView ) myFragmentView.findViewById(R.id.textViewProgress);
 
         SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        String downloadType = SP.getString("tradeRouteSite", "1");
+        String downloadType = SP.getString("tradeRouteSite", "2");
         String TRADEURL = null;
 
         assert downloadType != null;
@@ -160,7 +160,7 @@ public class Tab_Rares extends Fragment
         public void onReceivedError (WebView view, int errorCode, String description, String failingUrl) {
             Context context = getActivity();
             String tabName = "Tab_Rares";
-            Helper.webView_ErrorHandler(context, tabName, errorCode, description, failingUrl);
+            Helper.webView_ErrorHandler(tabName, errorCode, description, failingUrl);
         }
     }
 }

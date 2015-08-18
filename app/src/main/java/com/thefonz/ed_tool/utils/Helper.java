@@ -42,11 +42,11 @@ public class Helper extends Application {
     }
 
     // General webView Error handler ..
-    public static void webView_ErrorHandler(Context context, String tabName, int errorCode, String description, String failingUrl) {
+    public static void webView_ErrorHandler(String tabName, int errorCode, String description, String failingUrl) {
         String LOGMETHOD = " webView";
         String LOGBODY = "| " + "error originator:> " + tabName + " | " + "error code:> " + errorCode + " " + " | " +
                 "error description:> " + description + " " + " | " + "failed url:> " + failingUrl;
-        LogError(context, Constants.TAG, LOGMETHOD, LOGBODY);
+        LogError(Constants.TAG, LOGMETHOD, LOGBODY);
     }
 
     // Method for deleting a folder and contents ..
@@ -64,13 +64,13 @@ public class Helper extends Application {
     }
 
     // General Error Logging ..
-    public static void LogSuccess(Context context, String TAG, String LOGMETHOD, String LOGBODY) {
+    public static void LogSuccess(String TAG, String LOGMETHOD, String LOGBODY) {
         Log.i(TAG, LOGMETHOD + " Success ! " + LOGBODY);
     }
-    public static void LogError(Context context, String TAG, String LOGMETHOD, String LOGBODY) {
+    public static void LogError(String TAG, String LOGMETHOD, String LOGBODY) {
         Log.e(TAG, LOGMETHOD + " Error ! " + LOGBODY);
     }
-    public static void LogWarning(Context context, String TAG, String LOGMETHOD, String LOGBODY) {
+    public static void LogWarning(String TAG, String LOGMETHOD, String LOGBODY) {
         Log.e(TAG, LOGMETHOD + " Warning ! " + LOGBODY);
     }
 }
