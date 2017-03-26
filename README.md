@@ -17,8 +17,8 @@
 <br />
 
 <center>
-![](http://i.imgur.com/hBphZm9.png "a") 
-![](http://i.imgur.com/DYyg942.png "b") 
+![](http://i.imgur.com/hBphZm9.png) 
+![](http://i.imgur.com/DYyg942.png) 
 ![](http://i.imgur.com/i9vLDFC.png) 
 ![](http://i.imgur.com/kfH3yTY.png) 
 ![](http://i.imgur.com/lA2zLDZ.png)
