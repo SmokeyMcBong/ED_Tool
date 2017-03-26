@@ -18,7 +18,7 @@
 
 <center>
 ![Screenshot]
-(https://www.dropbox.com/s/7ojr9m7jsol3baa/1.png?dl=0).
+(https://lh6.googleusercontent.com/NV1cPmDya2I_X2oAS6Dg3c7X72xGiIFMEXq1rfWsFOtpJssIuDyOXRx7AIV_iE_Lmlb6xAHPih1Z7tw).
 ![Screenshot]
 (https://www.dropbox.com/s/9cc5cl3ejr5lwe3/2.png?dl=0).
 ![Screenshot]
