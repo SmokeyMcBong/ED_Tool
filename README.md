@@ -16,7 +16,7 @@
 <br />
 <br />
 
-<center>
+
 ![](http://i.imgur.com/hBphZm9.png) 
 ![](http://i.imgur.com/DYyg942.png) 
 ![](http://i.imgur.com/i9vLDFC.png) 
@@ -40,7 +40,7 @@
 
 
 
-</center>
+
 
 <br />
 <br />
